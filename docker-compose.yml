@@ -1,20 +1,18 @@
-# FWAD: Frontend Web Application Development
-
 services:
     fwad-nextjs:
         container_name: nextjs
         platform: "linux/amd64"
         build:
-            context: ./nextjs
-            args:
-                PORT: 3456
+            context: . # Set the build context to the root of your project
+            dockerfile: ${DOCKERFILE_PATH} # Use the environment variable to specify the Dockerfile
         restart: unless-stopped
         ports:
-            - "3456:3456"
+            - "${HOST_PORT_NEXTJS}:3000"
         volumes:
-            - ./nextjs:/app
+            - ./:/app
             - /app/node_modules
-        command: ${COMMAND}
+        networks:
+            - fwad-network
 
 networks:
     fwad-network:

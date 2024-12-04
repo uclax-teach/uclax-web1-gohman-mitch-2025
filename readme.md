@@ -1,8 +1,20 @@
 # Web 1: Frontend Web Application Development
 
-## Setup
-
 ## How to Run
 
--   Local: `docker-compose --env-file .env up`
--   Production: `docker-compose --env-file .env.production up --build`
+### Local Development
+
+-   change `.env` variable `DOCKERFILE_PATH` to "development environment"
+-   `docker compose build --no-cache`
+-   `docker compose up`
+
+### Production Build
+
+-   change `.env` variable `DOCKERFILE_PATH` to "production environment"
+-   `docker compose build --no-cache`
+-   `docker compose up`
+
+### To Stop Either Development or Production
+
+-   `control + c`
+-   `docke compose down`
