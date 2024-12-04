@@ -1,11 +1,12 @@
 # TODO
 
--   set up docker
-    -   make it work with github pages
-    -   Dockerfile's and builds
--   port over CrossFit Decimate web application
--   Convert to CrossFit Tava?
--   Update installation instructions - should we still use install script for Mac?
+-   [x] set up NextJS
+-   [ ] set up Docker
+    -   [x] Dockerfile's and builds for development and production
+    -   [x] make it work with Github and Render
+-   [ ] port over CrossFit Decimate web application
+    -   [ ] Convert to CrossFit Tava?
+-   [ ] Update installation instructions - should we still use install script for Mac?
 
 ## Deployment
 
