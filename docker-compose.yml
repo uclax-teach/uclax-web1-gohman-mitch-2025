@@ -7,10 +7,10 @@ services:
         build:
             context: ./nextjs
             args:
-                PORT: 4123
+                PORT: 3456
         restart: unless-stopped
         ports:
-            - "4123:4123"
+            - "3456:3456"
         volumes:
             - ./nextjs:/app
             - /app/node_modules

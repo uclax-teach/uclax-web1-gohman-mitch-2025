@@ -1,0 +1,7 @@
+{
+    "extends": "next/core-web-vitals",
+    "plugins": ["styled-components"],
+    "rules": {
+        "styled-components/rule-name": "error" // Add any specific rules you need
+    }
+}
