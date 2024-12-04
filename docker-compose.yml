@@ -1,36 +1,21 @@
 # FWAD: Frontend Web Application Development
 
 services:
-  fwad-nextjs:
-    container_name: nextjs
-    platform: "linux/amd64"
-    build:
-      context: ./nextjs
-      args:
-        PORT: 4123
-    restart: unless-stopped
-    ports:
-      - "4123:4123"
-    volumes:
-      - ./nextjs:/app
-      - /app/node_modules
-    command: "npm run deploy"
-
-  fwad-json-server:
-    container_name: fwad-json-server
-    platform: "linux/amd64"
-    build:
-      context: ./json-server
-      args:
-        PORT: 5123
-    restart: unless-stopped
-    ports:
-      - "5123:5123"
-    volumes:
-      - ./json-server:/app
-      - /app/node_modules
-    command: "json-server --watch ./emails-db.json --port 4059"
+    fwad-nextjs:
+        container_name: nextjs
+        platform: "linux/amd64"
+        build:
+            context: ./nextjs
+            args:
+                PORT: 4123
+        restart: unless-stopped
+        ports:
+            - "4123:4123"
+        volumes:
+            - ./nextjs:/app
+            - /app/node_modules
+        command: ${COMMAND}
 
 networks:
-  fwad-network:
-    name: fwad-network
+    fwad-network:
+        name: fwad-network
