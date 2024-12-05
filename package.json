@@ -8,7 +8,7 @@
         "frontend:dev": "vite",
         "frontend:build": "vite build",
         "backend:json-server": "json-server -p 4999 src/backend/json-server/database.cjs",
-        "backend:express": "node src/backend/express.js"
+        "backend:express": "nodemon src/backend/api/index.js"
     },
     "dependencies": {
         "@fontsource/roboto": "^5.1.0",
