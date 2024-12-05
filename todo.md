@@ -1,7 +1,7 @@
 # TODO
 
--   [ ] Ditch Docker - ROI not good enough
--   [ ] Ditch NextJS - adds too much complexity
+-   [x] Ditch Docker - ROI not good enough
+-   [x] Ditch NextJS - adds too much complexity
 -   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`
     -   [ ] MacOS
     -   [ ] Windows
