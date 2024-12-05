@@ -50,7 +50,7 @@ COPY --from=build /app/node_modules /app/node_modules
 COPY --from=build /app/package*.json /app/
 
 # Expose the port for the app (Next.js default port is 3000)
-EXPOSE 3000
+EXPOSE 3456
 
 # Start the Next.js app in production mode
 CMD ["npm", "start"]

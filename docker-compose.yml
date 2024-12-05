@@ -4,10 +4,10 @@ services:
         platform: "linux/amd64"
         build:
             context: . # Set the build context to the root of your project
-            dockerfile: ${DOCKERFILE_PATH} # Use the environment variable to specify the Dockerfile
+            dockerfile: "docker/dev/Dockerfile"
         restart: unless-stopped
         ports:
-            - "${HOST_PORT_NEXTJS}:3000"
+            - "3456:3456"
         volumes:
             - ./:/app
             - /app/node_modules

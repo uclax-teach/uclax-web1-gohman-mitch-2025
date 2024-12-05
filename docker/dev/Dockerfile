@@ -40,7 +40,7 @@ RUN npm install --legacy-peer-deps
 COPY ./ ./
 
 # Expose port 3000 for the Next.js dev server
-EXPOSE 3000
+EXPOSE 3456
 
 # Start the Next.js app in development mode
 CMD ["npm", "run", "dev"]
