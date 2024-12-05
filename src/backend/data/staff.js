@@ -1,4 +1,4 @@
-module.exports = [
+export const staff = [
     {
         id: 1,
         src: "/assets/staff/Alex-Esqueda.jpg",

@@ -4,6 +4,9 @@
 -   [x] Ditch NextJS - adds too much complexity
 -   [x] Add Vite React
 -   [x] Setup json-server, api, and concurrently
+-   [ ] Ditch json Server
+    -   [ ] Convert json-server to js imports in API
+    -   [ ] remove json-server
 -   [ ] Replace Render with Vercel's Free plan?
     -   [ ] https://vercel.com/pricing
 -   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`
@@ -11,7 +14,7 @@
     -   [ ] Windows
     -   [ ] Update system requirements
 -   [ ] Emails via sendgrid (instead of using json-server)
-    -   [ ] sendgird has a free plan
+    -   [ ] sendgrid has a free plan
     -   [ ] See ChatGPT `NextJS: SendGrid`
 -   [ ] Build to Final Web Application
     -   [ ] Convert to CrossFit Tava?

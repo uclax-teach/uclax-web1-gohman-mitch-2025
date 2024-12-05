@@ -4,11 +4,10 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "dev": "concurrently \"npm run frontend:dev\" \"npm run backend:json-server\" \"npm run backend:express\"",
+        "dev": "concurrently \"npm run frontend:dev\" \"npm run backend:express\"",
         "frontend:dev": "vite",
         "frontend:build": "vite build",
-        "backend:json-server": "json-server -p 4999 src/backend/json-server/database.cjs",
-        "backend:express": "nodemon src/backend/api/index.js"
+        "backend:express": "nodemon src/backend/index.js"
     },
     "dependencies": {
         "@fontsource/roboto": "^5.1.0",
@@ -20,7 +19,6 @@
         "dotenv": "^16.4.7",
         "express": "^4.21.1",
         "helmet": "^8.0.0",
-        "json-server": "^0.17.4",
         "nodemon": "^3.1.7",
         "normalize.css": "^8.0.1",
         "prop-types": "^15.8.1",

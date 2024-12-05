@@ -1,4 +1,4 @@
-module.exports = [
+export const tabs = [
     {
         id: 1,
         src: "/assets/tabs/Alex-Esqueda-Box-Jump.jpg",

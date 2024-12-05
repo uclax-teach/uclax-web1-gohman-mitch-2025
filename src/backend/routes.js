@@ -1,6 +1,11 @@
 import express from "express";
 const apiRouter = express.Router();
 
+// data
+import { tabs } from "./data/tabs.js";
+import { staff } from "./data/staff.js";
+import { slideshowSlides } from "./data/slideshowSlides.js";
+
 // Public Routes
 const publicRoutes = express.Router();
 
@@ -9,19 +14,19 @@ publicRoutes.get("/", (req, res) => {
     res.json({ public: "testing 123" });
 });
 
-// Staff
-publicRoutes.get("/staff", (req, res) => {
-    res.json({ staff: "staff data" });
-});
-
 // Tabs
 publicRoutes.get("/tabs", (req, res) => {
-    res.json({ tabs: "tabs data" });
+    res.json(tabs);
+});
+
+// Staff
+publicRoutes.get("/staff", (req, res) => {
+    res.json(staff);
 });
 
 // Slideshow Slides
 publicRoutes.get("/slideshowSlides", (req, res) => {
-    res.json({ slideshowSlides: "slideshowSlides data" });
+    res.json(slideshowSlides);
 });
 
 apiRouter.use("/", publicRoutes);

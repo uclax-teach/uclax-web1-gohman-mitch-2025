@@ -2,6 +2,7 @@
  * Express Server
  */
 // Libraries
+import process from "process";
 import path from "path";
 import express from "express";
 import * as dotenv from "dotenv";
