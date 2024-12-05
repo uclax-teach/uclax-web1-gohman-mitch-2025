@@ -2,6 +2,7 @@
 
 -   [x] Ditch Docker - ROI not good enough
 -   [x] Ditch NextJS - adds too much complexity
+-   [ ] Add Vite React
 -   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`
     -   [ ] MacOS
     -   [ ] Windows

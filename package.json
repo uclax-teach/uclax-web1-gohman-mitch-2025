@@ -1,0 +1,45 @@
+{
+    "name": "uclax-web1-lastname-firstname",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "concurrently \"npm run frontend:dev\" \"npm run backend:json-server\" \"npm run backend:express\"",
+        "frontend:dev": "vite",
+        "frontend:build": "vite build",
+        "backend:json-server": "json-server src/backend/json-server/database.json --watch",
+        "backend:express": "node src/backend/express.js"
+    },
+    "dependencies": {
+        "@fontsource/roboto": "^5.1.0",
+        "@fortawesome/fontawesome-svg-core": "^6.7.1",
+        "@fortawesome/free-solid-svg-icons": "^6.7.1",
+        "@fortawesome/react-fontawesome": "^0.2.2",
+        "axios": "^1.7.9",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.1",
+        "helmet": "^8.0.0",
+        "json-server": "^1.0.0-beta.3",
+        "nodemon": "^3.1.7",
+        "normalize.css": "^8.0.1",
+        "prop-types": "^15.8.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "styled-components": "^6.1.13",
+        "uuid": "^11.0.3"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.15.0",
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "@vitejs/plugin-react": "^4.3.4",
+        "concurrently": "^9.1.0",
+        "eslint": "^9.15.0",
+        "eslint-plugin-react": "^7.37.2",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "eslint-plugin-react-refresh": "^0.4.14",
+        "globals": "^15.12.0",
+        "vite": "^6.0.1"
+    }
+}
