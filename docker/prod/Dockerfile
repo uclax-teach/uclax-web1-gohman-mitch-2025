@@ -11,10 +11,9 @@ RUN apk update && \
     curl \
     libpng-dev \
     vips-dev \
-    git \
     && rm -rf /var/cache/apk/*
 
-# Set the working directory in the container
+# Set the working di`rectory in the container
 WORKDIR /app
 
 # Copy package.json and package-lock.json (or yarn.lock) first to leverage Docker cache

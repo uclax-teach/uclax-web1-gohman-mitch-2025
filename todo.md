@@ -1,38 +1,24 @@
 # TODO
 
 -   [x] set up NextJS
--   [ ] set up Docker
+-   [x] set up Docker
     -   [x] Dockerfile's and builds for development and production
     -   [x] make it work with Github and Render
--   [ ] port over CrossFit Decimate web application
+-   [ ] Build to Final Web Application
     -   [ ] Convert to CrossFit Tava?
--   [ ] Update installation instructions - should we still use install script for Mac?
-
-## Deployment
-
-Render
-
-https://render.com/
-
--   Why It Works:
-    -   Native support for Git-based deployments.
-    -   Can host both your Next.js app and a database.
--   Features:
-    -   Supports Node.js apps and static sites.
-    -   Free PostgreSQL database with 1 GB storage.
-    -   Auto-deploy on Git push.
--   Free Tier:
-    -   750 hours/month per service (ideal for small apps).
-    -   Persistent disk for databases.
--   Setup:
-    -   Connect your GitHub/GitLab repo.
-    -   Configure the start and build scripts in package.json.
-    -   Add database setup if needed (e.g., Prisma or Sequelize).
+    -   [ ] Add a lesson for Favicon `icon.png`?
+-   [ ] Update installation instructions
+    -   [ ] should we still use install script for Mac?
+    -   [ ] How does it work on Windows 11?
+        -   [ ] Docker Desktop should walk them through WSL installation?
+        -   [ ] see if its better to work inside container (added zsh and oph my zsh to teh Dockerfile)
+        -   [ ] Install Git Bash, Zsh, and Oh My Zsh - after installing WSL
+    -   [ ] Update system requirements
 
 ## Before Screen Recording Build
 
 -   remove `react-responsive-carousel` package
--   turn on console.log warnings in Chrome
+-   turn on `console.log warnings` in Chrome
 
 ## Class Prep
 

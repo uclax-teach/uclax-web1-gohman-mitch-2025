@@ -1,15 +1,16 @@
-"use client";
+const pageTitle = "About";
 
-import styled from "styled-components";
+// head metadata: https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#modifying-head
+export const metadata = {
+    title: `${pageTitle} :: Firtsname Lastname :: UCLAX Web 1`,
+};
 
-const Home = () => {
+const About = () => {
     return (
-        <HomeStyled>
-            <h1>About</h1>
-        </HomeStyled>
+        <div>
+            <h1>{pageTitle}</h1>
+        </div>
     );
 };
 
-export default Home;
-
-const HomeStyled = styled.div``;
+export default About;
