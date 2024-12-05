@@ -1,9 +1,12 @@
 # TODO
 
--   [x] set up NextJS
--   [x] set up Docker
-    -   [x] Dockerfile's and builds for development and production
-    -   [x] make it work with Github and Render
+-   [ ] Ditch Docker - ROI not good enough
+-   [ ] Ditch NextJS - adds too much complexity
+-   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`
+    -   [ ] MacOS
+    -   [ ] Windows
+-   [ ] Replace Render with Vercel's Free plan?
+    -   [ ] https://vercel.com/pricing
 -   [ ] Ditch json-server for sending emails via sendgrid
     -   [ ] sendgird has a free plan
     -   [ ] See ChatGPT `NextJS: SendGrid`
@@ -14,7 +17,7 @@
     -   [ ] should we still use install script for Mac?
     -   [ ] How does it work on Windows 11?
         -   [ ] Docker Desktop should walk them through WSL installation?
-        -   [ ] see if its better to work inside container (added zsh and oph my zsh to teh Dockerfile)
+        -   [ ] see if its better to work inside container (added zsh and oph my zsh to the Dockerfile)
         -   [ ] Install Git Bash, Zsh, and Oh My Zsh - after installing WSL
     -   [ ] Update system requirements
 
