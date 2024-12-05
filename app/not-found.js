@@ -1,6 +1,9 @@
+import { config } from "@/config";
+const pageTitle = "Not Found";
+
 // head metadata: https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#modifying-head
 export const metadata = {
-    title: "Not Found",
+    title: config.getPageTitle(pageTitle),
 };
 
 const NotFound = () => {

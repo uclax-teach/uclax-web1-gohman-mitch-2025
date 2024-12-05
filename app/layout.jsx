@@ -1,12 +1,15 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
 
+// config
+import { config } from "@/config";
+
 // components
 import Providers from "./layout/Providers";
 
 // head metadata: https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#modifying-head
 export const metadata = {
-    title: "Firtsname Lastname :: UCLAX Web 1",
+    title: config.getPageTitle(),
 };
 
 const RootLayout = ({ children }) => {
