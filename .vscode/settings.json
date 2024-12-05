@@ -76,5 +76,6 @@
     },
     "window.commandCenter": false,
     "window.zoomLevel": 2,
-    "workbench.editor.empty.hint": "hidden"
+    "workbench.editor.empty.hint": "hidden",
+    "git.defaultBranchName": "master"
 }

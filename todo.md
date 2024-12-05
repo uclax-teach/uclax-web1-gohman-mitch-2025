@@ -4,6 +4,9 @@
 -   [x] set up Docker
     -   [x] Dockerfile's and builds for development and production
     -   [x] make it work with Github and Render
+-   [ ] Ditch json-server for sending emails via sendgrid
+    -   [ ] sendgird has a free plan
+    -   [ ] See ChatGPT `NextJS: SendGrid`
 -   [ ] Build to Final Web Application
     -   [ ] Convert to CrossFit Tava?
     -   [ ] Add a lesson for Favicon `icon.png`?

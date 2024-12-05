@@ -10,7 +10,7 @@ export const metadata = {
 const Home = () => {
     return (
         <div>
-            <h1>{pageTitle} v3</h1>
+            <h1>{pageTitle}</h1>
         </div>
     );
 };
