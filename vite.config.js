@@ -6,7 +6,7 @@ export default defineConfig({
     plugins: [react()],
     root: "src/frontend", // Set the root folder to 'src'
     server: {
-        port: 3456,
+        port: 3999,
     },
     resolve: {
         alias: {

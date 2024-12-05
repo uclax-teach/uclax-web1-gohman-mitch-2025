@@ -7,7 +7,7 @@
         "dev": "concurrently \"npm run frontend:dev\" \"npm run backend:json-server\" \"npm run backend:express\"",
         "frontend:dev": "vite",
         "frontend:build": "vite build",
-        "backend:json-server": "json-server src/backend/json-server/database.json --watch",
+        "backend:json-server": "json-server -p 4999 src/backend/json-server/database.cjs",
         "backend:express": "node src/backend/express.js"
     },
     "dependencies": {
@@ -20,7 +20,7 @@
         "dotenv": "^16.4.7",
         "express": "^4.21.1",
         "helmet": "^8.0.0",
-        "json-server": "^1.0.0-beta.3",
+        "json-server": "^0.17.4",
         "nodemon": "^3.1.7",
         "normalize.css": "^8.0.1",
         "prop-types": "^15.8.1",
