@@ -6,7 +6,9 @@ const Main = () => {
 
     useEffect(() => {
         const fetchStaff = async () => {
-            const resp = await axios.get("http://localhost:5999/api/staff");
+            const resp = await axios.get(
+                `${import.meta.env.VITE_API_URL}/staff`
+            );
             setStaff(resp.data);
         };
 

@@ -3,12 +3,12 @@
  */
 // Libraries
 import fs from "fs";
+import path from "path";
 import process from "process";
 // Simulate __dirname in ESM
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-import path from "path";
 import express from "express";
 import * as dotenv from "dotenv";
 import helmet from "helmet";
@@ -36,8 +36,9 @@ const serve = async () => {
     | Add Environment Variables to secrets object
     ---------------------------*/
     const secrets = getSecretsAndCheckEnvVars([
-        "REACT_URL",
-        "API_URL",
+        "PORT",
+        "VITE_REACT_URL",
+        "VITE_API_URL",
         "CORS_DOMAINS",
         "SENDGRID_API_KEY",
         "SENDGRID_FROM_EMAIL",
@@ -98,7 +99,7 @@ const serve = async () => {
     /*---------------------------
     | Start Server
     ---------------------------*/
-    const PORT = 5999;
+    const PORT = secrets["PORT"] ? secrets["PORT"] : 5999;
 
     app.listen(PORT, () => {
         console.log(`
