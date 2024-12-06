@@ -3,6 +3,10 @@
  */
 // Libraries
 import process from "process";
+// Simulate __dirname in ESM
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 import path from "path";
 import express from "express";
 import * as dotenv from "dotenv";
@@ -46,13 +50,13 @@ const serve = async () => {
     app.use(helmet());
 
     /*---------------------------
-    | Middleware ::
+    | Middleware
     ---------------------------*/
-    /*
-        Sometimes missing and depends on how headers are sent.
-        Like from HOST of docker container
-        https://stackoverflow.com/a/61394342
-    ---------------------------*/
+    /**
+     * Sometimes missing and depends on how headers are sent.
+     * Like from HOST of docker container
+     * https://stackoverflow.com/a/61394342
+     */
     app.use(function (req, res, next) {
         req.headers.origin = req.headers.origin || req.headers.host;
         next();
@@ -67,7 +71,22 @@ const serve = async () => {
     /*---------------------------
     | API Routes
     ---------------------------*/
-    app.use("/", apiRouter);
+    app.use("/api", apiRouter);
+
+    /*---------------------------
+    | Vite React App
+    ---------------------------*/
+
+    // Define the path to the build folder
+    const frontendBuildPath = path.resolve(__dirname, "../frontend/build");
+
+    // Serve static files from the build directory
+    app.use(express.static(frontendBuildPath));
+
+    // Handle React app for any unmatched routes (SPA behavior)
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(frontendBuildPath, "index.html"));
+    });
 
     /*---------------------------
     | Start Server

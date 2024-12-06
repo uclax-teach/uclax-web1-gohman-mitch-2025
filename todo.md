@@ -7,6 +7,7 @@
 -   [x] Ditch json Server
     -   [x] Convert json-server to js imports in API
     -   [x] remove json-server
+-   [ ] See if Render is any faster with jkust express server and rendered Vite React
 -   [ ] Replace Render with Fly.io Free plan?
     -   [ ] https://vercel.com/pricing
 -   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`

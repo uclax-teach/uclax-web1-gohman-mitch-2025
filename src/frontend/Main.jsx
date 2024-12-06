@@ -6,7 +6,7 @@ const Main = () => {
 
     useEffect(() => {
         const fetchStaff = async () => {
-            const resp = await axios.get("http://localhost:5999/staff");
+            const resp = await axios.get("http://localhost:5999/api/staff");
             setStaff(resp.data);
         };
 
