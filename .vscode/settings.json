@@ -34,7 +34,6 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "explorer.compactFolders": false,
-    "terminal.integrated.defaultProfile.osx": "zsh",
     "debug.onTaskErrors": "debugAnyway",
     "diffEditor.ignoreTrimWhitespace": false,
     "phpmd.enabled": false,
@@ -66,7 +65,6 @@
     },
     "todo-tree.filtering.excludeGlobs": ["**/node_modules"],
     "todo-tree.general.schemes": ["file", "ssh", "vscode-notebook-cell"],
-    "terminal.integrated.env.osx": {},
     "console-ninja.showWhatsNew": false,
     "console-ninja.toolsToEnableSupportAutomaticallyFor": {
         "live-server": true
@@ -77,5 +75,18 @@
     "window.commandCenter": false,
     "window.zoomLevel": 2,
     "workbench.editor.empty.hint": "hidden",
-    "git.defaultBranchName": "master"
+    "git.defaultBranchName": "master",
+    "terminal.integrated.env.osx": {},
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "zsh": {
+            "path": "/usr/bin/zsh"
+        }
+    },
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "/bin/zsh"
+        }
+    }
 }

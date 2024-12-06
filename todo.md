@@ -4,7 +4,7 @@
 -   [x] Ditch NextJS - adds too much complexity
 -   [x] Add Vite React
 -   [x] Setup json-server, api, and concurrently
--   [x] Ditch json Server
+-   [x] Ditch json-server
     -   [x] Convert json-server to js imports in API
     -   [x] remove json-server
 -   [x] Try Render Again
@@ -15,6 +15,7 @@
 -   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`
     -   [ ] MacOS
     -   [ ] Windows
+        -   [ ] add "VS Code Remote Development" plugin to app extensions
     -   [ ] Update system requirements
 -   [ ] Build to Final Web Application
     -   [ ] Emails via sendgrid (instead of using json-server)
