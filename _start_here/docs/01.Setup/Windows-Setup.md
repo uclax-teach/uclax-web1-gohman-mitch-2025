@@ -18,7 +18,15 @@
 TODO: UPDATE THE FOLLOWING TO MATCH ACTUAL PATH ON REMOTE REPO
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/windows11/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025/blob/master/_start_here/scripts/windows11/1.install-windows-wsl.ps1" -UseBasicParsing | Invoke-Expression
+```
+
+3. Restart your computer
+4. Windows Search > Windows Powershell - **!Important!** be sure to choose **"Run as Administrator"** on the right
+5. type the following command and press enter
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025/blob/master/_start_here/scripts/windows11/2.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
 ```
 
 ---
