@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Ensure script runs with sudo
-if [ "$EUID" -ne 0 ]; then
-    echo "Please run as root"
-    exit
-fi
-
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 osTitle="WSL: Linux"
