@@ -7,7 +7,7 @@
 -   [x] Ditch json Server
     -   [x] Convert json-server to js imports in API
     -   [x] remove json-server
--   [ ] Try Render Again
+-   [x] Try Render Again
     -   [x] Seems fast with nothing in it
     -   [x] test with React Router dom, navigation
     -   [x] Images form API
@@ -16,11 +16,10 @@
     -   [ ] MacOS
     -   [ ] Windows
     -   [ ] Update system requirements
--   [ ] Emails via sendgrid (instead of using json-server)
-    -   [ ] sendgrid has a free plan
-    -   [ ] See ChatGPT `NextJS: SendGrid`
 -   [ ] Build to Final Web Application
-    -   [ ] Convert to CrossFit Tava?
+    -   [ ] Emails via sendgrid (instead of using json-server)
+        -   [ ] sendgrid has a free plan
+        -   [ ] See ChatGPT `NextJS: SendGrid`
     -   [ ] Add a lesson for Favicon `icon.png`?
 
 ## Before Screen Recording Build
