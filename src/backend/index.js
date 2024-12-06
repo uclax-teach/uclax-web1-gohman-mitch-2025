@@ -2,6 +2,7 @@
  * Express Server
  */
 // Libraries
+import fs from "fs";
 import process from "process";
 // Simulate __dirname in ESM
 import { fileURLToPath } from "url";
@@ -36,7 +37,6 @@ const serve = async () => {
     ---------------------------*/
     const secrets = getSecretsAndCheckEnvVars([
         "REACT_URL",
-        "JSON_SERVER_URL",
         "API_URL",
         "CORS_DOMAINS",
         "SENDGRID_API_KEY",
@@ -79,6 +79,13 @@ const serve = async () => {
 
     // Define the path to the build folder
     const frontendBuildPath = path.resolve(__dirname, "../frontend/build");
+
+    if (!fs.existsSync(frontendBuildPath)) {
+        console.error(
+            `Build folder not found at ${frontendBuildPath}. Please run "vite build" to generate it.`
+        );
+        process.exit(1); // Stop the server
+    }
 
     // Serve static files from the build directory
     app.use(express.static(frontendBuildPath));

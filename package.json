@@ -8,7 +8,7 @@
         "frontend:dev": "vite",
         "backend:dev": "nodemon src/backend/index.js",
         "build": "vite build",
-        "start": "nodemon src/backend/index.js"
+        "start": "node src/backend/index.js"
     },
     "dependencies": {
         "@fontsource/roboto": "^5.1.0",
