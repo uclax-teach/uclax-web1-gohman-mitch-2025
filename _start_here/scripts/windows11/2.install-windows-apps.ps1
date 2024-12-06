@@ -1,3 +1,7 @@
+# Script 2: Install Google Chrome, VS Code, Windows Terminal
+# Pin VS Code, Chrome, Windows Terminal, and Ubuntu to the Taskbar
+# Launch VS Code and install Remote Development Plugins
+
 # Ensure running as Administrator
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Error "Please run this script as Administrator."
@@ -8,28 +12,6 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 function Log {
     param ([string]$Message)
     Write-Host "[INFO] $Message" -ForegroundColor Green
-}
-
-# Install WSL
-Log "Installing WSL..."
-wsl --install
-
-# Wait for WSL to finish setup
-Start-Sleep -Seconds 15
-
-# Install Ubuntu (default for WSL installation)
-Log "Setting up Ubuntu as default WSL distribution..."
-wsl --set-default-version 2
-wsl --install -d Ubuntu
-
-# Install Chocolatey if not installed
-if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
-    Log "Installing Chocolatey..."
-    Set-ExecutionPolicy Bypass -Scope Process -Force
-    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-} else {
-    Log "Chocolatey is already installed."
 }
 
 # Install Google Chrome
@@ -83,6 +65,21 @@ Pin-ToTaskbar "Visual Studio Code"
 Pin-ToTaskbar "Google Chrome"
 Pin-ToTaskbar "Windows Terminal"
 Pin-ToTaskbar "Ubuntu"
+
+# Install Remote Development Plugins for VS Code
+Log "Installing Remote Development Plugins for Visual Studio Code..."
+$extensions = @(
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.remote-ssh",
+    "ms-vscode-remote.remote-ssh-edit",
+    "ms-vscode-remote.remote-wsl",
+    "ms-vscode-remote.vscode-remote-extensionpack"
+)
+
+foreach ($extension in $extensions) {
+    code --install-extension $extension
+    Log "Installed extension: $extension"
+}
 
 # Launch Visual Studio Code
 Log "Launching Visual Studio Code..."

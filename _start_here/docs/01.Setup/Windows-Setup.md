@@ -4,7 +4,9 @@
 
 ## Pre Installation Notes
 
--   Make sure your Operating System is up to date (Windows Search > Check for Updates)
+-   Make sure your Operating System is up to date
+    -   Windows Search > `Check for Updates`
+    -   Rinse and repeat until there are no more updates
 -   This tutorial covers Windwows 11 which is required for this course. If you are using Windows 10, in theory, as long as you have the latest version of 10 - you should be able to complete this setup. However, this has not been tested and you will have to resolve any differences that are not supported by your Operating System.
 -   Unlike macOS and Linux (at least out of the box), Windows does not support bash/terminal. In order to get Windows to act more like macOS and Linux, we need to enable Windows Subsystem for Linux (WSL).
 
@@ -16,7 +18,7 @@
 TODO: UPDATE THE FOLLOWING TO MATCH ACTUAL PATH ON REMOTE REPO
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/username/repo/branch/_start_here/scripts/windows11/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/windows11/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
 ```
 
 ---
