@@ -1,6 +1,6 @@
 #!/bin/bash
 
-osTitle="MacOS:"
+osTitle="macOS"
 
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -78,11 +78,10 @@ fi
 export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
-echo "NVM: Install Node Version 18"
-nvm install 18.12.1
-
-echo "NVM: Make Node Version 18 the default"
-nvm alias default 18.12.1
+echo "NVM: Install Node Version 20.18.1 and Set as default"
+nvm install 20.18.1
+nvm use 20.18.1
+nvm alias default 20.18.1
 
 # Google Chrome
 echo "$scriptTitle Install Google Chrome"

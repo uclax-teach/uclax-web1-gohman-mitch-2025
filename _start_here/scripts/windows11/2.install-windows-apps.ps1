@@ -38,34 +38,6 @@ if (-not (Get-Command wt -ErrorAction SilentlyContinue)) {
     Log "Windows Terminal is already installed."
 }
 
-# Function to pin items to the Taskbar
-function Pin-ToTaskbar {
-    param (
-        [string]$AppName
-    )
-    $shell = New-Object -ComObject Shell.Application
-    $folder = $shell.Namespace("$env:ProgramData\Microsoft\Windows\Start Menu\Programs")
-
-    foreach ($item in $folder.Items()) {
-        if ($item.Name -like "$AppName*") {
-            $verb = $item.Verbs() | Where-Object { $_.Name -eq "Pin to Taskbar" }
-            if ($verb) {
-                $verb.DoIt()
-                Log "Pinned $AppName to the Taskbar."
-                return
-            }
-        }
-    }
-    Log "Failed to pin $AppName to the Taskbar. Item not found or already pinned."
-}
-
-# Pin VS Code, Google Chrome, Windows Terminal, and Ubuntu
-Log "Pinning applications to the Taskbar..."
-Pin-ToTaskbar "Visual Studio Code"
-Pin-ToTaskbar "Google Chrome"
-Pin-ToTaskbar "Windows Terminal"
-Pin-ToTaskbar "Ubuntu"
-
 # Install Remote Development Plugins for VS Code
 Log "Installing Remote Development Plugins for Visual Studio Code..."
 $extensions = @(

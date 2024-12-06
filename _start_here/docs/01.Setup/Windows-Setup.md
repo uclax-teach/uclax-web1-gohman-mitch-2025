@@ -2,15 +2,18 @@
 
 [Back to Main](../SETUP.md)
 
-## Pre Installation Notes
+## Pre Installation
 
+-   This tutorial covers Windwows 11 which is required for this course. If you are using Windows 10, in theory, as long as you have the latest version of 10 - you should be able to complete this setup. However, this has not been tested and you will have to resolve any differences that are not supported by your Operating System.
 -   Make sure your Operating System is up to date
     -   Windows Search > `Check for Updates`
     -   Rinse and repeat until there are no more updates
--   This tutorial covers Windwows 11 which is required for this course. If you are using Windows 10, in theory, as long as you have the latest version of 10 - you should be able to complete this setup. However, this has not been tested and you will have to resolve any differences that are not supported by your Operating System.
 -   Unlike macOS and Linux (at least out of the box), Windows does not support bash/terminal. In order to get Windows to act more like macOS and Linux, we need to enable Windows Subsystem for Linux (WSL).
+-
 
-## Install Windows Applications
+## Install Windows WSL and Related Apps
+
+_Note: When you run these installations scripts at some point your computer will restart. Please make sure to save any work and close out of any unlreated applications._
 
 1. Windows Search > Windows Powershell - **!Important!** be sure to choose **"Run as Administrator"** on the right
 2. type the following command and press enter
@@ -18,7 +21,7 @@
 TODO: UPDATE THE FOLLOWING TO MATCH ACTUAL PATH ON REMOTE REPO
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025/blob/master/_start_here/scripts/windows11/1.install-windows-wsl.ps1" -UseBasicParsing | Invoke-Expression
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/windows11/1.install-windows-wsl.ps1" -UseBasicParsing | Invoke-Expression
 ```
 
 3. Restart your computer
@@ -26,7 +29,19 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https:
 5. type the following command and press enter
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025/blob/master/_start_here/scripts/windows11/2.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/windows11/2.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+```
+
+## Windows Step 2: Clone Repo and Install Dependencies
+
+1. Open VS Code (should be on desktop, or Windows Search > `Visual Studio Code`)
+2. Click the blue double arrows in bottom left
+3. Start typing WSL, and choose the option to `WSL` or `Connect to WSL`
+4. View > Terminal
+5. Run the following command
+
+```bash
+# TODO: run remote bash script to download and rename course folder, then install dependencies e.g. node, nvm, npm, zsh, etc
 ```
 
 ---
@@ -74,7 +89,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https:
 
 1. Open VS Code
 2. Click the blue double arrows in bottom left
-3. Start typing WSL, and choose the option to `WSL Connect`
+3. Start typing WSL, and choose the option to `WSL` or `Connect to WSL`
 4. Once VS Code is connected to your Ubuntu instance, we can right-click on any file on the left, and choose `Reveal in Explorer`
 5. Move or Copy your **UCLAX-WEB1-lastname-First** to this directory
 6. Back in VS Code, choose File > Open Folder > and Select your **UCLAX-WEB1-lastname-First** folder
