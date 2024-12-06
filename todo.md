@@ -7,9 +7,11 @@
 -   [x] Ditch json Server
     -   [x] Convert json-server to js imports in API
     -   [x] remove json-server
--   [ ] See if Render is any faster with jkust express server and rendered Vite React
--   [ ] Replace Render with Fly.io Free plan?
-    -   [ ] https://vercel.com/pricing
+-   [ ] Try Render Again
+    -   [x] Seems fast with nothing in it
+    -   [x] test with React Router dom, navigation
+    -   [x] Images form API
+    -   [x] styled theme with normalize.css module
 -   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`
     -   [ ] MacOS
     -   [ ] Windows
