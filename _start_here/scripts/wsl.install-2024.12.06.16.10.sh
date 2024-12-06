@@ -1,23 +1,13 @@
 #!/bin/bash
 
-__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 osTitle="WSL: Linux"
 
 # Shared Pre Install
-source "${__dir}/shared.install.pre.sh"
+source "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/shared.install.pre.sh"
 
 # Update and Upgrade packages
 echo "$osTitle Update and Upgrade packages"
 apt update -y && apt upgrade -y
-
-# Install Git if not installed
-if ! command -v git &> /dev/null; then
-    echo "$osTitle Install Git"
-    apt install git -y
-else
-    echo "Git is already installed."
-fi
 
 # Install Zsh if not installed
 if ! command -v zsh &> /dev/null; then
