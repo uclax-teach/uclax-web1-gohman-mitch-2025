@@ -10,6 +10,7 @@
     -   Rinse and repeat until there are no more updates
 -   Unlike macOS and Linux (at least out of the box), Windows does not support bash/terminal. In order to get Windows to act more like macOS and Linux, we need to enable Windows Subsystem for Linux (WSL).
 -   Most of the time, you will want to open up apps as Administrator (e.g. **"Run as Administrator"**). This is called out throughout this setup tutorial
+-   I am using Parallels WIndows 11 on MacOS. Its close to a 1:1 Windows, but not 100%. So there may be differences for us to troubleshoot.
 
 ## Install Windows WSL, Ubuntu and VS Code
 
