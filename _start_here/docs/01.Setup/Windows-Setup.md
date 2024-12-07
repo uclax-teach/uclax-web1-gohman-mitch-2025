@@ -19,26 +19,25 @@ _Note: When you run these installations scripts at some point your computer will
 2. type the following command and press enter
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v11/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v12/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
-3. Close out of the Powershell window
+3. Restart your computer
 4. Windows Search > **Turn Windows Features on or off**, and make sure the following is enabled
     1. Hyper-V
     2. Virtual Machine Platform
     3. Window Subsystem for Linux
-5. Restart your computer
-6. Windows Search > **Ubuntu** - **!Important!** be sure to choose **"Run as Administrator"** on the right
-7. _Note: It may hang at "Installing, this may take a few minutes...". If it takes longer than a a few mintes press "enter" and "control + c"_
-8. You will be asked for a username and password
+5. Windows Search > **Ubuntu** - **!Important!** be sure to choose **"Run as Administrator"** on the right
+6. _Note: It may hang at "Installing, this may take a few minutes...". If it takes longer than a a few mintes press "enter" and "control + c"_
+7. You will be asked for a username and password
     1. Note: when you enter password, it will not show you typing. You have to trust its entering the characters you type
     2. Note: these are up to you, but make sure its something you remember)
     3. press enter after each entry
-9. Close out of the Ubuntu window
+8. Close out of the Ubuntu window
 
 ## VS Code and WSL: Setup Course Folder
 
-1. Open Visual Studio Code (should be on desktop or taskbar, otherwise Windows Search > **Visual Studio Code**)
+1. Windows Search > **Visual Studio Code** _Note: You may want to pin this app to your taskbar_
 2. Click the blue double arrows in bottom left
 3. Start typing WSL, and choose the option to `WSL` or `Connect to WSL`
 4. File > Open Folder
@@ -48,7 +47,7 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v11/2.wsl-bash-install-start.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v12/2.wsl-bash-install-start.sh)"
     ```
 
 7. If asked, enter your Ubuntu WSL password your set up earlier
@@ -58,7 +57,7 @@ _Note: When you run these installations scripts at some point your computer will
 11. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v11/3.wsl-bash-install-finish.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v12/3.wsl-bash-install-finish.sh)"
     ```
 
 12. File > Open Folder

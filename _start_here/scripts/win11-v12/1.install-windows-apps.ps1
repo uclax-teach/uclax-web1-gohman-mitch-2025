@@ -31,6 +31,26 @@ if (-not (Get-Command chrome -ErrorAction SilentlyContinue)) {
 Log "Setup complete!"
 
 #-------------------------------------------------
+# Ensure Required Windows Features are Enabled
+#-------------------------------------------------
+function Enable-Feature {
+    param ([string]$FeatureName)
+
+    $feature = Get-WindowsOptionalFeature -FeatureName $FeatureName -Online
+    if ($feature.State -ne "Enabled") {
+        Log "Enabling Windows feature: $FeatureName"
+        Enable-WindowsOptionalFeature -FeatureName $FeatureName -Online -NoRestart
+    } else {
+        Log "Windows feature already enabled: $FeatureName"
+    }
+}
+
+Log "Checking and enabling required Windows features..."
+Enable-Feature -FeatureName "Microsoft-Hyper-V-All"
+Enable-Feature -FeatureName "VirtualMachinePlatform"
+Enable-Feature -FeatureName "WindowsSubsystemForLinux"
+
+#-------------------------------------------------
 # Install WSL
 #-------------------------------------------------
 Log "Installing WSL..."
@@ -55,31 +75,20 @@ if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
 
     # Wait for the installation to complete
     Start-Sleep -Seconds 10
-
-    # Add Shortcut to Desktop
-    #-------------------------------------------------
-    Log "Adding a shortcut to the desktop..."
-    $shortcutPath = [System.IO.Path]::Combine([Environment]::GetFolderPath("Desktop"), "Visual Studio Code.lnk")
-    $vscodeExe = "$env:ProgramFiles\Microsoft VS Code\Code.exe"  # Adjust path if needed
-
-    $shell = New-Object -ComObject WScript.Shell
-    $shortcut = $shell.CreateShortcut($shortcutPath)
-    $shortcut.TargetPath = $vscodeExe
-    $shortcut.Save()
-
-    Log "Shortcut to Visual Studio Code added on the desktop."
-
-    # Pin to Taskbar
-    #-------------------------------------------------
-    Log "Pinning Visual Studio Code to the taskbar..."
-    $appUserModelId = "Microsoft.VisualStudioCode"  # App ID for VS Code
-    $pinCommand = "powershell -command `& {Start-Process -FilePath 'explorer.exe' -ArgumentList @('-n', 'shell:AppsFolder\{0}', '{0}') -NoNewWindow}" -f $appUserModelId
-    Invoke-Expression $pinCommand
-
-    Log "Pinned Visual Studio Code to the taskbar."
 } else {
     Log "Visual Studio Code is already installed."
 }
 
 
-Log "Restart triggered. The system will reboot shortly."
+#-------------------------------------------------
+# Prompt for Restart
+#-------------------------------------------------
+Log "Installation complete. Some changes may require a restart to take effect."
+$restartPrompt = Read-Host "Would you like to restart your computer now? (Y/N)"
+
+if ($restartPrompt -match "^[Yy]$") {
+    Log "Restarting the system..."
+    Restart-Computer -Force
+} else {
+    Log "You chose not to restart. Please restart your computer before moving on to next step to apply all changes."
+}
