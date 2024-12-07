@@ -15,7 +15,7 @@ fi
 ###################
 osTitle="WSL: Linux"
 courseName="UCLAX-Web1"
-scriptTitle="${courseName} Setup: ${osTitle}:"
+scriptTitle="${courseName} Setup: ${osTitle}: Start:"
 
 
 ###################
@@ -142,19 +142,6 @@ nvm use v20.18.1
 nvm alias default v20.18.1
 
 ###################
-# CD Into Course Folder
-###################
-cd "$courseFolderName" || abort "Failed to enter $courseFolderName directory."
-
-# Install dependencies (if package.json exists)
-if [ -f package.json ]; then
-    echo "$osTitle Running npm install"
-    npm install
-else
-    echo "No package.json found. Skipping npm install."
-fi
-
-###################
 # Install Oh My Zsh and Plugins
 ###################
 echo "$osTitle Install Oh My Zsh"
@@ -163,7 +150,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Install Syntax Highlighting if not already installed
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-
 
 ###################
 # Done

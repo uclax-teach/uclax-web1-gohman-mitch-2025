@@ -56,14 +56,20 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v5/3.wsl-bash-install.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v5/3.wsl-bash-install-start.sh)"
     ```
 
-7. Enter your Ubuntu WSL password your set up earlier
+7. If asked, enter your Ubuntu WSL password your set up earlier
 8. It will perform a buncha updates, this may take a little bit of time depending on your Internet connection and System
 9. When prompted, provide your First, Last and Email (this will be used to set up your folder)
 10. Answer any prompts that show up
-11.
+11. Run the following command
+
+    ```bash
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v5/4.wsl-bash-install-finish.sh)"
+    ```
+
+12. zsfdzsd
 
 ---
 
