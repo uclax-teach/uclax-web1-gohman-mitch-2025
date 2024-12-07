@@ -10,11 +10,6 @@ if [ -z "${BASH_VERSION:-}" ]; then
     abort "Bash is required to interpret this script."
 fi
 
-# Check if Git is installed
-if ! command -v git &> /dev/null; then
-    abort "Git is not installed. Please install Git before proceeding."
-fi
-
 ###################
 # Props
 ###################
@@ -44,13 +39,22 @@ function toTitleCase {
 ###################
 echo "$scriptTitle Start"
 
-
 ###################
 # Update and Upgrade packages
 ###################
 echo "$osTitle Update and Upgrade packages"
-apt update -y && apt upgrade -y
+sudo apt update -y && apt upgrade -y
 
+###################
+# Install Required Packages
+###################
+echo "$osTitle Install required packages"
+sudo apt install -y \
+    jq \
+    zsh \
+    curl \
+    fonts-powerline \
+    git
 
 ###################
 # Capture User Details in bash prompt
@@ -93,10 +97,10 @@ echo "Course Folder Name: $courseFolderName"
 git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
 
 # Ensure ownership is updated to the user who invoked sudo
-sudo chown -R "$SUDO_USER:$SUDO_USER" "$courseFolderName" || abort "Failed to change ownership of the directory."
+# sudo chown -R "$USER:$USER" "$courseFolderName" || abort "Failed to change ownership of the directory."
 
 # Update permissions to ensure the user has read/write access
-sudo chmod -R u+rw "$courseFolderName" || abort "Failed to update permissions."
+# sudo chmod -R u+rw "$courseFolderName" || abort "Failed to update permissions."
 
 ###################
 # Install VS Code Extensions
@@ -119,49 +123,22 @@ done
 echo "All extensions installed successfully."
 
 ###################
-# Install Zsh
+# Install Oh My Zsh and Plugins
 ###################
-if ! command -v zsh &> /dev/null; then
-    echo "$osTitle Install Zsh"
-    apt install zsh -y
-    echo "$osTitle Make Zsh Default Shell"
-    chsh -s "$(which zsh)"
-else
-    echo "Zsh is already installed."
-fi
-
-###################
-# Install Oh My Zsh
-###################
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "$osTitle Install Oh My Zsh"
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-    echo "Oh My Zsh is already installed."
-fi
-
-# Install Fonts
-echo "$osTitle Install Oh My Zsh Icons/Fonts"
-apt install fonts-powerline -y
+echo "$osTitle Install Oh My Zsh"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install Syntax Highlighting if not already installed
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-    echo "$osTitle Install Oh My Zsh Syntax Highlighting"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-else
-    echo "zsh-syntax-highlighting is already installed."
-fi
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 
+###################
 # Install NVM, Node, and NPM
+###################
 echo "$osTitle Install NVM, Node, and NPM"
 
-# Install NVM if not installed
-if [ ! -d "$HOME/.nvm" ]; then
-    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-else
-    echo "NVM is already installed."
-fi
+# Install NVM
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
 # Source NVM to make it available
 export NVM_DIR="$HOME/.nvm"

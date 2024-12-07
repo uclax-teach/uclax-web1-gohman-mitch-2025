@@ -19,7 +19,7 @@ _Note: When you run these installations scripts at some point your computer will
 2. type the following command and press enter
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/1.install-wsl.ps1" -UseBasicParsing | Invoke-Expression
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v3/1.install-wsl.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
 3. Restart your computer
@@ -27,12 +27,12 @@ _Note: When you run these installations scripts at some point your computer will
 5. type the following command and press enter
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/2.install-chocolatey-apps.ps1" -UseBasicParsing | Invoke-Expression
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v3/2.install-chocolatey-apps.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
 6. Close out of Powershell window
 7. Windows Search > **Ubuntu** - **!Important!** be sure to choose **"Run as Administrator"** on the right
-8. _Note: It may hang at "Installing, this may take a few minutes...". If it takes longer than a minute press "control + c"_
+8. _Note: It may hang at "Installing, this may take a few minutes...". If it takes longer than a a few mintes press "enter" and "control + c"_
 9. You will be asked for a username and password
     1. Note: when you enter password, it will not show you typing. You have to trust its entering the characters you type
     2. Note: these are up to you, but make sure its something you remember)
@@ -51,7 +51,7 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    sudo bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/3.wsl-bash-install.sh)"
+    sudo bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v3/3.wsl-bash-install.sh)"
     ```
 
 7. Enter your Ubuntu WSL password your set up earlier

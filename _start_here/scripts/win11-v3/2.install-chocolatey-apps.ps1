@@ -1,7 +1,3 @@
-# Script 2: Install Google Chrome, VS Code, Windows Terminal
-# Pin VS Code, Chrome, Windows Terminal, and Ubuntu to the Taskbar
-# Launch VS Code and install Remote Development Plugins
-
 # Ensure running as Administrator
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Error "Please run this script as Administrator."
@@ -19,14 +15,6 @@ choco upgrade chocolatey -y
 choco outdated
 choco upgrade all -y
 
-# Install Google Chrome
-if (-not (Get-Command chrome -ErrorAction SilentlyContinue)) {
-    Log "Installing Google Chrome..."
-    choco install googlechrome -y --ignore-checksums
-} else {
-    Log "Google Chrome is already installed."
-}
-
 # Install VS Code
 if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
     Log "Installing Visual Studio Code..."
@@ -35,12 +23,21 @@ if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
     Log "Visual Studio Code is already installed."
 }
 
+# FIXME: I do not think we need this terminal
 # Install Windows Terminal
-if (-not (Get-Command wt -ErrorAction SilentlyContinue)) {
-    Log "Installing Windows Terminal..."
-    choco install microsoft-windows-terminal -y --ignore-checksums
+# if (-not (Get-Command wt -ErrorAction SilentlyContinue)) {
+#     Log "Installing Windows Terminal..."
+#     choco install microsoft-windows-terminal -y --ignore-checksums
+# } else {
+#     Log "Windows Terminal is already installed."
+# }
+
+# Check for Google Chrome
+if (-not (Get-Command chrome -ErrorAction SilentlyContinue)) {
+    Log "Google Chrome is not installed. Launching default browser to Google Chrome download page..."
+    Start-Process "https://www.google.com/chrome/"
 } else {
-    Log "Windows Terminal is already installed."
+    Log "Google Chrome is already installed."
 }
 
 Log "Setup complete!"
