@@ -1,11 +1,5 @@
 #!/bin/bash
 
-osTitle="WSL: Linux"
-
-###################
-# Shared Pre Install
-###################
-
 abort() {
     printf "%s\n" "$@"
     exit 1
@@ -21,9 +15,11 @@ if ! command -v git &> /dev/null; then
     abort "Git is not installed. Please install Git before proceeding."
 fi
 
+
 ###################
 # Props
 ###################
+osTitle="WSL: Linux"
 courseName="UCLAX-Web1"
 scriptTitle="${courseName} Setup: ${osTitle}:"
 
@@ -52,18 +48,17 @@ echo "$scriptTitle Start"
 ###################
 echo "$scriptTitle User specific settings"
 
-read -p "Enter your First Name: " userFirstName
-userFirstName=$(toTitleCase "$userFirstName")
+# Change variable names to captured versions as per your request
+read -p "Enter your First Name: " userFirstNameCaptured
+userFirstName=$(toTitleCase "$userFirstNameCaptured")
 
-read -p "Enter your Last Name: " userLastName
-userLastName=$(toTitleCase "$userLastName")
+read -p "Enter your Last Name: " userLastNameCaptured
+userLastName=$(toTitleCase "$userLastNameCaptured")
 
-read -p "Enter your Email: " userEmail
-userEmail=$(toLowerCase "$userEmail")
+read -p "Enter your Email: " userEmailCaptured
+userEmail=$(toLowerCase "$userEmailCaptured")
 
 echo "$scriptTitle User Details: Name: $userFirstName $userLastName, Email: $userEmail attending $courseName"
-
-
 
 ###################
 # Update Git Settings
@@ -106,10 +101,6 @@ for ext in $extensions; do
 done
 
 
-
-###################
-# WSL Specific Install
-###################
 
 
 # Update and Upgrade packages
