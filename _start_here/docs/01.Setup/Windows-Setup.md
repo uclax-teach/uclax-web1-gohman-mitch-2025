@@ -15,36 +15,50 @@
 
 _Note: When you run these installations scripts at some point your computer will restart. Please make sure to save any work and close out of any unlreated applications._
 
-1. Windows Search > Windows Powershell - **!Important!** be sure to choose **"Run as Administrator"** on the right
+1. Windows Search > **Windows Powershell** - **!Important!** be sure to choose **"Run as Administrator"** on the right
 2. type the following command and press enter
 
-TODO: UPDATE THE FOLLOWING TO MATCH ACTUAL PATH ON REMOTE REPO
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/1.install-wsl.ps1" -UseBasicParsing | Invoke-Expression
-```
+    ```powershell
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/1.install-wsl.ps1" -UseBasicParsing | Invoke-Expression
+    ```
 
 3. Restart your computer
-4. Windows Search > Windows Powershell - **!Important!** be sure to choose **"Run as Administrator"** on the right
+4. Windows Search > **Windows Powershell** - **!Important!** be sure to choose **"Run as Administrator"** on the right
 5. type the following command and press enter
 
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/2.install-chocolatey-apps.ps1" -UseBasicParsing | Invoke-Expression
-```
+    ```powershell
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/2.install-chocolatey-apps.ps1" -UseBasicParsing | Invoke-Expression
+    ```
 
-## Windows Step 2: Clone Repo and Install Dependencies
+6. Close out of Powershell window
+7. Windows Search > **Ubuntu** - **!Important!** be sure to choose **"Run as Administrator"** on the right
+8. _Note: It may hang at "Installing, this may take a few minutes...". If it takes longer than a minute press "control + c"_
+9. You will be asked for a username and password
+    1. Note: when you enter password, it will not show you typing. You have to trust its entering the characters you type
+    2. Note: these are up to you, but make sure its something you remember)
+    3. press enter after each entry
+10. Close out of the Ubuntu window
 
-1. Open VS Code (should be on desktop, or Windows Search > `Visual Studio Code`)
+## Windows Step 2: Clone Course Repo and Install Dependencies
+
+1. Open Visual Studio Code (should be on desktop, otherwise Windows Search > **Visual Studio Code**)
 2. Click the blue double arrows in bottom left
 3. Start typing WSL, and choose the option to `WSL` or `Connect to WSL`
-4. View > Terminal
-5. Run the following command
+4. File > Open Folder
+    1. Leave as default, and press "ok" (e.g. /home/username/, where username is the ubuntu username you set up)
+    2. trust the authors if prompted
+5. View > Terminal
+6. Run the following command
 
-```bash
-sudo bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/3.wsl-bash-install.sh)"
-```
+    ```bash
+    sudo bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/3.wsl-bash-install.sh)"
+    ```
 
-1. Enter your Ubuntu WSL password your set up earlier
+7. Enter your Ubuntu WSL password your set up earlier
+8. It will perform a buncha updates, this may take a little bit of time depending on your Internet connection and System
+9. When prompted, provide your First, Last and Email (this will be used to set up your folder)
+10. Answer any prompts that show up
+11.
 
 ---
 

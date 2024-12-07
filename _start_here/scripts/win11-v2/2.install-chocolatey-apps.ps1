@@ -43,23 +43,4 @@ if (-not (Get-Command wt -ErrorAction SilentlyContinue)) {
     Log "Windows Terminal is already installed."
 }
 
-# Install Remote Development Plugins for VS Code
-Log "Installing Remote Development Plugins for Visual Studio Code..."
-$extensions = @(
-    "ms-vscode-remote.remote-containers",
-    "ms-vscode-remote.remote-ssh",
-    "ms-vscode-remote.remote-ssh-edit",
-    "ms-vscode-remote.remote-wsl",
-    "ms-vscode-remote.vscode-remote-extensionpack"
-)
-
-foreach ($extension in $extensions) {
-    code --install-extension $extension
-    Log "Installed extension: $extension"
-}
-
-# Launch Visual Studio Code
-Log "Launching Visual Studio Code..."
-Start-Process "code"
-
 Log "Setup complete!"

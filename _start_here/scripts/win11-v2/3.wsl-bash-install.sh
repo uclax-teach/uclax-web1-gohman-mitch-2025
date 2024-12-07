@@ -82,8 +82,9 @@ git config --global init.defaultBranch "master"
 echo "$scriptTitle Git: Use VS Code as Git Editor"
 git config --global core.editor "code --wait"
 
+
 ###################
-# Clone Web Starter Repo and CD into the app
+# Clone Web Starter Repo
 ###################
 courseFolderName="$courseName-$userLastName-$userFirstName"
 echo "Course Folder Name: $courseFolderName"
@@ -91,24 +92,17 @@ echo "Course Folder Name: $courseFolderName"
 # Clone the repository into a new folder
 git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
 
-# Update ownership of the folder and its contents to the current user
-sudo chown -R "$USER:$USER" "$courseFolderName" || abort "Failed to change ownership of the directory."
+# Ensure ownership is updated to the user who invoked sudo
+sudo chown -R "$SUDO_USER:$SUDO_USER" "$courseFolderName" || abort "Failed to change ownership of the directory."
 
 # Update permissions to ensure the user has read/write access
-chmod -R u+rw "$courseFolderName" || abort "Failed to update permissions."
-
-# Change into the new folder
-cd "$courseFolderName" || abort "Failed to enter $courseFolderName directory."
-
+sudo chmod -R u+rw "$courseFolderName" || abort "Failed to update permissions."
 
 ###################
 # Install VS Code Extensions
 ###################
 # Specify the path to your JSON file
-json_file="./.vscode/extensions.json"
-
-# Print the current working directory for context
-echo "Current directory: $(pwd)"
+json_file="./$courseFolderName/.vscode/extensions.json"
 
 # Check if the file exists
 [[ -f "$json_file" ]] || abort "File not found at $json_file. Please ensure the file exists and try again."
@@ -159,14 +153,6 @@ else
     echo "zsh-syntax-highlighting is already installed."
 fi
 
-# Update .zshrc plugins
-echo "$osTitle Add plugins to .zshrc"
-if [ -f ~/.zshrc ]; then
-    sed -i '' '/^plugins=/c\plugins=(git nvm)' ~/.zshrc
-else
-    echo "plugins=(git nvm)" >> ~/.zshrc
-fi
-
 # Install NVM, Node, and NPM
 echo "$osTitle Install NVM, Node, and NPM"
 
@@ -194,6 +180,12 @@ if [ -f package.json ]; then
 else
     echo "No package.json found. Skipping npm install."
 fi
+
+###################
+# CD Into Course Folder
+###################
+cd "$courseFolderName" || abort "Failed to enter $courseFolderName directory."
+
 
 ###################
 # Done
