@@ -18,7 +18,7 @@
     -   [ ] Windows
         -   [x] add "VS Code Remote Development" plugin to app extensions
         -   [ ] Update Scripts and Installation Instructions
-            -   [ ] Test with corrected Bios for true WSL 2 installation
+            -   [ ] Did git name and meail register?
     -   [ ] Update system requirements
 -   [ ] Build to Final Web Application
     -   [ ] Emails via sendgrid (instead of using json-server)

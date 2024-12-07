@@ -13,9 +13,9 @@ fi
 ###################
 # Props
 ###################
-osTitle="WSL: Linux: Root:"
+osTitle="WSL: Linux: Root: OS Updates, Git, NVM and ZSH"
 courseName="UCLAX-Web1"
-scriptTitle="${courseName} Setup: ${osTitle}: Start:"
+scriptTitle="${courseName} Setup: ${osTitle}:"
 
 
 ###################

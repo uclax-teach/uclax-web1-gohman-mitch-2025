@@ -20,7 +20,7 @@ _Note: When you run these installations scripts at some point your computer will
 2. type the following command and press enter
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v16/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v17/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
 3. Install Google Chrome, if you have not already (we will all use this browser to normalize instruction)
@@ -48,14 +48,21 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v16/2.wsl-bash-install-start.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v17/2.wsl-bash-install-start.sh)"
     ```
 
 7. If asked, enter your Ubuntu WSL password your set up earlier
 8. It will perform a buncha updates, this may take a little bit of time depending on your Internet connection and System
 9. When prompted, provide your First, Last and Email (this will be used to set up your folder)
 10. Answer any prompts that show up
-11. Close terminal by clicking trash icon in upper right of terminal
+11. Say YES to making ZSH as your default terminal
+12. Run the following command
+
+    ```bash
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v17/3.wsl-bash-install-finish.sh)"
+    ```
+
+13. Close terminal by clicking trash icon in upper right of terminal
 
 ## VS Code and WSL: Setup Course Folder
 
@@ -65,7 +72,7 @@ _Note: When you run these installations scripts at some point your computer will
 2. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v16/3.wsl-bash-install-finish.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v17/4.wsl-zsh-course-folder.sh)"
     ```
 
     1. **Windows Firewall**: Choose "Allow" for Node

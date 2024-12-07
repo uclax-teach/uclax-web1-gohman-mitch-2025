@@ -24,17 +24,6 @@ scriptTitle="${courseName} Setup: ${osTitle}: Finish:"
 echo "$scriptTitle Start"
 
 #-------------------------------------------------
-# Add nvm to .zshrc plugins
-# plugins=(git nvm)
-#-------------------------------------------------
-if [ -f ~/.zshrc ]; then
-    sed -i 's/plugins=(git)/plugins=(git nvm)/' ~/.zshrc
-    echo ".zshrc updated with nvm plugin"
-else
-    echo ".zshrc file not found. Skipping update."
-fi
-
-#-------------------------------------------------
 # Create env from example
 #-------------------------------------------------
 echo "$osTitle Create .env from .env.example"
