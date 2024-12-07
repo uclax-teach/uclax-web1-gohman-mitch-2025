@@ -10,23 +10,23 @@ if [ -z "${BASH_VERSION:-}" ]; then
     abort "Bash is required to interpret this script."
 fi
 
-###################
+#-------------------------------------------------
 # Props
-###################
+#-------------------------------------------------
 osTitle="WSL: Linux"
 courseName="UCLAX-Web1"
 scriptTitle="${courseName} Setup: ${osTitle}: Finish:"
 
 
-###################
+#-------------------------------------------------
 # Start the party
-###################
+#-------------------------------------------------
 echo "$scriptTitle Start"
 
-###################
+#-------------------------------------------------
 # Add nvm to .zshrc plugins
 # plugins=(git nvm)
-###################
+#-------------------------------------------------
 if [ -f ~/.zshrc ]; then
     sed -i 's/plugins=(git)/plugins=(git nvm)/' ~/.zshrc
     echo ".zshrc updated with nvm plugin"
@@ -34,14 +34,14 @@ else
     echo ".zshrc file not found. Skipping update."
 fi
 
-###################
+#-------------------------------------------------
 # CD Into Course Folder
-###################
+#-------------------------------------------------
 cd "$(ls -d UCLAX-Web1*)/" || abort "Failed to enter UCLAX-Web1* directory."
 
-###################
+#-------------------------------------------------
 # Install Dependencies
-###################
+#-------------------------------------------------
 if [ -f package.json ]; then
     echo "$osTitle Running npm install"
     npm install
@@ -49,9 +49,9 @@ else
     echo "No package.json found. Skipping npm install."
 fi
 
-###################
+#-------------------------------------------------
 # Install VS Code Extensions
-###################
+#-------------------------------------------------
 # Specify the path to your JSON file
 json_file="./.vscode/extensions.json"
 
@@ -69,7 +69,7 @@ done
 
 echo "All extensions installed successfully."
 
-###################
+#-------------------------------------------------
 # Done
-###################
+#-------------------------------------------------
 echo "$osTitle Completed"

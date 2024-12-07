@@ -11,7 +11,7 @@
 -   Unlike macOS and Linux (at least out of the box), Windows does not support bash/terminal. In order to get Windows to act more like macOS and Linux, we need to enable Windows Subsystem for Linux (WSL).
 -
 
-## Install Windows WSL and Related Apps
+## Install Windows WSL
 
 _Note: When you run these installations scripts at some point your computer will restart. Please make sure to save any work and close out of any unlreated applications._
 
@@ -19,30 +19,36 @@ _Note: When you run these installations scripts at some point your computer will
 2. type the following command and press enter
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v8/1.install-wsl.ps1" -UseBasicParsing | Invoke-Expression
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v8/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
 3. Restart your computer
-4. Windows Search > **Windows Powershell** - **!Important!** be sure to choose **"Run as Administrator"** on the right
-5. type the following command and press enter
+
+## Install Windows Related Apps
+
+6. Windows Search > **Ubuntu** - **!Important!** be sure to choose **"Run as Administrator"** on the right
+7. _Note: It may hang at "Installing, this may take a few minutes...". If it takes longer than a a few mintes press "enter" and "control + c"_
+8. You will be asked for a username and password
+    1. Note: when you enter password, it will not show you typing. You have to trust its entering the characters you type
+    2. Note: these are up to you, but make sure its something you remember)
+    3. press enter after each entry
+9. Close out of the Ubuntu window
+
+## Install Windows Related Apps
+
+1. Windows Search > **Windows Powershell** - **!Important!** be sure to choose **"Run as Administrator"** on the right
+2. type the following command and press enter
 
     ```powershell
     Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v8/2.install-chocolatey-apps.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
-6. Close out of Powershell window
-7. Windows Search > **Turn Windows Features nn or off**, and make sure the following is enabled
+3. Close out of Powershell window
+4. Windows Search > **Turn Windows Features on or off**, and make sure the following is enabled
     1. Hyper-V
     2. Virtual Machine Platform
     3. Window Subsystem for Linux
-8. Save any changes you have made and reboot
-9. Windows Search > **Ubuntu** - **!Important!** be sure to choose **"Run as Administrator"** on the right
-10. _Note: It may hang at "Installing, this may take a few minutes...". If it takes longer than a a few mintes press "enter" and "control + c"_
-11. You will be asked for a username and password
-    1. Note: when you enter password, it will not show you typing. You have to trust its entering the characters you type
-    2. Note: these are up to you, but make sure its something you remember)
-    3. press enter after each entry
-12. Close out of the Ubuntu window
+5. Save any changes you have made and restart your computer
 
 ## Windows Step 2: Clone Course Repo and Install Dependencies
 
@@ -56,7 +62,7 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v8/3.wsl-bash-install-start.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v8/2.wsl-bash-install-start.sh)"
     ```
 
 7. If asked, enter your Ubuntu WSL password your set up earlier
@@ -66,10 +72,13 @@ _Note: When you run these installations scripts at some point your computer will
 11. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v8/4.wsl-bash-install-finish.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v8/3.wsl-bash-install-finish.sh)"
     ```
 
-12. zsfdzsd
+12. File > Open Folder
+    1. Select your your course folder `/home/{username}/**UCLAX-Web1-Lastname-Firstname**`
+    2. Press OK
+13. Ask Instructor to come in and review your setup
 
 ---
 

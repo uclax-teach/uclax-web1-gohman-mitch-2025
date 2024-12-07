@@ -12,6 +12,7 @@
     -   [x] test with React Router dom, navigation
     -   [x] Images form API
     -   [x] styled theme with normalize.css module
+-   [ ] `npm run backend:dev` without VITE BUILD?
 -   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`
     -   [ ] MacOS
     -   [ ] Windows
