@@ -81,20 +81,19 @@ const serve = async () => {
     // Define the path to the build folder
     const frontendBuildPath = path.resolve(__dirname, "../frontend/build");
 
-    if (!fs.existsSync(frontendBuildPath)) {
-        console.error(
-            `Build folder not found at ${frontendBuildPath}. Please run "vite build" to generate it.`
+    if (fs.existsSync(frontendBuildPath)) {
+        // Serve static files from the build directory
+        app.use(express.static(frontendBuildPath));
+
+        // Handle React app for any unmatched routes (SPA behavior)
+        app.get("*", (req, res) => {
+            res.sendFile(path.join(frontendBuildPath, "index.html"));
+        });
+    } else {
+        console.warn(
+            `Build folder not found at ${frontendBuildPath}. Skipping static file serving.`
         );
-        process.exit(1); // Stop the server
     }
-
-    // Serve static files from the build directory
-    app.use(express.static(frontendBuildPath));
-
-    // Handle React app for any unmatched routes (SPA behavior)
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(frontendBuildPath, "index.html"));
-    });
 
     /*---------------------------
     | Start Server

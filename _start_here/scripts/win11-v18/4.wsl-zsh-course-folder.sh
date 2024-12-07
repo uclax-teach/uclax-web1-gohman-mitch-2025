@@ -60,6 +60,16 @@ done
 echo "All extensions installed successfully."
 
 #-------------------------------------------------
+# Run the app
+#-------------------------------------------------
+if [ -f package.json ]; then
+    echo "$osTitle NPM run dev"
+    npm run dev
+else
+    echo "No package.json found. Skipping NPM run dev."
+fi
+
+#-------------------------------------------------
 # Done
 #-------------------------------------------------
 echo "$osTitle Completed"
