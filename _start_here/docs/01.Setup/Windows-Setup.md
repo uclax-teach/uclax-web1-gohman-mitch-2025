@@ -9,7 +9,7 @@
     -   Windows Search > `Check for Updates`
     -   Rinse and repeat until there are no more updates
 -   Unlike macOS and Linux (at least out of the box), Windows does not support bash/terminal. In order to get Windows to act more like macOS and Linux, we need to enable Windows Subsystem for Linux (WSL).
--
+-   Most of the time, you will want to open up apps as Administrator (e.g. **"Run as Administrator"**). This is called out throughout this setup tutorial
 
 ## Install Windows WSL, Ubuntu and VS Code
 
@@ -19,7 +19,7 @@ _Note: When you run these installations scripts at some point your computer will
 2. type the following command and press enter
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v14/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v15/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
 3. Once script completes you will be asked to restart your computer. Type "Y" for yes.
@@ -38,7 +38,7 @@ _Note: When you run these installations scripts at some point your computer will
 
 1. Windows Search > **Visual Studio Code** _Note: You may want to pin this app to your taskbar_
 2. Click the blue double arrows in bottom left
-3. Start typing WSL, and choose the option to `WSL` or `Connect to WSL`
+3. Start typing WSL, and choose the option to `WSL` (or `Connect to WSL`)
 4. File > Open Folder
     1. Leave as default, and press "ok" (e.g. /home/username/, where username is the ubuntu username you set up)
     2. trust the authors if prompted
@@ -46,7 +46,7 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v14/2.wsl-bash-install-start.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v15/2.wsl-bash-install-start.sh)"
     ```
 
 7. If asked, enter your Ubuntu WSL password your set up earlier
@@ -56,7 +56,7 @@ _Note: When you run these installations scripts at some point your computer will
 11. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v14/3.wsl-bash-install-finish.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v15/3.wsl-bash-install-finish.sh)"
     ```
 
 12. File > Open Folder

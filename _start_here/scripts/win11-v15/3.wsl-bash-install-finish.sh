@@ -37,7 +37,7 @@ fi
 #-------------------------------------------------
 # CD Into Course Folder
 #-------------------------------------------------
-cd "$(ls -d UCLAX-Web1*)/" || abort "Failed to enter UCLAX-Web1* directory."
+# cd "$(ls -d UCLAX-Web1*)/" || abort "Failed to enter UCLAX-Web1* directory."
 
 #-------------------------------------------------
 # Install Dependencies
