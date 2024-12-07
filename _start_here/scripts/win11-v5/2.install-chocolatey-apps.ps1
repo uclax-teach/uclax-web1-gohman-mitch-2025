@@ -10,9 +10,6 @@ function Log {
     Write-Host "[INFO] $Message" -ForegroundColor Green
 }
 
-# Make sure they are Set to WSL 2
-wsl --set-default-version 2
-
 # Make sure Chocolatey and its databases are up to date
 choco upgrade chocolatey -y
 choco outdated

@@ -117,20 +117,11 @@ extensions=$(jq -r '.recommendations[]' "$json_file")
 # Install each extension using the 'code' CLI
 for ext in $extensions; do
     echo "Installing extension: $ext"
-    code --install-extension "$ext" || abort "Failed to install extension $ext"
+    sudo code --install-extension "$ext" || abort "Failed to install extension $ext"
 done
 
 echo "All extensions installed successfully."
 
-###################
-# Install Oh My Zsh and Plugins
-###################
-echo "$osTitle Install Oh My Zsh"
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install Syntax Highlighting if not already installed
-ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 
 ###################
 # Install NVM, Node, and NPM
@@ -150,6 +141,11 @@ nvm install v20.18.1
 nvm use v20.18.1
 nvm alias default v20.18.1
 
+###################
+# CD Into Course Folder
+###################
+cd "$courseFolderName" || abort "Failed to enter $courseFolderName directory."
+
 # Install dependencies (if package.json exists)
 if [ -f package.json ]; then
     echo "$osTitle Running npm install"
@@ -159,9 +155,14 @@ else
 fi
 
 ###################
-# CD Into Course Folder
+# Install Oh My Zsh and Plugins
 ###################
-cd "$courseFolderName" || abort "Failed to enter $courseFolderName directory."
+echo "$osTitle Install Oh My Zsh"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install Syntax Highlighting if not already installed
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 
 
 ###################
