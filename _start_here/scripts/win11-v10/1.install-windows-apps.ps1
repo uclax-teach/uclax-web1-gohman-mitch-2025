@@ -47,28 +47,11 @@ wsl --set-default-version 2
 wsl --install -d Ubuntu
 
 #-------------------------------------------------
-# Install Chocolatey if not installed
-#-------------------------------------------------
-if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
-    Log "Installing Chocolatey..."
-    Set-ExecutionPolicy Bypass -Scope Process -Force
-    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-} else {
-    Log "Chocolatey is already installed."
-}
-
-# Make sure Chocolatey and its databases are up to date
-choco upgrade chocolatey -y
-choco outdated
-choco upgrade all -y
-
-#-------------------------------------------------
-# Install VS Code
+# Install VS Code using Winget
 #-------------------------------------------------
 if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
-    Log "Installing Visual Studio Code..."
-    choco install vscode -y --ignore-checksums
+    Log "Installing Visual Studio Code using Winget..."
+    winget install -e --id Microsoft.VisualStudioCode
 } else {
     Log "Visual Studio Code is already installed."
 }
