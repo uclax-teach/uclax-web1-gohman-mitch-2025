@@ -48,12 +48,13 @@ function Enable-Feature {
 Log "Checking and enabling required Windows features..."
 Enable-Feature -FeatureName "Microsoft-Hyper-V-All"
 Enable-Feature -FeatureName "VirtualMachinePlatform"
-Enable-Feature -FeatureName "WindowsSubsystemForLinux"
+Enable-Feature -FeatureName "Microsoft-Windows-Subsystem-Linux"
 
 #-------------------------------------------------
 # Install WSL
 #-------------------------------------------------
 Log "Installing WSL..."
+wsl --update
 wsl --install
 
 # Wait for WSL to finish setup
