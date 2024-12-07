@@ -27,12 +27,17 @@ echo "$scriptTitle Start"
 # Add nvm to .zshrc plugins
 # plugins=(git nvm)
 ###################
-sed -i '' 's/plugins=(git)/plugins=(git nvm)/' ~/.zshrc
+if [ -f ~/.zshrc ]; then
+    sed -i 's/plugins=(git)/plugins=(git nvm)/' ~/.zshrc
+    echo ".zshrc updated with nvm plugin"
+else
+    echo ".zshrc file not found. Skipping update."
+fi
 
 ###################
 # CD Into Course Folder
 ###################
-cd "UCLAX-Web1*" || abort "Failed to enter UCLAX-Web1* directory."
+cd "$(ls -d UCLAX-Web1*)/" || abort "Failed to enter UCLAX-Web1* directory."
 
 ###################
 # Install Dependencies
