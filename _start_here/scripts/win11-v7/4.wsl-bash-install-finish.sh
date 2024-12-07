@@ -45,6 +45,26 @@ else
 fi
 
 ###################
+# Install VS Code Extensions
+###################
+# Specify the path to your JSON file
+json_file="./.vscode/extensions.json"
+
+# Check if the file exists
+[[ -f "$json_file" ]] || abort "File not found at $json_file. Please ensure the file exists and try again."
+
+# Use jq to extract the extensions from the 'recommendations' array
+extensions=$(jq -r '.recommendations[]' "$json_file")
+
+# Install each extension using the 'code' CLI
+for ext in $extensions; do
+    echo "Installing extension: $ext"
+    code --install-extension "$ext" || abort "Failed to install extension $ext"
+done
+
+echo "All extensions installed successfully."
+
+###################
 # Done
 ###################
 echo "$osTitle Completed"
