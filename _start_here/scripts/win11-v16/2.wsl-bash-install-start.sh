@@ -13,7 +13,7 @@ fi
 ###################
 # Props
 ###################
-osTitle="WSL: Linux"
+osTitle="WSL: Linux: Root:"
 courseName="UCLAX-Web1"
 scriptTitle="${courseName} Setup: ${osTitle}: Start:"
 

@@ -2,7 +2,7 @@
 
 [Back to Main](../SETUP.md)
 
-## Pre Installation
+## Pre Installation: Important Please Read
 
 -   This tutorial covers Windwows 11 which is required for this course. If you are using Windows 10, in theory, as long as you have the latest version of 10 - you should be able to complete this setup. However, this has not been tested and you will have to resolve any differences that are not supported by your Operating System.
 -   Make sure your Operating System is up to date
@@ -19,22 +19,23 @@ _Note: When you run these installations scripts at some point your computer will
 2. type the following command and press enter
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v15/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v16/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
-3. Once script completes you will be asked to restart your computer. Type "Y" for yes.
+3. Install Google Chrome, if you have not already (we will all use this browser to normalize instruction)
+4. Once script completes you will be asked to restart your computer. Type "Y" for yes.
 
 ## Complete WSL Ubuntu Configuration
 
 1. Windows Search > **Ubuntu** - **!Important!** be sure to choose **"Run as Administrator"** on the right
 2. _Note: It may hang at "Installing, this may take a few minutes...". If it takes longer than 3 minutes press "enter" and "control + c"_
 3. You will be asked for a username and password - read the note below before entering
-    1. Note: when you enter password, it will not show you typing. You have to trust its entering the characters you type
-    2. Note: these are up to you, but make sure its something you remember
+    1. Important: when you enter password, it will not show you typing. You have to trust its entering the characters you type
+    2. Important: these are up to you, but make sure its something you remember
     3. press enter after each entry
 4. Close out of the Ubuntu window
 
-## VS Code and WSL: Setup Course Folder
+## VS Code and WSL: Add Course Folder and Install WSL Apps
 
 1. Windows Search > **Visual Studio Code** _Note: You may want to pin this app to your taskbar_
 2. Click the blue double arrows in bottom left
@@ -46,96 +47,44 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v15/2.wsl-bash-install-start.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v16/2.wsl-bash-install-start.sh)"
     ```
 
 7. If asked, enter your Ubuntu WSL password your set up earlier
 8. It will perform a buncha updates, this may take a little bit of time depending on your Internet connection and System
 9. When prompted, provide your First, Last and Email (this will be used to set up your folder)
 10. Answer any prompts that show up
-11. Run the following command
+11. Close terminal by clicking trash icon in upper right of terminal
 
-    ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v15/3.wsl-bash-install-finish.sh)"
-    ```
+## VS Code and WSL: Setup Course Folder
 
-12. File > Open Folder
+1. File > Open Folder
     1. Select your your course folder `/home/{username}/**UCLAX-Web1-Lastname-Firstname**`
     2. Press OK
-13. Ask Instructor to come in and review your setup
+2. Run the following command
+
+    ```bash
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v16/3.wsl-bash-install-finish.sh)"
+    ```
+
+    1. **Windows Firewall**: Choose "Allow" for Node
+    2. **VS Code Icons**: Choose Activate
+    3. Any other windows or prompts that pop up can be closed/ignored
+
+3. Close terminal by clicking trash icon in upper right of terminal
+
+## Completion
+
+Ask Instructor to come in and review your setup and answer any questions you may have.
 
 ### Troubleshooting
 
+1. Confirm Installations `node -v && npm -v && git -v`
 1. Windows Search > **Turn Windows Features on or off**, and make sure the following is enabled
     1. Hyper-V
     2. Virtual Machine Platform
     3. Window Subsystem for Linux
-2. Confirm WSL Version 2 > Windows Search > **Windows Powershell** `wsl --list --verbose`
+1. Confirm WSL Version 2 > Windows Search > **Windows Powershell** `wsl --list --verbose`
     1. Virtualization Enabled Through BIOS (How old is your computer?) We may have to rely oin WSL 1
-
----
-
-## CAN I REMOVE BELOW???!!!!!
-
-## Windows Step 1: Install WSL
-
-1. Windows Global Search
-    1. Start typing **"Command Prompt"** - **!Important!** be sure to choose **"Run as Administrator"** on the right
-    2. In the Command Prompt terminal type `wsl --install` and press **enter**
-    3. **Restart Your Computer** (power down and power up)
-2. Open Ubuntu App - Windows Global Search
-    1. Type **"Ubuntu"**
-    2. Choose **Ubuntu (App)** - **!Important!** be sure to choose **"Run as Administrator"** on the right
-    3. Press any key, installation may take some time
-
-## Windows Step 2: Installing Windows Apps
-
-1. Install enhanced Windows Terminal
-    1. **Open Windows Store**
-    2. Search for **Windows Terminal** and **install**
-2. Download & Install <a href="https://www.google.com/chrome/" target="googleChrome">Google Chrome</a>
-3. Download the Course [UCLAX-WEB1-Starter](https://github.com/uclax-teach/UCLAX-Web1-Starter/archive/refs/heads/master.zip) Resource
-    1. Extract the zip contents (Note: When Windows extracts the zip, it creates a duplicate subfolder. We only need the duplicate subfolder.)
-    2. Inside the extracted folder, you will find the duplicate folder called **UCLAX-WEB1-Starter-master**
-    3. Move the **UCLAX-WEB1-Starter-master** folder to a place that works for you (e.g. Desktop, external drive)
-    4. Delete original zip and the extracted folder to avoid any confusion
-    5. Rename the duplicate subfolder **UCLAX-WEB1-Starter-master** to **UCLAX-WEB1-Lastname-Firstname** (e.g. UCLAX-WEB1-Starter-master becomes UCLAX-WEB1-Gohman-Mitch)
-4. Install <a href="https://code.visualstudio.com/download" target="vsCodeInstall">VS Code</a>
-    1. After downloading, run installer
-    2. Make sure all of the following is checked:
-        1. **Add "Open with Code" Windows Explorer file context menu**
-        2. **Add "Open with Code" Windows Explorer directory context menu**
-        3. **Add to PATH**
-    3. Open **UCLAX-WEB1-lastname-First** folder in **VS Code**
-    4. Install App extensions
-        1. Choose **Extensions** icon in left sidebar
-        2. in search, type `@recommended`
-        3. Next to **"WORKSPACE RECCOMMENDARIONS"**, click the **Cloud Download icon** to install all extensions
-
----
-
-## Windows Step 3: Open Project in VS Code WSL
-
-1. Open VS Code
-2. Click the blue double arrows in bottom left
-3. Start typing WSL, and choose the option to `WSL` or `Connect to WSL`
-4. Once VS Code is connected to your Ubuntu instance, we can right-click on any file on the left, and choose `Reveal in Explorer`
-5. Move or Copy your **UCLAX-WEB1-lastname-First** to this directory
-6. Back in VS Code, choose File > Open Folder > and Select your **UCLAX-WEB1-lastname-First** folder
-7. Open Terminal: **Menu > Terminal > New Terminal**
-8. Run the following command: `bash ./_setup/scripts/win.install.sh`
-9. CAN I OMIT THE FOLLOWING? Now in Script?
-    1. Choose File > Open Folder > and Select your **/home/username** folder
-    2. Open `.zshrc` in left sidebar
-    3. Change plugins section (around line 73) to include nvm as follows: `plugins=(git nvm)`
-    4. Choose File > Open Folder > and Select your **UCLAX-WEB1-lastname-First** folder
-    5. Open new terminal **Menu > Terminal > New Terminal**
-    6. In terminal, upper right, click on down caret and choose `Select Default Profile`
-    7. In option window, choose `zsh`
-    8. Open new terminal **Menu > Terminal > New Terminal**
-    9. Run Command: `nvm install v20.9.0`
-    10. Run Command: `nvm use v20.9.0`
-    11. Run Command: `nvm alias default v20.9.0`
-    12. Run command: `npm install`
 
 [Part 2: Shared Setup](./Shared-Setup.md)

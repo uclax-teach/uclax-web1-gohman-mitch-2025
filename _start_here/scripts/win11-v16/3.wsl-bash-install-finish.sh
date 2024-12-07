@@ -13,7 +13,7 @@ fi
 #-------------------------------------------------
 # Props
 #-------------------------------------------------
-osTitle="WSL: Linux"
+osTitle="WSL: Linux: Project Folder:"
 courseName="UCLAX-Web1"
 scriptTitle="${courseName} Setup: ${osTitle}: Finish:"
 
@@ -35,9 +35,10 @@ else
 fi
 
 #-------------------------------------------------
-# CD Into Course Folder
+# Create env from example
 #-------------------------------------------------
-# cd "$(ls -d UCLAX-Web1*)/" || abort "Failed to enter UCLAX-Web1* directory."
+echo "$osTitle Create .env from .env.example"
+cp .env.example .env
 
 #-------------------------------------------------
 # Install Dependencies
