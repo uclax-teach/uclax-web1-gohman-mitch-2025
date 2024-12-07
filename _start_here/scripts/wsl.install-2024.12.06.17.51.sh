@@ -15,13 +15,13 @@ if ! command -v git &> /dev/null; then
     abort "Git is not installed. Please install Git before proceeding."
 fi
 
-
 ###################
 # Props
 ###################
 osTitle="WSL: Linux"
 courseName="UCLAX-Web1"
 scriptTitle="${courseName} Setup: ${osTitle}:"
+
 
 ###################
 # Methods
@@ -38,10 +38,19 @@ function toTitleCase {
     echo "$(wordUpperCaseFirst "$(toLowerCase "$1")")"
 }
 
+
 ###################
 # Start the party
 ###################
 echo "$scriptTitle Start"
+
+
+###################
+# Update and Upgrade packages
+###################
+echo "$osTitle Update and Upgrade packages"
+apt update -y && apt upgrade -y
+
 
 ###################
 # Capture User Details in bash prompt
@@ -82,6 +91,12 @@ echo "Course Folder Name: $courseFolderName"
 # Clone the repository into a new folder
 git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
 
+# Update ownership of the folder and its contents to the current user
+sudo chown -R "$USER:$USER" "$courseFolderName" || abort "Failed to change ownership of the directory."
+
+# Update permissions to ensure the user has read/write access
+chmod -R u+rw "$courseFolderName" || abort "Failed to update permissions."
+
 # Change into the new folder
 cd "$courseFolderName" || abort "Failed to enter $courseFolderName directory."
 
@@ -92,22 +107,26 @@ cd "$courseFolderName" || abort "Failed to enter $courseFolderName directory."
 # Specify the path to your JSON file
 json_file="./.vscode/extensions.json"
 
+# Print the current working directory for context
+echo "Current directory: $(pwd)"
+
+# Check if the file exists
+[[ -f "$json_file" ]] || abort "File not found at $json_file. Please ensure the file exists and try again."
+
 # Use jq to extract the extensions from the 'recommendations' array
 extensions=$(jq -r '.recommendations[]' "$json_file")
 
 # Install each extension using the 'code' CLI
 for ext in $extensions; do
-    code --install-extension "$ext"
+    echo "Installing extension: $ext"
+    code --install-extension "$ext" || abort "Failed to install extension $ext"
 done
 
+echo "All extensions installed successfully."
 
-
-
-# Update and Upgrade packages
-echo "$osTitle Update and Upgrade packages"
-apt update -y && apt upgrade -y
-
-# Install Zsh if not installed
+###################
+# Install Zsh
+###################
 if ! command -v zsh &> /dev/null; then
     echo "$osTitle Install Zsh"
     apt install zsh -y
@@ -117,7 +136,9 @@ else
     echo "Zsh is already installed."
 fi
 
-# Install Oh My Zsh if not already installed
+###################
+# Install Oh My Zsh
+###################
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "$osTitle Install Oh My Zsh"
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -141,7 +162,7 @@ fi
 # Update .zshrc plugins
 echo "$osTitle Add plugins to .zshrc"
 if [ -f ~/.zshrc ]; then
-    sed -i '/^plugins=/c\plugins=(git nvm)' ~/.zshrc
+    sed -i '' '/^plugins=/c\plugins=(git nvm)' ~/.zshrc
 else
     echo "plugins=(git nvm)" >> ~/.zshrc
 fi

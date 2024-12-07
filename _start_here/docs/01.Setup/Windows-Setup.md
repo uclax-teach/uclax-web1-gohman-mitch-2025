@@ -41,8 +41,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https:
 5. Run the following command
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/wsl.install-2024.12.06.16.56.sh | bash
+sudo bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/wsl.install-2024.12.06.17.51.sh)"
 ```
+
+1. Enter your Ubuntu WSL password your set up earlier
 
 ---
 
