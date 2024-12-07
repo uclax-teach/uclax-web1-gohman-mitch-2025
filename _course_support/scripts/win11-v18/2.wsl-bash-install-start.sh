@@ -54,7 +54,8 @@ sudo apt install -y \
     zsh \
     curl \
     fonts-powerline \
-    git
+    git \
+    xdg-utils
 
 ###################
 # Capture User Details in bash prompt

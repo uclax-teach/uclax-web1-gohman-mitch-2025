@@ -59,6 +59,22 @@ done
 
 echo "All extensions installed successfully."
 
+
+#-------------------------------------------------
+# Git: Reset and Fresh Commit
+#-------------------------------------------------
+echo "$osTitle Git: Reset and Fresh Commit"
+sudo rm -rf .git
+git init
+git add .
+git commit -m "Git Clean and First Commit"
+
+#-------------------------------------------------
+# GitHub: Reset and Fresh Commit
+#-------------------------------------------------
+echo "$osTitle Opening Github Signup"
+xdg-open https://github.com/join
+
 #-------------------------------------------------
 # Run the app
 #-------------------------------------------------
