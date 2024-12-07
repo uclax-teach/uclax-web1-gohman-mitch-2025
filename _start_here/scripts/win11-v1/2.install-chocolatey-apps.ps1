@@ -14,10 +14,15 @@ function Log {
     Write-Host "[INFO] $Message" -ForegroundColor Green
 }
 
+# Make sure Chocolatey and its databases are up to date
+choco upgrade chocolatey -y
+choco outdated
+choco upgrade all -y
+
 # Install Google Chrome
 if (-not (Get-Command chrome -ErrorAction SilentlyContinue)) {
     Log "Installing Google Chrome..."
-    choco install googlechrome -y
+    choco install googlechrome -y --ignore-checksums
 } else {
     Log "Google Chrome is already installed."
 }
@@ -25,7 +30,7 @@ if (-not (Get-Command chrome -ErrorAction SilentlyContinue)) {
 # Install VS Code
 if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
     Log "Installing Visual Studio Code..."
-    choco install vscode -y
+    choco install vscode -y --ignore-checksums
 } else {
     Log "Visual Studio Code is already installed."
 }
@@ -33,7 +38,7 @@ if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
 # Install Windows Terminal
 if (-not (Get-Command wt -ErrorAction SilentlyContinue)) {
     Log "Installing Windows Terminal..."
-    choco install microsoft-windows-terminal -y
+    choco install microsoft-windows-terminal -y --ignore-checksums
 } else {
     Log "Windows Terminal is already installed."
 }

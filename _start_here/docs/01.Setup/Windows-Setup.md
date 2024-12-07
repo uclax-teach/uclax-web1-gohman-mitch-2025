@@ -21,7 +21,7 @@ _Note: When you run these installations scripts at some point your computer will
 TODO: UPDATE THE FOLLOWING TO MATCH ACTUAL PATH ON REMOTE REPO
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/windows11/1.install-windows-wsl.ps1" -UseBasicParsing | Invoke-Expression
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/1.install-wsl.ps1" -UseBasicParsing | Invoke-Expression
 ```
 
 3. Restart your computer
@@ -29,7 +29,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https:
 5. type the following command and press enter
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/windows11/2.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/2.install-chocolatey-apps.ps1" -UseBasicParsing | Invoke-Expression
 ```
 
 ## Windows Step 2: Clone Repo and Install Dependencies
@@ -41,7 +41,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https:
 5. Run the following command
 
 ```bash
-sudo bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/wsl.install-2024.12.06.17.51.sh)"
+sudo bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_start_here/scripts/win11-v1/3.wsl-bash-install.sh)"
 ```
 
 1. Enter your Ubuntu WSL password your set up earlier
