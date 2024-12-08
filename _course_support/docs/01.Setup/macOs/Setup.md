@@ -15,7 +15,7 @@
 3. paste the following, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v3/1.macOs-mac-apps-part1.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v4/1.macOs-mac-apps-part1.sh)"
     ```
 
 4. If asked, enter your macOS System password
@@ -26,7 +26,7 @@
 9. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v3/2.macOs-mac-apps-part2.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v4/2.macOs-mac-apps-part2.sh)"
     ```
 
 10. Quit macOS terminal
@@ -42,7 +42,7 @@ Your course folder should now be on your desktop (e.g. UCLAX-Web1-Lastname-First
 5. paste the following in the terminal, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v3/3.macOs-zsh-course-folder.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v4/3.macOs-zsh-course-folder.sh)"
     ```
 
 ## Setup and Connect to Github

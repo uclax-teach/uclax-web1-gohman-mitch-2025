@@ -98,12 +98,6 @@ echo "Sourcing $PROFILE_FILE to apply changes..."
 source "$PROFILE_FILE" || echo "Failed to source $PROFILE_FILE. Please restart your shell."
 
 #-------------------------------------------------
-# Tap casks
-#-------------------------------------------------
-echo "Tapping Homebrew casks..."
-brew tap homebrew/cask || abort "Failed to tap Homebrew cask."
-
-#-------------------------------------------------
 # Install VS Code
 #-------------------------------------------------
 echo "$scriptTitle Installing VS Code..."
