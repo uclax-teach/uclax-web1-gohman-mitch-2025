@@ -13,10 +13,8 @@ fi
 #-------------------------------------------------
 # Props
 #-------------------------------------------------
-osTitle="WSL: Linux: Project Folder:"
 courseName="UCLAX-Web1"
-scriptTitle="${courseName} Setup: ${osTitle}: Finish:"
-
+scriptTitle="${courseName} WSL: Ubuntu: Course Folder:"
 
 #-------------------------------------------------
 # Start the party
@@ -26,14 +24,14 @@ echo "$scriptTitle Start"
 #-------------------------------------------------
 # Create env from example
 #-------------------------------------------------
-echo "$osTitle Create .env from .env.example"
+echo "$scriptTitle Create .env from .env.example"
 cp .env.example .env
 
 #-------------------------------------------------
 # Install Dependencies
 #-------------------------------------------------
 if [ -f package.json ]; then
-    echo "$osTitle Running npm install"
+    echo "$scriptTitle Running npm install"
     npm install
 else
     echo "No package.json found. Skipping npm install."
@@ -63,7 +61,7 @@ echo "All extensions installed successfully."
 #-------------------------------------------------
 # Git: Reset and Fresh Commit
 #-------------------------------------------------
-echo "$osTitle Git: Reset and Fresh Commit"
+echo "$scriptTitle Git: Reset and Fresh Commit"
 sudo rm -rf .git
 git init
 git add .
@@ -72,14 +70,14 @@ git commit -m "Git Clean and First Commit"
 #-------------------------------------------------
 # GitHub: Reset and Fresh Commit
 #-------------------------------------------------
-echo "$osTitle Opening Github Signup"
+echo "$scriptTitle Opening Github Signup"
 xdg-open https://github.com/join
 
 #-------------------------------------------------
 # Run the app
 #-------------------------------------------------
 if [ -f package.json ]; then
-    echo "$osTitle NPM run dev"
+    echo "$scriptTitle NPM run dev"
     npm run dev
 else
     echo "No package.json found. Skipping NPM run dev."
@@ -88,4 +86,4 @@ fi
 #-------------------------------------------------
 # Done
 #-------------------------------------------------
-echo "$osTitle Completed"
+echo "$scriptTitle Completed"

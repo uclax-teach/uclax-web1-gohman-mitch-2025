@@ -13,9 +13,8 @@ fi
 #-------------------------------------------------
 # Props
 #-------------------------------------------------
-osTitle="WSL: Linux: Root: Oh My Zsh Config:"
 courseName="UCLAX-Web1"
-scriptTitle="${courseName} Setup: ${osTitle}:"
+scriptTitle="${courseName} WSL: Ubuntu: Root: Oh My Zsh Config:"
 
 
 #-------------------------------------------------
@@ -43,4 +42,4 @@ fi
 #-------------------------------------------------
 # Done
 #-------------------------------------------------
-echo "$osTitle Completed"
+echo "$scriptTitle Completed"

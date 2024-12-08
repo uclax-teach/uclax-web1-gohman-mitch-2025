@@ -1,6 +1,6 @@
 # Part 1: System Setup: Uclax Web 1: Windows
 
-[Back to Main](../../../readme.md)
+[Back to Main](../../../../readme.md)
 
 ## Pre Installation: Important Please Read
 
@@ -48,7 +48,7 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/2.wsl-bash-install-start.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/2.wsl-ubuntu-root-part1.sh)"
     ```
 
 7. If asked, enter your Ubuntu WSL password your set up earlier
@@ -59,7 +59,7 @@ _Note: When you run these installations scripts at some point your computer will
 12. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/3.wsl-bash-install-finish.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/3.wsl-ubuntu-root-part2.sh)"
     ```
 
 13. Close terminal by clicking trash icon in upper right of terminal
@@ -72,7 +72,7 @@ _Note: When you run these installations scripts at some point your computer will
 2. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/4.wsl-zsh-course-folder.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/4.wsl-ubuntu-course-folder.sh)"
     ```
 
     1. **Windows Firewall**: Choose "Allow" for Node
@@ -137,12 +137,4 @@ SSH keys are a secure way to connect to your Github account without having to co
 
 Ask Instructor to come in and review your setup and answer any questions you may have.
 
-### Troubleshooting
-
-1. Confirm Installations `node -v && npm -v && git -v`
-1. Windows Search > **Turn Windows Features on or off**, and make sure the following is enabled
-    1. Hyper-V
-    2. Virtual Machine Platform
-    3. Window Subsystem for Linux
-1. Confirm WSL Version 2 > Windows Search > **Windows Powershell** `wsl --list --verbose`
-    1. Virtualization Enabled Through BIOS (How old is your computer?) We may have to rely oin WSL 1
+[Windows Troubelshooting](./Troubleshooting.md)

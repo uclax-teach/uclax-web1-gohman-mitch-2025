@@ -13,5 +13,5 @@ We will use this during our first session to set up your **System** and **Final 
 
 ### Choose Your OS
 
--   [macOs Setup Instructions](./_course_support/docs/01.Setup/2.macOs-Setup.md)
--   [Windows Setup Instructions](./_course_support/docs/01.Setup/2.Windows-Setup.md)
+-   [macOs Setup Instructions](./_course_support/docs/01.Setup/macOs/Setup.md)
+-   [Windows Setup Instructions](./_course_support/docs/01.Setup/windows/Setup.md)
