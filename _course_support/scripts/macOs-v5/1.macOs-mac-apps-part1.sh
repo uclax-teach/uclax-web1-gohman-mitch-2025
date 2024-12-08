@@ -36,6 +36,11 @@ function toLowerCase {
 echo "$scriptTitle Starting"
 
 #-------------------------------------------------
+# Make sure they are on Desktop
+#-------------------------------------------------
+cd ~/Desktop
+
+#-------------------------------------------------
 # Capture User Details
 #-------------------------------------------------
 read -p "Enter your First Name: " userFirstName
@@ -154,7 +159,13 @@ git config --global core.editor "code --wait"
 #-------------------------------------------------
 courseFolderName="$courseName-$userLastName-$userFirstName"
 echo "$scriptTitle Cloning repository into $courseFolderName"
-git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
+
+# Check if the directory exists
+if [ -d "$courseFolderName" ]; then
+    echo "$scriptTitle Directory $courseFolderName already exists. Skipping repository clone."
+else
+    git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
+fi
 
 
 #-------------------------------------------------
@@ -165,9 +176,15 @@ if [ -n "$ZSH_VERSION" ]; then
     echo "Zsh is already the default shell."
 else
     brew install zsh || abort "Failed to install Zsh."
+
+    # Check if Zsh is in the list of valid shells
+    if ! grep -Fxq "/opt/homebrew/bin/zsh" /etc/shells; then
+        echo "/opt/homebrew/bin/zsh" | sudo tee -a /etc/shells || abort "Failed to add Zsh to /etc/shells."
+    fi
+
+    # Set Zsh as the default shell
     chsh -s "$(which zsh)" || abort "Failed to set Zsh as the default shell."
 fi
-
 #-------------------------------------------------
 # Install Oh My Zsh
 #-------------------------------------------------
