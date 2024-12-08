@@ -22,7 +22,7 @@ fi
 # Props
 #-------------------------------------------------
 courseName="UCLAX-Web1"
-scriptTitle="${courseName} Setup: macOS:"
+scriptTitle="[${courseName} macOS: Course Folder:]"
 
 #-------------------------------------------------
 # Start

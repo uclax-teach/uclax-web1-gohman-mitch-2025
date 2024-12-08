@@ -14,7 +14,7 @@ fi
 # Props
 #-------------------------------------------------
 courseName="UCLAX-Web1"
-scriptTitle="${courseName} WSL: Ubuntu: Root: Oh My Zsh Config:"
+scriptTitle="[${courseName}: WSL Ubuntu: Root Part2: Oh My Zsh Config:]"
 
 
 #-------------------------------------------------

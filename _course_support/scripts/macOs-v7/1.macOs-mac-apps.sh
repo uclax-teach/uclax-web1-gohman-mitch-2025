@@ -17,7 +17,7 @@ fi
 # Properties
 #-------------------------------------------------
 courseName="UCLAX-Web1"
-scriptTitle="${courseName} macOS Setup"
+scriptTitle="[${courseName} macOS: Apps:]"
 
 #-------------------------------------------------
 # Helper Methods

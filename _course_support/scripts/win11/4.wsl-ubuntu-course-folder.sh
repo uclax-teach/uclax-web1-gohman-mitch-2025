@@ -14,7 +14,7 @@ fi
 # Props
 #-------------------------------------------------
 courseName="UCLAX-Web1"
-scriptTitle="${courseName} WSL: Ubuntu: Course Folder:"
+scriptTitle="[${courseName}: WSL Ubuntu: Course Folder:]"
 
 #-------------------------------------------------
 # Start the party

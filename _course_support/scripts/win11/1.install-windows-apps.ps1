@@ -15,7 +15,7 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 # Function to log messages
 function Log {
     param ([string]$Message)
-    Write-Host "[INFO] $Message" -ForegroundColor Green
+    Write-Host "[UCLAX-Web1: Win Apps] $Message" -ForegroundColor Green
 }
 
 #-------------------------------------------------
