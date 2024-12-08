@@ -49,14 +49,7 @@ userEmail=$(toLowerCase "$userEmail")
 
 echo "$scriptTitle User: $userFirstName $userLastName, Email: $userEmail"
 
-#-------------------------------------------------
-# Configure Git
-#-------------------------------------------------
-echo "$scriptTitle Configuring Git..."
-git config --global user.name "$userFirstName $userLastName" || abort "Failed to configure Git user.name."
-git config --global user.email "$userEmail" || abort "Failed to configure Git user.email."
-git config --global init.defaultBranch "master"
-git config --global core.editor "code --wait"
+
 
 #-------------------------------------------------
 # Clone Starter Repository
@@ -64,6 +57,24 @@ git config --global core.editor "code --wait"
 courseFolderName="$courseName-$userLastName-$userFirstName"
 echo "$scriptTitle Cloning repository into $courseFolderName"
 git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
+
+
+#-------------------------------------------------
+# XCode
+#-------------------------------------------------
+if ! xcode-select --print-path &>/dev/null; then
+    echo "$scriptTitle Xcode Command Line Tools will now install. Follow the on-screen instructions to complete installation."
+
+    xcode-select --install
+
+    echo "Waiting for Xcode Command Line Tools to finish installation..."
+
+    until xcode-select --print-path &>/dev/null; do
+        sleep 5
+    done
+else
+    echo "$scriptTitle Xcode Command Line Tools already installed."
+fi
 
 #-------------------------------------------------
 # Install or Update Homebrew
@@ -77,7 +88,7 @@ else
     brew update || abort "Homebrew update failed."
 fi
 
-brew tap homebrew/cask
+brew tap homebrew/cask || abort "Failed to tap Homebrew cask."
 
 #-------------------------------------------------
 # Install VS Code
@@ -92,14 +103,14 @@ echo "$scriptTitle Installing NVM..."
 if [ ! -d "$HOME/.nvm" ]; then
     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash || abort "Failed to install NVM."
     export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" || abort "Failed to source NVM."
 else
     echo "NVM is already installed."
 fi
 
+
 echo "$scriptTitle NVM: Install Node Version 20.18.1 and Set as default"
 nvm install v20.18.1 || abort "Failed to install Node.js."
-nvm use v20.18.1 || abort "Failed to use Node.js."
 nvm alias default v20.18.1 || abort "Failed to set Node.js as default."
 
 #-------------------------------------------------
@@ -132,6 +143,27 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 else
     echo "Oh My Zsh is already installed."
 fi
+
+
+#-------------------------------------------------
+# Install/Update Git
+#-------------------------------------------------
+if brew ls --versions git &>/dev/null; then
+    echo "Git already installed. Updating Git..."
+    brew upgrade git
+else
+    echo "Installing Git..."
+    brew install git
+fi
+
+# Configure Git
+#-------------------------------------------------
+echo "$scriptTitle Configuring Git..."
+git config --global user.name "$userFirstName $userLastName" || abort "Failed to configure Git user.name."
+git config --global user.email "$userEmail" || abort "Failed to configure Git user.email."
+git config --global init.defaultBranch "master"
+git config --global core.editor "code --wait"
+
 
 #-------------------------------------------------
 # Completion

@@ -4,6 +4,12 @@
 
 ## Install Mac Apps
 
+### Heads Up
+
+-   Note: You will be prompted to install Xcode Command Line Tools via a system dialog. This is a separate window, and will require you to provide your macOs System Admin password (the one you use to log into your computer).
+
+### Steps
+
 1. Open macOS Terminal App
 2. type the following `cd ~/Desktop`
 3. paste the following, and press enter
