@@ -14,7 +14,7 @@
 2. paste the following, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v5/1.macOs-mac-apps-part1.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v6/1.macOs-mac-apps-part1.sh)"
     ```
 
 3. If asked, enter your macOS System password
@@ -25,7 +25,7 @@
 8. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v5/2.macOs-mac-apps-part2.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v6/2.macOs-mac-apps-part2.sh)"
     ```
 
 9. Quit macOS terminal
@@ -34,14 +34,15 @@
 
 Your course folder should now be on your desktop (e.g. UCLAX-Web1-Lastname-First).
 
-1. **Open VS Code**
-2. Choose **File / Open Folder**
-3. Select your course folder on the Desktop (e.g. UCLAX-Web1-Lastname-First), and press open
-4. Choose **Terminal / New Terminal**
-5. paste the following in the terminal, and press enter
+1. **Open Visual Studio Code**
+2. _Tip: you may want to pin to your Dock as this is our go to app for the rest of the course_
+3. Choose **File / Open Folder**
+4. Select your course folder on the Desktop (e.g. UCLAX-Web1-Lastname-First), and press open
+5. Choose **Terminal / New Terminal**
+6. paste the following in the terminal, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v5/3.macOs-zsh-course-folder.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v6/3.macOs-zsh-course-folder.sh)"
     ```
 
 ## Setup and Connect to Github

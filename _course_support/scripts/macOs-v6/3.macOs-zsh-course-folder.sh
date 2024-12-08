@@ -13,11 +13,6 @@ if [ -z "${BASH_VERSION:-}" ]; then
     abort "Bash is required to interpret this script."
 fi
 
-# Check for jq dependency
-if ! command -v jq &>/dev/null; then
-    abort "jq is required but not installed. Please install jq and re-run the script."
-fi
-
 # Check for code CLI (Visual Studio Code)
 if ! command -v code &>/dev/null; then
     abort "The 'code' CLI (Visual Studio Code) is required but not installed. Please install VS Code and ensure the CLI is enabled."

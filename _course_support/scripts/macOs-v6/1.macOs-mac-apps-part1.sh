@@ -89,6 +89,7 @@ BREW_PATH="/opt/homebrew/bin"
 
 # Add Homebrew to the PATH in .zshrc
 PROFILE_FILE="$HOME/.zshrc"
+ZSH_LOCAL_FILE="$HOME/.zshrc.local"
 
 # Check if Homebrew is already in PATH to avoid duplicates
 if ! grep -q "$BREW_PATH" "$PROFILE_FILE"; then
@@ -98,9 +99,32 @@ else
     echo "Homebrew is already in PATH in $PROFILE_FILE."
 fi
 
+# Add Homebrew to .zshrc.local if not already added
+if ! grep -q "$BREW_PATH" "$ZSH_LOCAL_FILE"; then
+    echo "Adding Homebrew to $ZSH_LOCAL_FILE..."
+    echo "export PATH=\"$BREW_PATH:\$PATH\"" >> "$ZSH_LOCAL_FILE"
+fi
+
+# Add NVM_DIR to .zshrc.local if not already added
+if ! grep -q "export NVM_DIR=\"$HOME/.nvm\"" "$ZSH_LOCAL_FILE"; then
+    echo "Adding NVM_DIR to $ZSH_LOCAL_FILE..."
+    echo "export NVM_DIR=\"$HOME/.nvm\"" >> "$ZSH_LOCAL_FILE"
+fi
+
 # Source the profile to apply changes
 echo "Sourcing $PROFILE_FILE to apply changes..."
 source "$PROFILE_FILE" || echo "Failed to source $PROFILE_FILE. Please restart your shell."
+
+
+#-------------------------------------------------
+# Install jq
+#-------------------------------------------------
+if ! command -v jq &> /dev/null; then
+    echo "jq is not installed. Installing jq..."
+    brew install jq || abort "Failed to install jq"
+else
+    echo "jq is already installed."
+fi
 
 #-------------------------------------------------
 # Install VS Code
@@ -119,7 +143,6 @@ if [ ! -d "$HOME/.nvm" ]; then
 else
     echo "NVM is already installed."
 fi
-
 
 echo "$scriptTitle NVM: Install Node Version 20.18.1 and Set as default"
 nvm install v20.18.1 || abort "Failed to install Node.js."
@@ -167,7 +190,6 @@ else
     git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
 fi
 
-
 #-------------------------------------------------
 # Install Zsh
 #-------------------------------------------------
@@ -185,6 +207,7 @@ else
     # Set Zsh as the default shell
     chsh -s "$(which zsh)" || abort "Failed to set Zsh as the default shell."
 fi
+
 #-------------------------------------------------
 # Install Oh My Zsh
 #-------------------------------------------------
@@ -195,6 +218,20 @@ else
     echo "Oh My Zsh is already installed."
 fi
 
+#-------------------------------------------------
+# Customize ~/.zshrc.local
+#-------------------------------------------------
+ZSHRC_LOCAL="$HOME/.zshrc.local"
+
+# Add NVM_DIR and source NVM
+echo "export NVM_DIR=\"$HOME/.nvm\"" >> "$ZSHRC_LOCAL"
+echo "[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"" >> "$ZSHRC_LOCAL"
+echo "[ -s \"\$NVM_DIR/bash_completion\" ] && . \"\$NVM_DIR/bash_completion\"" >> "$ZSHRC_LOCAL"
+
+#-------------------------------------------------
+# Update .zshrc to source .zshrc.local
+#-------------------------------------------------
+echo "source \$HOME/.zshrc.local" >> "$PROFILE_FILE"
 
 #-------------------------------------------------
 # Completion
