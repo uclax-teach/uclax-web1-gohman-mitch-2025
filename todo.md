@@ -25,6 +25,8 @@
         -   [ ] sendgrid has a free plan
         -   [ ] See ChatGPT `NextJS: SendGrid`
     -   [ ] Add a lesson for Favicon `icon.png`?
+-   [ ] Record Course Videos
+    -   [ ] use gmail+ to demo setting up github, etc
 
 ## Before Screen Recording Build
 
