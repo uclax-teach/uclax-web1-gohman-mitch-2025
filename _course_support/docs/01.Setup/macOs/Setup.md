@@ -14,7 +14,7 @@
 2. paste the following, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/1.macOs-mac-apps-part1.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/1.macOs-mac-apps.sh)"
     ```
 
 3. If asked, enter your macOS System password
@@ -22,13 +22,7 @@
 5. When prompted, provide your First, Last and Email (this will be used to set up your folder)
 6. Answer any prompts that show up
 7. Say YES to making ZSH as your default terminal
-8. Run the following command
-
-    ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/2.macOs-mac-apps-part2.sh)"
-    ```
-
-9. Quit macOS terminal
+8. Quit macOS terminal
 
 ## Setup Course Folder
 
@@ -42,7 +36,7 @@ Your course folder should now be on your desktop (e.g. UCLAX-Web1-Lastname-First
 6. paste the following in the terminal, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/3.macOs-zsh-course-folder.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/2.macOs-zsh-course-folder.sh)"
     ```
 
 ## Setup and Connect to Github
