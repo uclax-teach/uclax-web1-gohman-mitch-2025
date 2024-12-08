@@ -14,7 +14,7 @@
 2. paste the following, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v6/1.macOs-mac-apps-part1.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/1.macOs-mac-apps-part1.sh)"
     ```
 
 3. If asked, enter your macOS System password
@@ -25,7 +25,7 @@
 8. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v6/2.macOs-mac-apps-part2.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/2.macOs-mac-apps-part2.sh)"
     ```
 
 9. Quit macOS terminal
@@ -42,7 +42,7 @@ Your course folder should now be on your desktop (e.g. UCLAX-Web1-Lastname-First
 6. paste the following in the terminal, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v6/3.macOs-zsh-course-folder.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/3.macOs-zsh-course-folder.sh)"
     ```
 
 ## Setup and Connect to Github
@@ -53,6 +53,14 @@ Git and Github are essential tools used by developers to share and collaborate o
 
 1. Sign up for a [Github account](https://github.com/join)
 2. Log in to your [Github account](https://github.com/login)
+
+### Github: Set default repo branch to master
+
+1. After logging into your Github account, click your **profile icon** upper right
+2. Click **Settings**
+3. In left sidebar, click **Repositories**
+4. Under **Repository default branch** set value to **master**
+5. Click **Update**
 
 ### Github: Adding SSH Keys
 
@@ -73,14 +81,6 @@ SSH keys are a secure way to connect to your Github account without having to co
             3. Copy the text in the new file that shows up e.g. `ssh-ed25519 AAAAC3Nsfsddfsfgsdfgsdfgsdtrg meatched+ghub-win1@gmail.com`
         2. Paste into Github SSH Key field
     7. Click **Add SSH Key**
-
-### Github: Set default repo branch to master
-
-1. After logging into your Github account, click your **profile icon** upper right
-2. Click **Settings**
-3. In left sidebar, click **Repositories**
-4. Under **Repository default branch** set value to **master**
-5. Click **Update**
 
 ### Github: Create and Connect New Repo
 

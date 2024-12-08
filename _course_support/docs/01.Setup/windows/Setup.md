@@ -92,6 +92,14 @@ Git and Github are essential tools used by developers to share and collaborate o
 1. Sign up for a [Github account](https://github.com/join)
 2. Log in to your [Github account](https://github.com/login)
 
+### Github: Set default repo branch to master
+
+1. After logging into your Github account, click your **profile icon** upper right
+2. Click **Settings**
+3. In left sidebar, click **Repositories**
+4. Under **Repository default branch** set value to **master**
+5. Click **Update**
+
 ### Github: Adding SSH Keys
 
 SSH keys are a secure way to connect to your Github account without having to constantly provide username and password.
@@ -111,14 +119,6 @@ SSH keys are a secure way to connect to your Github account without having to co
             3. Copy the text in the new file that shows up e.g. `ssh-ed25519 AAAAC3Nsfsddfsfgsdfgsdfgsdtrg meatched+ghub-win1@gmail.com`
         2. Paste into Github SSH Key field
     7. Click **Add SSH Key**
-
-### Github: Set default repo branch to master
-
-1. After logging into your Github account, click your **profile icon** upper right
-2. Click **Settings**
-3. In left sidebar, click **Repositories**
-4. Under **Repository default branch** set value to **master**
-5. Click **Update**
 
 ### Github: Create and Connect New Repo
 
