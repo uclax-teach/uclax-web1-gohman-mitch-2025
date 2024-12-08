@@ -49,16 +49,6 @@ userEmail=$(toLowerCase "$userEmail")
 
 echo "$scriptTitle User: $userFirstName $userLastName, Email: $userEmail"
 
-
-
-#-------------------------------------------------
-# Clone Starter Repository
-#-------------------------------------------------
-courseFolderName="$courseName-$userLastName-$userFirstName"
-echo "$scriptTitle Cloning repository into $courseFolderName"
-git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
-
-
 #-------------------------------------------------
 # XCode
 #-------------------------------------------------
@@ -124,6 +114,33 @@ else
 fi
 
 #-------------------------------------------------
+# Install/Update Git
+#-------------------------------------------------
+if brew ls --versions git &>/dev/null; then
+    echo "Git already installed. Updating Git..."
+    brew upgrade git
+else
+    echo "Installing Git..."
+    brew install git
+fi
+
+# Configure Git
+#-------------------------------------------------
+echo "$scriptTitle Configuring Git..."
+git config --global user.name "$userFirstName $userLastName" || abort "Failed to configure Git user.name."
+git config --global user.email "$userEmail" || abort "Failed to configure Git user.email."
+git config --global init.defaultBranch "master"
+git config --global core.editor "code --wait"
+
+#-------------------------------------------------
+# Clone Starter Repository
+#-------------------------------------------------
+courseFolderName="$courseName-$userLastName-$userFirstName"
+echo "$scriptTitle Cloning repository into $courseFolderName"
+git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
+
+
+#-------------------------------------------------
 # Install Zsh
 #-------------------------------------------------
 echo "$scriptTitle Installing Zsh..."
@@ -143,26 +160,6 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 else
     echo "Oh My Zsh is already installed."
 fi
-
-
-#-------------------------------------------------
-# Install/Update Git
-#-------------------------------------------------
-if brew ls --versions git &>/dev/null; then
-    echo "Git already installed. Updating Git..."
-    brew upgrade git
-else
-    echo "Installing Git..."
-    brew install git
-fi
-
-# Configure Git
-#-------------------------------------------------
-echo "$scriptTitle Configuring Git..."
-git config --global user.name "$userFirstName $userLastName" || abort "Failed to configure Git user.name."
-git config --global user.email "$userEmail" || abort "Failed to configure Git user.email."
-git config --global init.defaultBranch "master"
-git config --global core.editor "code --wait"
 
 
 #-------------------------------------------------
