@@ -69,6 +69,7 @@ fi
 #-------------------------------------------------
 # Install or Update Homebrew
 #-------------------------------------------------
+scriptTitle="Homebrew Installation Script"
 echo "$scriptTitle Checking Homebrew..."
 if ! command -v brew &>/dev/null; then
     echo "Installing Homebrew..."
@@ -78,6 +79,28 @@ else
     brew update || abort "Homebrew update failed."
 fi
 
+# Homebrew path
+BREW_PATH="/opt/homebrew/bin"
+
+# Add Homebrew to the PATH in .zshrc
+PROFILE_FILE="$HOME/.zshrc"
+
+# Check if Homebrew is already in PATH to avoid duplicates
+if ! grep -q "$BREW_PATH" "$PROFILE_FILE"; then
+    echo "Adding Homebrew to PATH in $PROFILE_FILE..."
+    echo "export PATH=\"$BREW_PATH:\$PATH\"" >> "$PROFILE_FILE"
+else
+    echo "Homebrew is already in PATH in $PROFILE_FILE."
+fi
+
+# Source the profile to apply changes
+echo "Sourcing $PROFILE_FILE to apply changes..."
+source "$PROFILE_FILE" || echo "Failed to source $PROFILE_FILE. Please restart your shell."
+
+#-------------------------------------------------
+# Tap casks
+#-------------------------------------------------
+echo "Tapping Homebrew casks..."
 brew tap homebrew/cask || abort "Failed to tap Homebrew cask."
 
 #-------------------------------------------------
