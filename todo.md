@@ -14,6 +14,9 @@
     -   [x] styled theme with normalize.css module
 -   [ ] `npm run backend:dev` without VITE BUILD?
 -   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`
+    -   [ ] How to make sure they are in their course folder before running script
+        -   [ ] it git inits whatever folder they are in
+        -   [ ] I made the mistake, so can they
     -   [ ] MacOS
     -   [ ] Windows
         -   [x] add "VS Code Remote Development" plugin to app extensions
