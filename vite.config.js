@@ -19,7 +19,9 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            "@": "/src/frontend", // Alias for frontend files
+            "@Theme": "/App/Theme",
+            "@Layout": "/App/Layout",
+            "@Pages": "/App/Pages",
         },
     },
     build: {

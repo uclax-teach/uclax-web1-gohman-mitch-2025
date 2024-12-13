@@ -7,7 +7,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 
 // styles
-import Theme from "./Theme";
+import Theme from "@Theme";
 const LayoutStyled = styled.div``;
 
 const Layout = ({ children }) => {

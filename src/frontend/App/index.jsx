@@ -1,22 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // useMediaQuery
-import { MediaQueryProvider } from "/App/Layout/Theme/media/index.js";
+import { MediaQueryProvider } from "@Theme/media/index.js";
 
 // Layout
 import Layout from "./Layout/index";
 
 // Pages :: Primary
-import Home from "./Pages/Home";
-import Staff from "./Pages/Staff";
-import Contact from "./Pages/Contact";
+import Home from "@Pages/Home";
+import Staff from "@Pages/Staff";
+import Contact from "@Pages/Contact";
 
 // Pages :: CourseWork
-import CourseWork from "./Pages/CourseWork/index";
-import Essays from "./Pages/CourseWork/Subpages/Essays/index.jsx";
-import SunAndMoon from "./Pages/CourseWork/Subpages/SunAndMoon.jsx";
-import ResponsiveDesign from "./Pages/CourseWork/Subpages/ResponsiveDesign.jsx";
-import Fundamentals from "./Pages/CourseWork/Subpages/Fundamentals.jsx";
+import CourseWork from "@Pages/CourseWork/index";
+import Essays from "@Pages/CourseWork/Subpages/Essays/index.jsx";
+import SunAndMoon from "@Pages/CourseWork/Subpages/SunAndMoon.jsx";
+import ResponsiveDesign from "@Pages/CourseWork/Subpages/ResponsiveDesign.jsx";
+import Fundamentals from "@Pages/CourseWork/Subpages/Fundamentals.jsx";
 
 const App = () => {
     return (

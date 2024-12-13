@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { cssMedia, useMediaQuery } from "/App/Layout/Theme/media/index.js";
+import { cssMedia, useMediaQuery } from "@Theme/media/index.js";
 
 const ResponsiveDesignStyled = styled.div`
     background-color: orange;
