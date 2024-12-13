@@ -1,18 +1,18 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const Nav = () => {
+const PrimaryNav = () => {
     return (
-        <NavStyled className="sublinks">
+        <PrimaryNavStyled>
             <NavLink to={"/"} end>
                 Home
             </NavLink>
             <NavLink to={"/staff"}>Staff</NavLink>
             <NavLink to={"/course-work"}>Course</NavLink>
-        </NavStyled>
+        </PrimaryNavStyled>
     );
 };
 
-export default Nav;
+export default PrimaryNav;
 
-const NavStyled = styled.nav``;
+const PrimaryNavStyled = styled.nav``;
