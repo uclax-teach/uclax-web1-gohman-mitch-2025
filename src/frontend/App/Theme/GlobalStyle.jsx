@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         overflow-y: scroll;
         background-color: ${(props) => props.theme.colors.primary.default};
+        color: ${(props) => props.theme.colors.secondary.light};
         min-width: 300px;
     }
 
@@ -21,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     main {
         padding: 30px;
         background-color: ${(props) => props.theme.colors.secondary.default};
+        color: ${(props) => props.theme.colors.secondary.dark};
     }
 
     * {
@@ -81,7 +83,21 @@ const GlobalStyle = createGlobalStyle`
         border: 0;
     }
 
-    nav.sublinks {
+    nav {
+        ul {
+            padding: 0px;
+            margin: 0px;
+
+            li {
+                display: inline-block;
+                list-style-type: none;
+                margin: 0px;
+            }
+        }
+    }
+
+
+    nav.content {
         margin: 30px 0px;
 
         a {

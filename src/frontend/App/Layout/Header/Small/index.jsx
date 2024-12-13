@@ -1,18 +1,24 @@
+import styled from "styled-components";
+
 // components
-import PrimaryNav from "../PrimaryNav";
+import SmLogo from "./SmLogo";
+import SmMenu from "./SmMenu";
 import Hamburger from "./Hamburger";
 
+// styles
+const SmallStyled = styled.div``;
+
 const Small = () => {
-    const toggleMenu = (e) => {
+    const toggleMenu = () => {
         console.log({ toggleMenu: true });
     };
 
     return (
-        <div>
-            Small
+        <SmallStyled>
             <Hamburger onClick={toggleMenu} />
-            <PrimaryNav />
-        </div>
+            <SmLogo />
+            <SmMenu />
+        </SmallStyled>
     );
 };
 

@@ -1,20 +1,11 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
-const UnstyledButtonStyled = styled.div``;
-
-const UnstyledButton = ({ onClick, children }) => {
-    return (
-        <UnstyledButtonStyled onClick={onClick}>
-            {children}
-        </UnstyledButtonStyled>
-    );
-};
+const UnstyledButton = styled.button`
+    all: unset;
+    cursor: pointer; /* Add if you want the button to behave like a clickable element */
+    display: inline-flex; /* Optional: Ensures alignment for children like icons or text */
+    align-items: center; /* Optional */
+    justify-content: center; /* Optional */
+`;
 
 export default UnstyledButton;
-
-// prop-types
-UnstyledButton.propTypes = {
-    children: PropTypes.any,
-    onClick: PropTypes.func.isRequired,
-};
