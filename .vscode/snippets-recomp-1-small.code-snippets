@@ -1,0 +1,14 @@
+{
+    "React Component: Small": {
+        "scope": "",
+        "prefix": "recomp-1-small",
+        "body": [
+            "const ${1:$TM_FILENAME_BASE} = () => {",
+            "\treturn <div>${1:$TM_FILENAME_BASE}</div>;",
+            "};",
+            "",
+            "export default ${1:$TM_FILENAME_BASE};"
+        ],
+        "description": "React Component"
+    }
+}
