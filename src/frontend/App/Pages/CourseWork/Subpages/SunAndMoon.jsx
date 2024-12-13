@@ -1,5 +1,9 @@
 const SunAndMoon = () => {
-    return <div>SunAndMoon</div>;
+    return (
+        <div>
+            <h2>SunAndMoon</h2>
+        </div>
+    );
 };
 
 export default SunAndMoon;

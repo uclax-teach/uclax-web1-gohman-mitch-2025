@@ -15,7 +15,11 @@ const ResponsiveDesign = () => {
 
     // console.log({ jsMedia });
 
-    return <ResponsiveDesignStyled>ResponsiveDesign</ResponsiveDesignStyled>;
+    return (
+        <ResponsiveDesignStyled>
+            <h2>Responsive Design</h2>
+        </ResponsiveDesignStyled>
+    );
 };
 
 export default ResponsiveDesign;

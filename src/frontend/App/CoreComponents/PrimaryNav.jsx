@@ -32,7 +32,9 @@ const PrimaryNav = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={"/course-work/fundamentals"}>
+                            <NavLink
+                                to={"/course-work/javascript-fundamentals"}
+                            >
                                 JS Fundamentals
                             </NavLink>
                         </li>
