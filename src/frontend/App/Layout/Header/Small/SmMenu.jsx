@@ -1,16 +1,12 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-// styles
-// FIXME: Does Styles Components offer a way to access this object through the Provider?
-import { theme } from "@Theme/theme";
-
 // components
 import PrimaryNav from "@CoreComponents/PrimaryNav";
 
 // styles
 const SmMenuStyled = styled.div`
-    background-color: ${theme.colors.primary.default};
+    background-color: ${({ theme }) => theme.colors.primary.default};
     position: fixed;
     top: 300px;
     left: 0px;
@@ -27,11 +23,13 @@ const SmMenuStyled = styled.div`
                     display: block;
                     padding: 0px 20px;
                     line-height: 40px;
-                    background-color: ${theme.colors.primary.default};
-                    border-bottom: solid 1px ${theme.colors.primary.light};
+                    background-color: ${({ theme }) =>
+                        theme.colors.primary.default};
+                    border-bottom: solid 1px
+                        ${({ theme }) => theme.colors.primary.light};
 
                     font-size: 12px;
-                    color: ${theme.colors.primary.light};
+                    color: ${({ theme }) => theme.colors.primary.light};
                     font-weight: bold;
                     text-decoration: none;
                     text-transform: uppercase;
@@ -39,14 +37,16 @@ const SmMenuStyled = styled.div`
                     &:hover,
                     &:active,
                     &:focus {
-                        color: ${theme.colors.secondary.light};
-                        background-color: ${theme.colors.primary.dark};
+                        color: ${({ theme }) => theme.colors.secondary.light};
+                        background-color: ${({ theme }) =>
+                            theme.colors.primary.dark};
                     }
                 }
 
                 &:first-child {
                     a {
-                        border-top: solid 1px ${theme.colors.primary.light};
+                        border-top: solid 1px
+                            ${({ theme }) => theme.colors.primary.light};
                     }
                 }
                 > ul {

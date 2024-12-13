@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-// styles
-// FIXME: Does Styles Components offer a way to access this object through the Provider?
-import { theme } from "@Theme/theme";
-
 // components
 import Logo from "@CoreComponents/Logo";
 
@@ -23,14 +19,14 @@ const FooterStyled = styled.footer`
     }
 
     h2 {
-        color: ${theme.colors.secondary.light};
+        color: ${({ theme }) => theme.colors.secondary.light};
         margin: 5px 0px;
         font-size: 14px;
     }
 
     .copyright {
         font-size: 14px;
-        color: ${theme.colors.secondary.light};
+        color: ${({ theme }) => theme.colors.secondary.light};
     }
 `;
 

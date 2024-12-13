@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-// styles
-// FIXME: Does Styles Components offer a way to access this object through the Provider?
-import { theme } from "@Theme/theme";
-
 // components
 import PrimaryNav from "@CoreComponents/PrimaryNav";
 
@@ -23,8 +19,9 @@ const MedLgMenuStyled = styled.div`
                     display: block;
                     width: 100%;
                     line-height: 30px;
-                    color: ${theme.colors.primary.light};
-                    border-bottom: solid 3px ${theme.colors.primary.light};
+                    color: ${({ theme }) => theme.colors.primary.light};
+                    border-bottom: solid 3px
+                        ${({ theme }) => theme.colors.primary.light};
 
                     text-align: center;
                     font-size: 12px;
@@ -40,8 +37,9 @@ const MedLgMenuStyled = styled.div`
                     }
 
                     &.active {
-                        color: ${theme.colors.secondary.light};
-                        border-bottom-color: ${theme.colors.secondary.light};
+                        color: ${({ theme }) => theme.colors.secondary.light};
+                        border-bottom-color: ${({ theme }) =>
+                            theme.colors.secondary.light};
                     }
                 }
 
@@ -62,13 +60,14 @@ const MedLgMenuStyled = styled.div`
                             display: block;
                             width: 100%;
                             line-height: 30px;
-                            background-color: ${theme.colors.primary.default};
+                            background-color: ${({ theme }) =>
+                                theme.colors.primary.default};
                             border-bottom: solid 3px
-                                ${theme.colors.primary.default};
+                                ${({ theme }) => theme.colors.primary.default};
 
                             text-align: center;
                             font-size: 12px;
-                            color: ${theme.colors.primary.light};
+                            color: ${({ theme }) => theme.colors.primary.light};
                             font-weight: bold;
                             text-decoration: none;
                             text-transform: uppercase;
@@ -76,8 +75,10 @@ const MedLgMenuStyled = styled.div`
                             &:hover,
                             &:active,
                             &:focus {
-                                color: ${theme.colors.secondary.light};
-                                background-color: ${theme.colors.primary.dark};
+                                color: ${({ theme }) =>
+                                    theme.colors.secondary.light};
+                                background-color: ${({ theme }) =>
+                                    theme.colors.primary.dark};
                             }
                         }
                     }
