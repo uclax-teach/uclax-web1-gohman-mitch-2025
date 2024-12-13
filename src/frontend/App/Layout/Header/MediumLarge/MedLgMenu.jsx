@@ -16,7 +16,6 @@ const MedLgMenuStyled = styled.div`
             > li {
                 position: relative;
                 width: 100px;
-                display: inline-block;
                 margin: 0px 5px;
                 padding-bottom: 20px;
 

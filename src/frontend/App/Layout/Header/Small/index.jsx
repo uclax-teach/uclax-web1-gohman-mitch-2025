@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 // components
@@ -9,15 +10,17 @@ import Hamburger from "./Hamburger";
 const SmallStyled = styled.div``;
 
 const Small = () => {
+    const [showMenu, setShowMenu] = useState(false);
+
     const toggleMenu = () => {
-        console.log({ toggleMenu: true });
+        setShowMenu(!showMenu);
     };
 
     return (
         <SmallStyled>
             <Hamburger onClick={toggleMenu} />
             <SmLogo />
-            <SmMenu />
+            {showMenu && <SmMenu setShowMenu={setShowMenu} />}
         </SmallStyled>
     );
 };

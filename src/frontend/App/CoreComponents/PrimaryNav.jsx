@@ -13,6 +13,9 @@ const PrimaryNav = () => {
                     <NavLink to={"/staff"}>Staff</NavLink>
                 </li>
                 <li>
+                    <NavLink to={"/contact"}>Contact</NavLink>
+                </li>
+                <li>
                     <NavLink to={"/course-work"}>Course</NavLink>
                     <ul>
                         <li>
