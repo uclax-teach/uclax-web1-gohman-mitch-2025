@@ -1,4 +1,8 @@
 export const theme = {
+    breakpoints: {
+        medium: 800,
+        large: 1200,
+    },
     fonts: {
         default: "'Helvetica Neue', sans-serif",
         roboto: '"Roboto", sans-serif',
