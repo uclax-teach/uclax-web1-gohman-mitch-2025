@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 // components
 import Inset from "@Layout/Inset";
-import BackLink from "@Core/components/Link/BackLink";
+import Breadcrumbs from "@Core/components/Link/Breadcrumbs";
 
 // styles
 const StaffMemberStyled = styled.div`
@@ -33,11 +33,16 @@ const StaffMember = () => {
 
     const { name, src } = member;
 
+    const crumbs = [
+        { id: 1, href: "/staff", text: "All Staff" },
+        { id: 2, text: "Staff Member" },
+    ];
+
     return (
         <Inset>
             <StaffMemberStyled>
-                <h1>Staff Member Bio</h1>
-                <BackLink href="/staff">Back to All Staff Members</BackLink>
+                <h1>Staff Member</h1>
+                <Breadcrumbs crumbs={crumbs} />
                 <img src={src} alt={name} />
                 <h2>{name}</h2>
             </StaffMemberStyled>
