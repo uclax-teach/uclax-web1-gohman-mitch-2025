@@ -9,6 +9,7 @@ import Layout from "./Layout/index";
 // Pages :: Primary
 import Home from "@Pages/Home";
 import Staff from "@Pages/Staff";
+import StaffMember from "@Pages/Staff/StaffMember";
 import Contact from "@Pages/Contact";
 
 // Pages :: CourseWork
@@ -18,14 +19,20 @@ import SunAndMoon from "@Pages/CourseWork/Subpages/SunAndMoon.jsx";
 import ResponsiveDesign from "@Pages/CourseWork/Subpages/ResponsiveDesign.jsx";
 import Fundamentals from "@Pages/CourseWork/Subpages/Fundamentals";
 
-const App = () => {
+const AppRoutes = () => {
     return (
         <MediaQueryProvider>
             <BrowserRouter>
                 <Layout>
                     <Routes>
                         <Route index element={<Home />} path="" />
-                        <Route element={<Staff />} path="/staff" />
+                        <Route path="/staff">
+                            <Route index element={<Staff />} path="/staff" />
+                            <Route
+                                element={<StaffMember />}
+                                path="/staff/:staffId"
+                            />
+                        </Route>
                         <Route element={<Contact />} path="/contact" />
                         <Route element={<CourseWork />} path="/course-work">
                             <Route element={<Assignments />} path="" />
@@ -49,4 +56,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default AppRoutes;

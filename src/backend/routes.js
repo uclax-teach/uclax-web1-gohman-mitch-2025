@@ -24,6 +24,12 @@ publicRoutes.get("/staff", (req, res) => {
     res.json(staff);
 });
 
+publicRoutes.get("/staff/:staffId", (req, res) => {
+    const staffId = req.params.staffId;
+    const member = staff.find((s) => s.id === Number(staffId)) || {};
+    res.json(member);
+});
+
 // Slideshow Slides
 publicRoutes.get("/slideshowSlides", (req, res) => {
     res.json(slideshowSlides);
