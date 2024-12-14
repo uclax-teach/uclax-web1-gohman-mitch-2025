@@ -27,6 +27,7 @@
     -   [x] Loading Spinner for AJAX calls
     -   [x] Meta Title > Helmet?
     -   [x] Add a lesson for Favicon `icon.png`?
+    -   [ ] JS Fundamentals: Replace console-feed with just using chrome console in dev tools - with message to open console.
     -   [ ] Emails via sendgrid (instead of using json-server)
         -   [ ] sendgrid has a free plan
         -   [ ] See ChatGPT `NextJS: SendGrid`
