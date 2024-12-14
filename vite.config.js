@@ -13,6 +13,7 @@ config({ path: resolve(__dirname, "./.env") });
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [react()],
+    assetsInclude: ["**/*.md"], // Ensure .md files are treated as assets
     root: "src/frontend", // Set the root folder to 'src'
     server: {
         port: 3999,
