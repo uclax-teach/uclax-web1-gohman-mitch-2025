@@ -45,16 +45,16 @@ const Breadcrumbs = ({ crumbs }) => {
         <BreadcrumbsStyled>
             {crumbs.map(({ id, href, text }) => {
                 return href ? (
-                    <div className="link-container">
-                        <Link key={id} to={href}>
-                            {text}
-                        </Link>
+                    <div key={id} className="link-container">
+                        <Link to={href}>{text}</Link>
                         <div className="icon">
                             <FontAwesomeIcon icon={faArrowRight} />
                         </div>
                     </div>
                 ) : (
-                    <div className="no-link">{text}</div>
+                    <div key={id} className="no-link">
+                        {text}
+                    </div>
                 );
             })}
         </BreadcrumbsStyled>
