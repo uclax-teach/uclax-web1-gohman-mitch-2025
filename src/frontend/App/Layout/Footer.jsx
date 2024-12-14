@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+// data
+import { config } from "@Core/config";
+
 // components
 import Logo from "@Core/components/Logo";
 
@@ -31,16 +34,19 @@ const FooterStyled = styled.footer`
 `;
 
 const Footer = () => {
+    const { studentName, title, location, tagline } = config.profile;
+
     return (
         <FooterStyled>
             <div className="logo">
                 <Logo />
             </div>
             <h2>
-                CrossFit Decimate :: Peace, Love, Unity, Fitness, Chill, and
-                Respect :: Colorado Springs, CO
+                {studentName} :: {title} :: {tagline} :: {location}
             </h2>
-            <div className="copyright">&copy; 2024. All rights reserved.</div>
+            <div className="copyright">
+                &copy; {new Date().getFullYear()}. All rights reserved.
+            </div>
         </FooterStyled>
     );
 };

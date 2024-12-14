@@ -1,8 +1,13 @@
+// components
+import Meta from "@Core/components/Meta";
+import Inset from "@Layout/Inset";
+
 const Home = () => {
     return (
-        <div>
+        <Inset>
+            <Meta />
             <h1>Home</h1>
-        </div>
+        </Inset>
     );
 };
 

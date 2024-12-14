@@ -1,8 +1,13 @@
+// components
+import Meta from "@Core/components/Meta";
+import Inset from "@Layout/Inset";
+
 const Contact = () => {
     return (
-        <div>
+        <Inset>
+            <Meta pageTitle="Contact" />
             <h1>Contact</h1>
-        </div>
+        </Inset>
     );
 };
 

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 // components
+import Meta from "@Core/components/Meta";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
     return (
         <Theme>
             <LayoutStyled>
+                <Meta />
                 <Header />
                 <Main>{children}</Main>
                 <Footer />
