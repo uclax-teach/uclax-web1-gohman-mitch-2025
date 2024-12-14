@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // useMediaQuery
-import { MediaQueryProvider } from "@Theme/media/index.js";
+import { MediaQueryProvider } from "@Theme/media/MediaQueryContext";
 
 // Layout
 import Layout from "./Layout/index";

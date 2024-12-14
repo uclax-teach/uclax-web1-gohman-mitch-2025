@@ -1,7 +1,16 @@
+const breakpoints = {
+    medium: 800,
+    large: 1200,
+};
+
 export const theme = {
-    breakpoints: {
-        medium: 800,
-        large: 1200,
+    cssMedia: {
+        isSmall: `(max-width: ${breakpoints.medium - 1}px)`,
+        isMediumAndUp: `(min-width: ${breakpoints.medium}px)`,
+        isMedium: `(min-width: ${breakpoints.medium}px) and (max-width: ${
+            breakpoints.large - 1
+        }px)`,
+        isLarge: `(min-width: ${breakpoints.large}px)`,
     },
     fonts: {
         default: "'Helvetica Neue', sans-serif",

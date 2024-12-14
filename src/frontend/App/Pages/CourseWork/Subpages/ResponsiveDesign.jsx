@@ -1,19 +1,17 @@
 import styled from "styled-components";
 
-import { cssMedia, useMediaQuery } from "@Theme/media/index.js";
+import { useMediaQuery } from "@Theme/media/MediaQueryContext";
 
 const ResponsiveDesignStyled = styled.div`
     background-color: orange;
 
-    ${cssMedia.isMediumAndUp} {
+    @media ${({ theme }) => theme.cssMedia.isMediumAndUp} {
         background-color: pink;
     }
 `;
 
 const ResponsiveDesign = () => {
     const { jsMedia } = useMediaQuery();
-
-    // console.log({ jsMedia });
 
     return (
         <ResponsiveDesignStyled>

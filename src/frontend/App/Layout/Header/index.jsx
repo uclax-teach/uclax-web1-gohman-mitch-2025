@@ -1,5 +1,5 @@
 // hooks
-import { useMediaQuery } from "@Theme/media";
+import { useMediaQuery } from "@Theme/media/MediaQueryContext";
 
 // components
 import Small from "./Small";
