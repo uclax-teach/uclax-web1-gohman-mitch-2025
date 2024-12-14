@@ -1,11 +1,9 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-
-// components
-import Link from ".";
 
 const BackLinkStyled = styled(Link)`
     display: inline-block;
