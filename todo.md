@@ -25,7 +25,7 @@
     -   [ ] Update system requirements
 -   [ ] Build to Final Web Application
     -   [ ] Loading Spinner for AJAX calls
-    -   [ ] Meta Title > Helmet?
+    -   [x] Meta Title > Helmet?
     -   [ ] Emails via sendgrid (instead of using json-server)
         -   [ ] sendgrid has a free plan
         -   [ ] See ChatGPT `NextJS: SendGrid`
