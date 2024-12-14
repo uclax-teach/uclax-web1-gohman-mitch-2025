@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Hook, Unhook, Console } from "console-feed";
+// import { Hook, Unhook, Console } from "console-feed";
 
 import styled from "styled-components";
 import PropTypes from "prop-types";
@@ -11,26 +11,37 @@ const JSConsoleStyled = styled.div`
     margin: 30px 0px;
 `;
 
-const JSConsole = ({ script }) => {
+const JSConsole = ({ scriptFunction }) => {
     const [logs, setLogs] = useState([]);
 
     useEffect(() => {
-        Hook(
-            window.console,
-            (log) => setLogs((currLogs) => [...currLogs, log]),
-            false
-        );
-        return () => Unhook(window.console);
+        const originalConsole = { ...console };
+
+        const patchedConsole = Object.keys(console).reduce((acc, method) => {
+            acc[method] = (...args) => {
+                setLogs((currLogs) => [...currLogs, { method, data: args }]);
+                originalConsole[method](...args);
+            };
+            return acc;
+        }, {});
+
+        Object.assign(console, patchedConsole);
+
+        return () => Object.assign(console, originalConsole); // Restore original
     }, []);
 
     useEffect(() => {
-        // Execute the external script
-        script();
-    }, []); // Trigger only on mount
+        scriptFunction();
+    }, [scriptFunction]);
 
     return (
         <JSConsoleStyled>
-            <Console logs={logs} variant="dark" />
+            {logs.map((log, idx) => (
+                <div key={idx}>
+                    <strong>{log.method.toUpperCase()}:</strong>{" "}
+                    {log.data.join(" ")}
+                </div>
+            ))}
         </JSConsoleStyled>
     );
 };
@@ -39,5 +50,5 @@ export default JSConsole;
 
 // prop-types
 JSConsole.propTypes = {
-    script: PropTypes.func.isRequired,
+    scriptFunction: PropTypes.func.isRequired,
 };

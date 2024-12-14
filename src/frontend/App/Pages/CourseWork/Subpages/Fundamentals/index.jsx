@@ -11,10 +11,10 @@ const Fundamentals = () => {
             <h2>JS Fundamentals</h2>
 
             <h3>Functions</h3>
-            <JSConsole script={decFunctions} />
+            <JSConsole scriptFunction={decFunctions} />
 
             <h3>Comments and Logs</h3>
-            <JSConsole script={commentsLogs} />
+            <JSConsole scriptFunction={commentsLogs} />
         </div>
     );
 };
