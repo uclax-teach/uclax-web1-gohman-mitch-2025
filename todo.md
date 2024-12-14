@@ -24,12 +24,12 @@
             -   [ ] Did git name and meail register?
     -   [ ] Update system requirements
 -   [ ] Build to Final Web Application
-    -   [ ] Loading Spinner for AJAX calls
+    -   [x] Loading Spinner for AJAX calls
     -   [x] Meta Title > Helmet?
+    -   [x] Add a lesson for Favicon `icon.png`?
     -   [ ] Emails via sendgrid (instead of using json-server)
         -   [ ] sendgrid has a free plan
         -   [ ] See ChatGPT `NextJS: SendGrid`
-    -   [ ] Add a lesson for Favicon `icon.png`?
 -   [ ] Course Updates
     -   [ ] Change any references to Essay to Assignment
 -   [ ] Record Course Videos
