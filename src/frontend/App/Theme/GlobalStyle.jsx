@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${(props) => props.theme.colors.primary.default};
         color: ${(props) => props.theme.colors.secondary.light};
         min-width: 300px;
+        font-size: 16px;
+        line-height: 150%;
     }
 
     body.modal-open {
@@ -31,13 +33,13 @@ const GlobalStyle = createGlobalStyle`
 
     h1, h2, h3, h4, h5, h6 {
         font-weight: ${(props) => props.theme.fontWeights.bold};
-        margin: 0px 0px 15px;
+        margin: 0px 0px 28px;
         color: ${(props) => props.theme.colors.primary.default};
     }
     p {
         font-weight: ${(props) => props.theme.fontWeights.regular};
-        margin: 0px 0px 15px;
-        font-size: 14px;
+        margin: 0px 0px 28px;
+        font-size: 16px;
     }
 
     li {

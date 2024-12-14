@@ -13,7 +13,7 @@ import Contact from "@Pages/Contact";
 
 // Pages :: CourseWork
 import CourseWork from "@Pages/CourseWork/index";
-import Essays from "@Pages/CourseWork/Subpages/Essays/index.jsx";
+import Assignments from "@Pages/CourseWork/Subpages/Assignments/index.jsx";
 import SunAndMoon from "@Pages/CourseWork/Subpages/SunAndMoon.jsx";
 import ResponsiveDesign from "@Pages/CourseWork/Subpages/ResponsiveDesign.jsx";
 import Fundamentals from "@Pages/CourseWork/Subpages/Fundamentals.jsx";
@@ -28,7 +28,7 @@ const App = () => {
                         <Route element={<Staff />} path="/staff" />
                         <Route element={<Contact />} path="/contact" />
                         <Route element={<CourseWork />} path="/course-work">
-                            <Route element={<Essays />} path="" />
+                            <Route element={<Assignments />} path="" />
                             <Route
                                 element={<SunAndMoon />}
                                 path="sun-and-moon"
