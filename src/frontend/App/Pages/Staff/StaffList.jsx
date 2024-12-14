@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
+// components
+import Preloader from "@Core/components/Preloader";
+
 const StaffListStyled = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -52,7 +55,7 @@ const StaffList = () => {
         fetchStaff();
     }, []);
 
-    console.log({ staffMembers });
+    if (staffMembers.length === 0) return <Preloader />;
 
     return (
         <StaffListStyled>

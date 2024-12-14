@@ -7,6 +7,7 @@ import styled from "styled-components";
 import Meta from "@Core/components/Meta";
 import Inset from "@Layout/Inset";
 import Breadcrumbs from "@Core/components/Link/Breadcrumbs";
+import Preloader from "@Core/components/Preloader";
 
 // styles
 const StaffMemberStyled = styled.div`
@@ -17,7 +18,7 @@ const StaffMemberStyled = styled.div`
 `;
 
 const StaffMember = () => {
-    const [member, setMember] = useState({});
+    const [member, setMember] = useState();
     const { staffId } = useParams();
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const StaffMember = () => {
         fetch();
     }, [staffId]);
 
-    console.log({ member });
+    if (!member) return <Preloader />;
 
     const { name, src } = member;
 
