@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 // useMediaQuery
 import { MediaQueryProvider } from "@Theme/media/MediaQueryContext";
@@ -23,34 +24,40 @@ const AppRoutes = () => {
     return (
         <MediaQueryProvider>
             <BrowserRouter>
-                <Layout>
-                    <Routes>
-                        <Route index element={<Home />} path="" />
-                        <Route path="/staff">
-                            <Route index element={<Staff />} path="/staff" />
-                            <Route
-                                element={<StaffMember />}
-                                path="/staff/:staffId"
-                            />
-                        </Route>
-                        <Route element={<Contact />} path="/contact" />
-                        <Route element={<CourseWork />} path="/course-work">
-                            <Route element={<Assignments />} path="" />
-                            <Route
-                                element={<SunAndMoon />}
-                                path="sun-and-moon"
-                            />
-                            <Route
-                                element={<ResponsiveDesign />}
-                                path="responsive"
-                            />
-                            <Route
-                                element={<Fundamentals />}
-                                path="javascript-fundamentals"
-                            />
-                        </Route>
-                    </Routes>
-                </Layout>
+                <HelmetProvider>
+                    <Layout>
+                        <Routes>
+                            <Route index element={<Home />} path="" />
+                            <Route path="/staff">
+                                <Route
+                                    index
+                                    element={<Staff />}
+                                    path="/staff"
+                                />
+                                <Route
+                                    element={<StaffMember />}
+                                    path="/staff/:staffId"
+                                />
+                            </Route>
+                            <Route element={<Contact />} path="/contact" />
+                            <Route element={<CourseWork />} path="/course-work">
+                                <Route element={<Assignments />} path="" />
+                                <Route
+                                    element={<SunAndMoon />}
+                                    path="sun-and-moon"
+                                />
+                                <Route
+                                    element={<ResponsiveDesign />}
+                                    path="responsive"
+                                />
+                                <Route
+                                    element={<Fundamentals />}
+                                    path="javascript-fundamentals"
+                                />
+                            </Route>
+                        </Routes>
+                    </Layout>
+                </HelmetProvider>
             </BrowserRouter>
         </MediaQueryProvider>
     );
