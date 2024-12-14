@@ -5,9 +5,15 @@ import styled from "styled-components";
 
 // components
 import Inset from "@Layout/Inset";
+import BackLink from "@Core/components/Link/BackLink";
 
 // styles
-const StaffMemberStyled = styled.div``;
+const StaffMemberStyled = styled.div`
+    img {
+        display: block;
+        max-width: 300px;
+    }
+`;
 
 const StaffMember = () => {
     const [member, setMember] = useState({});
@@ -25,10 +31,15 @@ const StaffMember = () => {
 
     console.log({ member });
 
+    const { name, src } = member;
+
     return (
         <Inset>
             <StaffMemberStyled>
-                <h1>Staff: {member.name}</h1>
+                <h1>Staff Member Bio</h1>
+                <BackLink href="/staff">Back to All Staff Members</BackLink>
+                <img src={src} alt={name} />
+                <h2>{name}</h2>
             </StaffMemberStyled>
         </Inset>
     );

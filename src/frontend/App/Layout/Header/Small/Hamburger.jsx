@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 // components
-import UnstyledButton from "@Core/Button/UnstyledButton";
+import UnstyledButton from "@Core/components/Button/UnstyledButton";
 
 // styles
 const HamburgerStyled = styled(UnstyledButton)`

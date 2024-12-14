@@ -1,5 +1,5 @@
 // components
-import JSConsole from "@Core/JSConsole";
+import JSConsole from "@Core/components/JSConsole";
 
 // scripts
 import { decFunctions } from "./scripts/0.Functions/A.Declared";
