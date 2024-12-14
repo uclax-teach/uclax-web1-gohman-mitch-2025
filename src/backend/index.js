@@ -80,6 +80,7 @@ const serve = async () => {
 
     // Define the path to the build folder
     const frontendBuildPath = path.resolve(__dirname, "../frontend/build");
+    const fallbackHtmlPath = path.resolve(__dirname, "./fallback.html");
 
     if (fs.existsSync(frontendBuildPath)) {
         // Serve static files from the build directory
@@ -89,9 +90,18 @@ const serve = async () => {
         app.get("*", (req, res) => {
             res.sendFile(path.join(frontendBuildPath, "index.html"));
         });
+    } else if (fs.existsSync(fallbackHtmlPath)) {
+        console.warn(
+            `[Backend] Warning: Build folder not found at ${frontendBuildPath}. Serving fallback HTML file.`
+        );
+
+        // Serve the fallback HTML file for all unmatched routes
+        app.get("*", (req, res) => {
+            res.sendFile(fallbackHtmlPath);
+        });
     } else {
         console.warn(
-            `Build folder not found at ${frontendBuildPath}. Skipping static file serving.`
+            `[Backend] Warning: Build folder not found at ${frontendBuildPath}. Skipping static file serving.`
         );
     }
 
