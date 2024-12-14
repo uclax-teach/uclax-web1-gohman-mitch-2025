@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 // components
-import PrimaryNav from "@CoreComponents/PrimaryNav";
+import PrimaryNav from "@Core/PrimaryNav";
 
 // styles
 const SmMenuStyled = styled.div`

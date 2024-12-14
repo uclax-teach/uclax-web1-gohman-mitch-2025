@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // components
-import Logo from "@CoreComponents/Logo";
+import Logo from "@Core/Logo";
 
 // styles
 const FooterStyled = styled.footer`

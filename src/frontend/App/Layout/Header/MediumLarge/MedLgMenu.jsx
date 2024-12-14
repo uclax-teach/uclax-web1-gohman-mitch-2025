@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // components
-import PrimaryNav from "@CoreComponents/PrimaryNav";
+import PrimaryNav from "@Core/PrimaryNav";
 
 // styles
 const MedLgMenuStyled = styled.div`

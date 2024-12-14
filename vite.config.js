@@ -23,7 +23,7 @@ export default defineConfig({
             "@Theme": "/App/Theme",
             "@Layout": "/App/Layout",
             "@Pages": "/App/Pages",
-            "@CoreComponents": "/App/CoreComponents",
+            "@Core": "/App/Core",
         },
     },
     build: {
