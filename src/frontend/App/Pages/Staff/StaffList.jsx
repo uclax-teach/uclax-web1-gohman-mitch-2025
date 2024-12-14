@@ -20,6 +20,7 @@ const StaffListStyled = styled.div`
         .name-plate {
             background-color: teal;
             padding: 10px;
+            height: 90px;
 
             h3 {
                 color: white;
