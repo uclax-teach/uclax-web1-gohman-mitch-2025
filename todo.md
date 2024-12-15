@@ -12,8 +12,8 @@
     -   [x] test with React Router dom, navigation
     -   [x] Images form API
     -   [x] styled theme with normalize.css module
--   [ ] `npm run backend:dev` without VITE BUILD?
--   [ ] Streamline Installation Process - See ChatGPT `Web 1: Streamlined React Setup`
+-   [x] `npm run backend:dev` without VITE BUILD?
+-   [ ] Streamline Installation Process
     -   [ ] How to make sure they are in their course folder before running script
         -   [ ] it git inits whatever folder they are in
         -   [ ] I made the mistake, so can they
@@ -22,16 +22,17 @@
         -   [x] add "VS Code Remote Development" plugin to app extensions
         -   [ ] Update Scripts and Installation Instructions
             -   [ ] Did git name and meail register?
-    -   [ ] Update system requirements
 -   [ ] Build to Final Web Application
     -   [x] Loading Spinner for AJAX calls
     -   [x] Meta Title > Helmet?
     -   [x] Add a lesson for Favicon `icon.png`?
+    -   [ ] Staff Finish Staff Member
     -   [ ] JS Fundamentals: Replace console-feed with just using chrome console in dev tools - with message to open console.
     -   [ ] Emails via sendgrid (instead of using json-server)
         -   [ ] sendgrid has a free plan
         -   [ ] See ChatGPT `NextJS: SendGrid`
 -   [ ] Course Updates
+    -   [ ] Update system requirements
     -   [ ] Change any references to Essay to Assignment
 -   [ ] Record Course Videos
     -   [ ] use gmail+ to demo setting up github, etc
