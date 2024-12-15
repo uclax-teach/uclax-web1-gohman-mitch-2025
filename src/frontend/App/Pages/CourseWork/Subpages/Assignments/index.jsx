@@ -2,8 +2,8 @@
 import AssignmentTemplate from "./AssignmentTemplate";
 
 // assignments
-import assign1 from "./markdown/assignment1.md?raw";
-import assign2 from "./markdown/assignment2.md?raw";
+import assign1 from "./markdown/assign1.md?raw";
+import assign2 from "./markdown/assign2.md?raw";
 
 const Assignments = () => {
     return (
