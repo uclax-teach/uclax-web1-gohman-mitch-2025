@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+// data
+import { config } from "@Core/config";
+
 const LogoStyled = styled.img`
     display: block;
     width: 100%;
@@ -10,7 +13,8 @@ const Logo = () => {
     return (
         <LogoStyled
             src="/assets/crossfit-decimate-logo.png"
-            alt="CrossFit Decimate Logo"
+            alt={`${config.profile.title} Logo`}
+            title={`${config.profile.title} Logo`}
         />
     );
 };
