@@ -33,7 +33,7 @@ const StaffMember = () => {
 
     if (!member) return <Preloader />;
 
-    const { name, src } = member;
+    const { name, src, yearStarted, accolades, bio } = member;
 
     const crumbs = [
         { id: 1, href: "/staff", text: "All Staff" },
@@ -48,6 +48,18 @@ const StaffMember = () => {
                 <Breadcrumbs crumbs={crumbs} />
                 <img src={src} alt={name} />
                 <h2>{name}</h2>
+
+                <h3>Year Started: {yearStarted}</h3>
+
+                <h3>Accolades</h3>
+
+                <ul>
+                    {accolades.map((accolade, idx) => {
+                        return <li key={idx}>{accolade}</li>;
+                    })}
+                </ul>
+
+                <div dangerouslySetInnerHTML={{ __html: bio }} />
             </StaffMemberStyled>
         </Inset>
     );
