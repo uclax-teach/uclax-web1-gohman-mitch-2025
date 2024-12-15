@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { marked } from "marked";
+
+// components
+import Markdown from "@Core/components/Markdown";
 
 // styles
-const SingleStyled = styled.div`
+const AssignmentTemplateStyled = styled(Markdown)`
     padding: 20px;
     margin: 48px 0px;
     background-color: ${(props) => props.theme.colors.secondary.light};
@@ -16,21 +18,13 @@ const SingleStyled = styled.div`
     }
 `;
 
-const Single = ({ number, title, markdown }) => {
-    const htmlContent = marked(markdown);
-    return (
-        <SingleStyled id={`assignmentId-${number}`}>
-            <h3>{title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-        </SingleStyled>
-    );
+const AssignmentTemplate = ({ markdown }) => {
+    return <AssignmentTemplateStyled markdown={markdown} />;
 };
 
-export default Single;
+export default AssignmentTemplate;
 
 // prop-types
-Single.propTypes = {
-    number: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
+AssignmentTemplate.propTypes = {
     markdown: PropTypes.string.isRequired,
 };
