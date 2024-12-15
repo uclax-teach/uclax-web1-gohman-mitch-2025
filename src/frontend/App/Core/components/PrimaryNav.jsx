@@ -31,13 +31,6 @@ const PrimaryNav = () => {
                                 Responsive
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink
-                                to={"/course-work/javascript-fundamentals"}
-                            >
-                                JS Fundamentals
-                            </NavLink>
-                        </li>
                     </ul>
                 </li>
             </ul>

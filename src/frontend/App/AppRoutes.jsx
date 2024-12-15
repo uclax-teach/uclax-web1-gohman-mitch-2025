@@ -18,7 +18,6 @@ import CourseWork from "@Pages/CourseWork/index";
 import Assignments from "@Pages/CourseWork/Subpages/Assignments/index.jsx";
 import SunAndMoon from "@Pages/CourseWork/Subpages/SunAndMoon.jsx";
 import ResponsiveDesign from "@Pages/CourseWork/Subpages/ResponsiveDesign.jsx";
-import Fundamentals from "@Pages/CourseWork/Subpages/Fundamentals";
 
 const AppRoutes = () => {
     return (
@@ -49,10 +48,6 @@ const AppRoutes = () => {
                                 <Route
                                     element={<ResponsiveDesign />}
                                     path="responsive"
-                                />
-                                <Route
-                                    element={<Fundamentals />}
-                                    path="javascript-fundamentals"
                                 />
                             </Route>
                         </Routes>

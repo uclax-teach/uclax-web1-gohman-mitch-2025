@@ -26,8 +26,9 @@
     -   [x] Loading Spinner for AJAX calls
     -   [x] Meta Title > Helmet?
     -   [x] Add a lesson for Favicon `icon.png`?
+    -   [x] JS Fundamentals: Replace console-feed with simple nodemon solution
+    -   [ ] Express: Serve up React SPA sub segments
     -   [ ] Staff Finish Staff Member
-    -   [ ] JS Fundamentals: Replace console-feed with just using chrome console in dev tools - with message to open console.
     -   [ ] Emails via sendgrid (instead of using json-server)
         -   [ ] sendgrid has a free plan
         -   [ ] See ChatGPT `NextJS: SendGrid`
