@@ -1,4 +1,4 @@
-export const slideshowSlides = [
+export const slidesData = [
     {
         id: 1,
         src: "/assets/slideshowSlides/Core-Strength.jpg",

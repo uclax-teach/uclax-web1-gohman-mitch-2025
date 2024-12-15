@@ -12,11 +12,12 @@ const __dirname = path.dirname(__filename);
 import express from "express";
 import * as dotenv from "dotenv";
 import helmet from "helmet";
+import bodyParser from "body-parser";
 
 // Custom
 import corsConfig from "./corsConfig.js";
-import getSecretsAndCheckEnvVars from "./getSecretsAndCheckEnvVars.js";
-import apiRouter from "./routes.js";
+import { parseReqEnvVars, configureEmailApi } from "./utils.js";
+import apiRouter from "./routes/index.js";
 
 const serve = async () => {
     /* init ---------------------------*/
@@ -33,15 +34,21 @@ const serve = async () => {
     });
 
     /*---------------------------
-    | Add Environment Variables to secrets object
+    | Secrets
     ---------------------------*/
-    const secrets = getSecretsAndCheckEnvVars([
-        "PORT",
-        "VITE_API_URL",
-        "CORS_DOMAINS",
-        "SENDGRID_API_KEY",
-        "SENDGRID_FROM_EMAIL",
-    ]);
+    // Adding Required Environment Variables
+    let secrets = parseReqEnvVars(["VITE_API_URL", "CORS_DOMAINS"]);
+
+    // sending emails
+    app.use(bodyParser.json());
+    secrets.email = {
+        api: configureEmailApi(process.env.BREVO_API_KEY),
+        subjectPrefix: process.env.BREVO_SUBJECT_PREFIX,
+        senderEmail: process.env.BREVO_SENDER_EMAIL,
+        toEmails: process.env.BREVO_TO_EMAILS,
+    };
+
+    // make secrets available to APP API
     app.set("secrets", secrets);
 
     /*---------------------------
@@ -107,12 +114,10 @@ const serve = async () => {
     /*---------------------------
     | Start Server
     ---------------------------*/
-    const PORT = secrets["PORT"] ? secrets["PORT"] : 5999;
-
-    app.listen(PORT, () => {
+    app.listen(5999, () => {
         console.log(`
-            Express Server is up and running. Currently listening on port: ${PORT}
-            API Server: http://localhost:${PORT}
+            Express Server is up and running. Currently listening on port: 5999
+            API Server: http://localhost:5999
         `);
     });
 };

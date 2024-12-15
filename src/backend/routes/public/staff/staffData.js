@@ -1,4 +1,4 @@
-export const staff = [
+export const staffData = [
     {
         id: 1,
         src: "/assets/staff/Alex-Esqueda.jpg",

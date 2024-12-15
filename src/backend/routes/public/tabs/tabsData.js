@@ -1,4 +1,4 @@
-export const tabs = [
+export const tabsData = [
     {
         id: 1,
         src: "/assets/tabs/Alex-Esqueda-Box-Jump.jpg",
