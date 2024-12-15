@@ -37,7 +37,6 @@ const serve = async () => {
     ---------------------------*/
     const secrets = getSecretsAndCheckEnvVars([
         "PORT",
-        "VITE_REACT_URL",
         "VITE_API_URL",
         "CORS_DOMAINS",
         "SENDGRID_API_KEY",
