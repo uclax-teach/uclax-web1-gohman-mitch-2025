@@ -29,7 +29,7 @@
     -   [x] Add a lesson for Favicon `icon.png`?
     -   [x] JS Fundamentals: Replace console-feed with simple nodemon solution
     -   [x] Express: Serve up React SPA sub segments
-    -   [ ] Staff Finish Staff Member
+    -   [x] Staff Finish Staff Member
     -   [ ] Emails via sendgrid (instead of using json-server)
         -   [ ] sendgrid has a free plan
         -   [ ] See ChatGPT `NextJS: SendGrid`
