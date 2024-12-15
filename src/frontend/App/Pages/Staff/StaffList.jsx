@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import styled from "styled-components";
+
+// api
+import axios from "@Core/axios";
 
 // components
 import Preloader from "@Core/components/Preloader";
@@ -46,9 +48,7 @@ const StaffList = () => {
 
     useEffect(() => {
         const fetchStaff = async () => {
-            const resp = await axios.get(
-                `${import.meta.env.VITE_API_URL}/staff`
-            );
+            const resp = await axios.get(`/staff`);
             setStaffMembers(resp.data);
         };
 

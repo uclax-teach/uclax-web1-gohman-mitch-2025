@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import styled from "styled-components";
+
+// api
+import axios from "@Core/axios";
 
 // components
 import Meta from "@Core/components/Meta";
@@ -23,9 +25,7 @@ const StaffMember = () => {
 
     useEffect(() => {
         const fetch = async () => {
-            const resp = await axios.get(
-                `${import.meta.env.VITE_API_URL}/staff/${staffId}`
-            );
+            const resp = await axios.get(`/staff/${staffId}`);
             setMember(resp.data);
         };
         fetch();
