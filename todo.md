@@ -14,14 +14,15 @@
     -   [x] styled theme with normalize.css module
 -   [x] `npm run backend:dev` without VITE BUILD?
 -   [ ] Streamline Installation Process
-    -   [ ] How to make sure they are in their course folder before running script
-        -   [ ] it git inits whatever folder they are in
-        -   [ ] I made the mistake, so can they
     -   [ ] MacOS
+        -   [ ] How to make sure they are in their course folder before running script
+            -   [ ] it git inits whatever folder they are in
+            -   [ ] I made the mistake, so can they
+        -   [ ] Did git name and email register?
+        -   [ ] is nodemon installed in standard terminal?
     -   [ ] Windows
-        -   [x] add "VS Code Remote Development" plugin to app extensions
-        -   [ ] Update Scripts and Installation Instructions
-            -   [ ] Did git name and meail register?
+        -   [ ] Did git name and email register?
+        -   [ ] is nodemon installed in terminal?
 -   [ ] Build to Final Web Application
     -   [x] Loading Spinner for AJAX calls
     -   [x] Meta Title > Helmet?
