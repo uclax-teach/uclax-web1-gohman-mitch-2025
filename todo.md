@@ -23,13 +23,14 @@
     -   [x] Home
         -   [x] Slideshow
         -   [x] Tabs
-    -   [ ] Update Snippets for modular implementation
+    -   [x] Update Snippets for modular implementation
     -   [ ] Core and Config
         -   [ ] Move NON core elements out of Core folder - keep these dumb
         -   [ ] move config.js (leave uitils.js?) to root of App
     -   [ ] Emails via Brevo (instead of using json-server)
         -   [x] Confugure Brevo with Free Test Account
-        -   [ ] Setup Contact Form and Test Brevo
+        -   [x] Setup Contact Form
+        -   [ ] Wire up form to and test Brevo
         -   [ ] Add Google Recaptcha
 -   [ ] Streamline Installation Process
     -   [ ] MacOS
