@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // components
-import PrimaryNav from "@Core/components/PrimaryNav";
+import PrimaryMenu from "@Core/components/Menus/PrimaryMenu";
 
 // styles
 const MedLgMenuStyled = styled.div`
@@ -94,7 +94,9 @@ const MedLgMenuStyled = styled.div`
 const MedLgMenu = () => {
     return (
         <MedLgMenuStyled>
-            <PrimaryNav />
+            <nav>
+                <PrimaryMenu />
+            </nav>
         </MedLgMenuStyled>
     );
 };

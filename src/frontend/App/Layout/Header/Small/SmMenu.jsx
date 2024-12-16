@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 // components
-import PrimaryNav from "@Core/components/PrimaryNav";
+import PrimaryMenu from "@Core/components/Menus/PrimaryMenu";
 
 // styles
 const SmMenuStyled = styled.div`
@@ -70,7 +70,9 @@ const SmMenu = ({ setShowMenu }) => {
                 setShowMenu(false);
             }}
         >
-            <PrimaryNav />
+            <nav>
+                <PrimaryMenu />
+            </nav>
         </SmMenuStyled>
     );
 };
