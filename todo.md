@@ -30,9 +30,10 @@
     -   [x] JS Fundamentals: Replace console-feed with simple nodemon solution
     -   [x] Express: Serve up React SPA sub segments
     -   [x] Staff Finish Staff Member
-    -   [ ] Emails via sendgrid (instead of using json-server)
-        -   [ ] sendgrid has a free plan
-        -   [ ] See ChatGPT `NextJS: SendGrid`
+    -   [ ] Emails via Brevo (instead of using json-server)
+        -   [ ] Confugure Brevo with Free Test Account
+        -   [ ] Setup Contact Form and Test Brevo
+        -   [ ] Add Google Recaptcha
 -   [ ] Course Updates
     -   [ ] Update system requirements
     -   [ ] Change any references to Essay to Assignment

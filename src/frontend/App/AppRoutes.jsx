@@ -8,7 +8,7 @@ import { MediaQueryProvider } from "@Theme/media/MediaQueryContext";
 import Layout from "./Layout/index";
 
 // Pages :: Primary
-import Home from "@Pages/Home";
+import Home from "@Pages/Home/index";
 import Staff from "@Pages/Staff";
 import StaffMember from "@Pages/Staff/StaffMember";
 import Contact from "@Pages/Contact";

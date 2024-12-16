@@ -1,12 +1,8 @@
 {
-	"Font Awesome": {
-		"scope": "",
-		"prefix": "dasfx",
-		"body": [
-            "useEffect(() => {",
-                "\t${2:Magic goes here...}",
-            "},[${1:watching}]);",
-		],
-		"description": "Font Awesome"
-	}
+    "React useEffect": {
+        "scope": "javascript,javascriptreact",
+        "prefix": "dasfx",
+        "body": ["useEffect(() => {", "\t${2}", "},[${1}]);"],
+        "description": "React useEffect"
+    }
 }
