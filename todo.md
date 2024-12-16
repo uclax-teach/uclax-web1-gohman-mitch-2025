@@ -28,7 +28,7 @@
         -   [x] Move NON core elements out of Core folder - keep these dumb
         -   [x] move config.js (leave uitils.js?) to root of App
     -   [ ] Emails via Brevo (instead of using json-server)
-        -   [x] Confugure Brevo with Free Test Account
+        -   [x] Configure Brevo with Free Test Account
         -   [x] Setup Contact Form
         -   [ ] Wire up form to and test Brevo
         -   [ ] Add Google Recaptcha
