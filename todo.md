@@ -24,9 +24,9 @@
         -   [x] Slideshow
         -   [x] Tabs
     -   [x] Update Snippets for modular implementation
-    -   [ ] Core and Config
-        -   [ ] Move NON core elements out of Core folder - keep these dumb
-        -   [ ] move config.js (leave uitils.js?) to root of App
+    -   [x] Core and Config
+        -   [x] Move NON core elements out of Core folder - keep these dumb
+        -   [x] move config.js (leave uitils.js?) to root of App
     -   [ ] Emails via Brevo (instead of using json-server)
         -   [x] Confugure Brevo with Free Test Account
         -   [x] Setup Contact Form
@@ -37,6 +37,7 @@
         -   [ ] Can we update .env with First, Last and email?
         -   [ ] Did Git name and email register? (Maybe at the end of everything, we spit out some checks. Like node -v, and git profile info - something I can review - separate confirmation script)
         -   [ ] is nodemon installed in standard terminal?
+        -   [ ] Add SSH keys if they do not exsist: https://chatgpt.com/c/6760536c-703c-8001-baaa-6c7ad280152e
     -   [ ] MacOS
         -   [ ] How to make sure they are in their course folder before running script
             -   [ ] it git inits whatever folder they are in
