@@ -20,6 +20,7 @@ export default defineConfig({
     },
     resolve: {
         alias: {
+            "@App": "/App",
             "@Theme": "/App/Theme",
             "@Layout": "/App/Layout",
             "@Pages": "/App/Pages",

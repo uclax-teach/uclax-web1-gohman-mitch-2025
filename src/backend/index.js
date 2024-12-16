@@ -42,8 +42,8 @@ const serve = async () => {
     // sending emails
     app.use(bodyParser.json());
     secrets.email = {
+        subjectPrefix: `${process.env.VITE_APP_CONFIG_TITLE} Website`,
         api: configureEmailApi(process.env.BREVO_API_KEY),
-        subjectPrefix: process.env.BREVO_SUBJECT_PREFIX,
         senderEmail: process.env.BREVO_SENDER_EMAIL,
         toEmails: process.env.BREVO_TO_EMAILS,
     };

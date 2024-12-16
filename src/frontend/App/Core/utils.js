@@ -1,4 +1,4 @@
-import { config } from "@Core/config";
+import { config } from "@App/config";
 
 export const getPageTitle = (pageTitle) => {
     const { studentName, title, location } = config.profile;

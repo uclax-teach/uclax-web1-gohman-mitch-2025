@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // data
-import { config } from "@Core/config";
+import { config } from "@App/config";
 
 // components
 import Logo from "@Core/components/Logo";

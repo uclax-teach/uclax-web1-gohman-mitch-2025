@@ -33,15 +33,15 @@
         -   [ ] Wire up form to and test Brevo
         -   [ ] Add Google Recaptcha
 -   [ ] Streamline Installation Process
+    -   [ ] Both
+        -   [ ] Can we update .env with First, Last and email?
+        -   [ ] Did Git name and email register? (Maybe at the end of everything, we spit out some checks. Like node -v, and git profile info - something I can review - separate confirmation script)
+        -   [ ] is nodemon installed in standard terminal?
     -   [ ] MacOS
         -   [ ] How to make sure they are in their course folder before running script
             -   [ ] it git inits whatever folder they are in
             -   [ ] I made the mistake, so can they
-        -   [ ] Did git name and email register?
-        -   [ ] is nodemon installed in standard terminal?
     -   [ ] Windows
-        -   [ ] Did git name and email register?
-        -   [ ] is nodemon installed in terminal?
 -   [ ] Course Updates
     -   [ ] Update system requirements
     -   [ ] Change any references to Essay to Assignment

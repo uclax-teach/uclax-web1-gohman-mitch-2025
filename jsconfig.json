@@ -3,6 +3,7 @@
     "compilerOptions": {
         "baseUrl": "src/frontend/",
         "paths": {
+            "@App/*": ["App/*"],
             "@Theme/*": ["App/Theme/*"],
             "@Layout/*": ["App/Layout/*"],
             "@Pages/*": ["App/Pages/*"],
