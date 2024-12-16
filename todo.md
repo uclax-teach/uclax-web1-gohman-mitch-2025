@@ -13,6 +13,20 @@
     -   [x] Images form API
     -   [x] styled theme with normalize.css module
 -   [x] `npm run backend:dev` without VITE BUILD?
+-   [ ] Build to Final Web Application
+    -   [x] Loading Spinner for AJAX calls
+    -   [x] Meta Title > Helmet?
+    -   [x] Add a lesson for Favicon `icon.png`?
+    -   [x] JS Fundamentals: Replace console-feed with simple nodemon solution
+    -   [x] Express: Serve up React SPA sub segments
+    -   [x] Staff Finish Staff Member
+    -   [x] Home
+        -   [x] Slideshow
+        -   [x] Tabs
+    -   [ ] Emails via Brevo (instead of using json-server)
+        -   [x] Confugure Brevo with Free Test Account
+        -   [ ] Setup Contact Form and Test Brevo
+        -   [ ] Add Google Recaptcha
 -   [ ] Streamline Installation Process
     -   [ ] MacOS
         -   [ ] How to make sure they are in their course folder before running script
@@ -23,17 +37,6 @@
     -   [ ] Windows
         -   [ ] Did git name and email register?
         -   [ ] is nodemon installed in terminal?
--   [ ] Build to Final Web Application
-    -   [x] Loading Spinner for AJAX calls
-    -   [x] Meta Title > Helmet?
-    -   [x] Add a lesson for Favicon `icon.png`?
-    -   [x] JS Fundamentals: Replace console-feed with simple nodemon solution
-    -   [x] Express: Serve up React SPA sub segments
-    -   [x] Staff Finish Staff Member
-    -   [ ] Emails via Brevo (instead of using json-server)
-        -   [ ] Confugure Brevo with Free Test Account
-        -   [ ] Setup Contact Form and Test Brevo
-        -   [ ] Add Google Recaptcha
 -   [ ] Course Updates
     -   [ ] Update system requirements
     -   [ ] Change any references to Essay to Assignment
