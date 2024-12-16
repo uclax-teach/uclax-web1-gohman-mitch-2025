@@ -1,10 +1,8 @@
 {
-	"Print to console": {
-		"scope": "",
-		"prefix": "clog",
-		"body": [
-			"console.log('$0${1:var}');",
-		],
-		"description": "Console Log Simple"
-	}
+    "Print to console": {
+        "scope": "javascript,javascriptreact",
+        "prefix": "clog",
+        "body": ["console.log('$0${1:var}');"],
+        "description": "Console Log Simple"
+    }
 }

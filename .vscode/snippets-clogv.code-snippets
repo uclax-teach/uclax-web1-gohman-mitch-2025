@@ -1,10 +1,8 @@
 {
-	"Print to console": {
-		"scope": "",
-		"prefix": "clogv",
-		"body": [
-			"console.log({${1:var}});",
-		],
-		"description": "Console Log with Variable"
-	}
+    "Print to console": {
+        "scope": "javascript,javascriptreact",
+        "prefix": "clogv",
+        "body": ["console.log({${1:var}});"],
+        "description": "Console Log with Variable"
+    }
 }
