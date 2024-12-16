@@ -1,13 +1,15 @@
 {
     "React Component: Large": {
-        "scope": "",
-        "prefix": "recomp-3-large",
+        "scope": "javascript,javascriptreact",
+        "prefix": "recomp-2-full",
         "body": [
             "import styled from \"styled-components\";",
             "import PropTypes from \"prop-types\";",
             "",
+            "// styles",
             "const ${1:$TM_FILENAME_BASE}Styled = styled.div``;",
             "",
+            "// component",
             "const ${1:$TM_FILENAME_BASE} = ({ ${2:prop} }) => {",
             "\treturn <${1:$TM_FILENAME_BASE}Styled>${1:$TM_FILENAME_BASE}</${1:$TM_FILENAME_BASE}Styled>;",
             "}",
@@ -19,6 +21,6 @@
             "\t${2:prop}: PropTypes.${3:any}",
             "};"
         ],
-        "description": "React Component"
+        "description": "React Component: Large"
     }
 }

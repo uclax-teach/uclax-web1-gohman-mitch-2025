@@ -1,0 +1,15 @@
+{
+    "React PropTypes": {
+        "scope": "javascript,javascriptreact",
+        "prefix": "reprop",
+        "body": [
+            "import PropTypes from \"prop-types\";",
+            "",
+            "// prop-types",
+            "${1:$TM_FILENAME_BASE}.propTypes = {",
+            "\t${2:prop}: PropTypes.${3:any}",
+            "};"
+        ],
+        "description": "React PropTypes"
+    }
+}

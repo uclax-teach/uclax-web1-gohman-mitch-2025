@@ -1,0 +1,13 @@
+{
+    "React Styled Component": {
+        "scope": "javascript,javascriptreact",
+        "prefix": "restyle",
+        "body": [
+            "import styled from \"styled-components\";",
+            "",
+            "//styles",
+            "const ${1:$TM_FILENAME_BASE}Styled = styled.div``;"
+        ],
+        "description": "React Styled Component"
+    }
+}

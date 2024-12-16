@@ -1,14 +1,15 @@
 {
-    "React Component: Small": {
-        "scope": "",
-        "prefix": "recomp-1-small",
+    "React Component: Minimal": {
+        "scope": "javascript,javascriptreact",
+        "prefix": "recomp-1-minimal",
         "body": [
+            "// component",
             "const ${1:$TM_FILENAME_BASE} = () => {",
             "\treturn <div>${1:$TM_FILENAME_BASE}</div>;",
             "};",
             "",
             "export default ${1:$TM_FILENAME_BASE};"
         ],
-        "description": "React Component"
+        "description": "React Component: Minimal"
     }
 }

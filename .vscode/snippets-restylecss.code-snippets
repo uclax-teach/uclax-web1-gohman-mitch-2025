@@ -1,0 +1,15 @@
+{
+    "React Styled Component: Css": {
+        "scope": "javascript,javascriptreact",
+        "prefix": "restylecss",
+        "body": [
+            "import {css} from \"styled-components\";",
+            "",
+            "//styles",
+            "export const ${1:sharedStyles} = css`",
+            "\tbackground-color: yellow;",
+            "`;"
+        ],
+        "description": "React Styled Component: Css"
+    }
+}
