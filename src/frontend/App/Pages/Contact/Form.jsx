@@ -29,12 +29,10 @@ const Form = () => {
         console.log("Submitted form");
 
         const postData = {
-            name: userName,
-            email: userEmail,
-            message: userMessage,
+            userName,
+            userEmail,
+            userMessage,
         };
-
-        console.log({ postData });
 
         const resp = await axios.post("/sendmail", postData);
 
