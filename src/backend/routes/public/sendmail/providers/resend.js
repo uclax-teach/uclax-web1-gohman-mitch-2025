@@ -1,48 +1,37 @@
 import { Resend } from "resend";
 
 import {
-    convertToEmailsToArray,
-    convertToNameAndEmail,
-    composeHtmlBodyMessage,
-    composeSubject,
+    convertArrayOfObjectsToRfcEmails,
+    convertObjectToRfcEmail,
 } from "../utils.js";
-
-const PROVIDER = "Resend";
 
 export const resend = () => {
     const send = async ({
         apiKey,
         from,
-        subjectPrefix,
+        html,
+        text,
+        replyTo,
+        subject,
         recipients,
-        requestBody,
         res,
     }) => {
-        console.log("Sending Resend Email");
-
-        const { userName, userEmail, userMessage } = requestBody; // Contact Form Vars
-
-        const resend = new Resend(apiKey);
-        const to = convertToEmailsToArray(recipients);
-        const recipient = to[0] ? convertToNameAndEmail(to[0]) : "Recipient";
-
-        const emailData = {
-            from: from.trim(),
-            to,
-            replyTo: userEmail,
-            subject: composeSubject(subjectPrefix, userName, PROVIDER),
-            html: composeHtmlBodyMessage(
-                recipient,
-                userName,
-                userMessage,
-                PROVIDER
-            ),
-        };
-
-        console.log({ emailData });
-
         try {
-            const response = await resend.emails.send(emailData);
+            console.log("Sending Resend Email");
+
+            const resendOptions = {
+                from: convertObjectToRfcEmail(from),
+                to: convertArrayOfObjectsToRfcEmails(recipients),
+                replyTo: convertObjectToRfcEmail(replyTo),
+                subject,
+                text,
+                html,
+            };
+
+            console.log({ resendOptions });
+
+            const resend = new Resend(apiKey);
+            const response = await resend.emails.send(resendOptions);
             res.status(200).json({ success: true, response });
         } catch (error) {
             console.error(error);

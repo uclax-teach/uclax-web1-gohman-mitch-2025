@@ -1,12 +1,5 @@
 import BrevoApi from "sib-api-v3-sdk";
 
-import {
-    convertToNameAndEmail,
-    convertToEmailsToArrOfObjects,
-    composeHtmlBodyMessage,
-    composeSubject,
-} from "../utils.js";
-
 // Set up Brevo Instance
 const brevoApiInit = (apiKey) => {
     if (!apiKey || apiKey === "EMAIL_BREVO_API_KEY") {
@@ -24,40 +17,32 @@ const brevoApiInit = (apiKey) => {
     return new BrevoApi.TransactionalEmailsApi();
 };
 
-const PROVIDER = "Brevo";
-
 export const brevo = () => {
     const send = async ({
         apiKey,
         from,
-        subjectPrefix,
+        html,
+        text,
+        replyTo,
+        subject,
         recipients,
-        requestBody,
         res,
     }) => {
-        console.log("Sending Brevo Email");
-
-        const { userName, userEmail, userMessage } = requestBody; // Contact Form Vars
-        const brevoApi = brevoApiInit(apiKey);
-        const to = convertToEmailsToArrOfObjects(recipients);
-
-        const recipient = to[0]?.name || "Recipient";
-
-        const emailData = {
-            sender: convertToNameAndEmail(from),
-            to,
-            replyTo: { name: userName, email: userEmail },
-            subject: composeSubject(subjectPrefix, userName, PROVIDER),
-            htmlContent: composeHtmlBodyMessage(
-                recipient,
-                userName,
-                userMessage,
-                PROVIDER
-            ),
-        };
-
         try {
-            const response = await brevoApi.sendTransacEmail(emailData);
+            console.log("Sending Brevo Email");
+            const brevoProps = {
+                sender: from,
+                to: recipients,
+                replyTo,
+                subject,
+                htmlContent: html,
+                textContent: text,
+            };
+
+            console.log({ brevoProps });
+
+            const brevoApi = brevoApiInit(apiKey);
+            const response = await brevoApi.sendTransacEmail(brevoProps);
             res.status(200).json({ success: true, response });
         } catch (error) {
             console.error(error);

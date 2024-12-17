@@ -1,12 +1,11 @@
-export const convertToEmailsToArray = (csvString) => {
+export const convertCsvToArray = (csvString) => {
     // split and remove any whitespace on left and right of each value
     return csvString.split(",").map((str) => str.trim());
 };
 
-// convert email format to name and email
-export const convertToNameAndEmail = (emailString) => {
+export const convertRfcEmailStrToObject = (rfcEmailStr) => {
     // Split the trimmed item by "<" to separate name and email
-    const [name, email] = emailString.split("<");
+    const [name, email] = rfcEmailStr.split("<");
 
     return {
         name: name.trim(), // Trim spaces around the name
@@ -15,10 +14,62 @@ export const convertToNameAndEmail = (emailString) => {
 };
 
 // Convert combined string to array of { name, email }
-export const convertToEmailsToArrOfObjects = (emailString) => {
-    return convertToEmailsToArray(emailString).map((item) => {
-        return convertToNameAndEmail(item);
+export const convertRfcEmailCsvStrToArrOfObjects = (emailString) => {
+    return convertCsvToArray(emailString).map((item) => {
+        return convertRfcEmailStrToObject(item);
     });
+};
+
+export const convertObjectToRfcEmail = ({ name, email }) => {
+    return `${name} <${email}>`;
+};
+
+export const convertArrayOfObjectsToRfcEmails = (arrOfObjects) => {
+    return arrOfObjects.map(convertObjectToRfcEmail);
+};
+
+export const generateNormalizedEmailProps = (
+    email,
+    requestBody,
+    providerConfig,
+    res
+) => {
+    const recipients = convertRfcEmailCsvStrToArrOfObjects(email.recipients);
+    const recipient = recipients[0];
+
+    console.log({ recipient });
+
+    const titleCaseProvider =
+        email.emailProvider.charAt(0).toUpperCase() +
+        email.emailProvider.slice(1);
+    const replyTo = {
+        name: requestBody.userName,
+        email: requestBody.userEmail,
+    };
+    const from = convertRfcEmailStrToObject(providerConfig.from);
+    const { html, text } = composeMessageBody(
+        recipient,
+        requestBody.userName,
+        requestBody.userMessage,
+        titleCaseProvider
+    );
+    const subject = composeSubject(
+        email.subjectPrefix,
+        requestBody.userName,
+        titleCaseProvider
+    );
+
+    return {
+        ...providerConfig,
+        from,
+        html,
+        text,
+        replyTo,
+        subject,
+        recipients,
+        recipient,
+        res,
+    };
 };
 
 /*---------------------------
@@ -28,17 +79,31 @@ export const composeSubject = (subjectPrefix, userName, provider) => {
     return `${subjectPrefix}: Contact Form: ${userName} - powered by ${provider}`;
 };
 
-export const composeHtmlBodyMessage = (
+export const composeMessageBody = (
     recipient,
     userName,
     userMessage,
     provider
 ) => {
-    return `
-            <p>Hey ${recipient},</p>
+    return {
+        text: `
+            Hey ${recipient?.name},
+
+            You have a website message from ${userName}:
+
+            ${userMessage}
+
+            Cheers,
+            Your Web Team
+
+            Powered By ${provider}
+        `,
+        html: `
+            <p>Hey ${recipient?.name},</p>
             <p>You have a Website message from ${userName}:</p>
             <p>${userMessage}</p>
             <p>Cheers,<br>Your Web Team</p>
             <p>Powered By ${provider}</p>
-        `;
+        `,
+    };
 };

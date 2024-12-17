@@ -51,6 +51,9 @@ const serve = async () => {
                 port: process.env.EMAIL_MAILTRAP_PORT,
                 user: process.env.EMAIL_MAILTRAP_USER,
                 pass: process.env.EMAIL_MAILTRAP_PASS,
+                from: process.env.EMAIL_MAILTRAP_FROM,
+                token: process.env.EMAIL_MAILTRAP_API_TOKEN,
+                testInboxId: process.env.EMAIL_MAILTRAP_INBOX_ID,
             },
             resend: {
                 apiKey: process.env.EMAIL_RESEND_API_KEY,
