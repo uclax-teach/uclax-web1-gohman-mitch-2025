@@ -1,4 +1,9 @@
 import { useState } from "react";
+
+// api
+import axios from "@Core/axios";
+
+// components
 import CoreForm from "@Core/components/Form/Form";
 import Input from "@Core/components/Form/Input/Input";
 import TextArea from "@Core/components/Form/Input/TextArea";
@@ -22,6 +27,18 @@ const Form = () => {
 
     const onSubmit = async () => {
         console.log("Submitted form");
+
+        const postData = {
+            name: userName,
+            email: userEmail,
+            message: userMessage,
+        };
+
+        console.log({ postData });
+
+        const resp = await axios.post("/sendmail", postData);
+
+        console.log({ resp });
     };
 
     return (
@@ -35,7 +52,7 @@ const Form = () => {
             <Input
                 id="userEmail"
                 labelText="Email"
-                inputType="email"
+                inputType="text"
                 onChange={userEmailOnChange}
                 value={userEmail}
             />
