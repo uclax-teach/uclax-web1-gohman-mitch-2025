@@ -1,3 +1,12 @@
+import {
+    convertToEmailsToArray,
+    convertToNameAndEmail,
+    composeHtmlBodyMessage,
+    composeSubject,
+} from "../utils.js";
+
+const PROVIDER = "Mailtrap";
+
 export const mailtrap = () => {
     const send = async ({
         host,
@@ -5,7 +14,7 @@ export const mailtrap = () => {
         user,
         pass,
         subjectPrefix,
-        toEmails,
+        recipients,
         requestBody,
         res,
     }) => {

@@ -21,6 +21,7 @@
         "express": "^4.21.1",
         "helmet": "^8.0.0",
         "marked": "^15.0.3",
+        "nodemailer": "^6.9.16",
         "nodemon": "^3.1.7",
         "normalize.css": "^8.0.1",
         "prop-types": "^15.8.1",
@@ -29,6 +30,7 @@
         "react-helmet-async": "^2.0.5",
         "react-responsive-carousel": "^3.2.23",
         "react-router-dom": "^7.0.2",
+        "resend": "^4.0.1",
         "sib-api-v3-sdk": "^8.5.0",
         "styled-components": "^6.1.13",
         "uuid": "^11.0.3"

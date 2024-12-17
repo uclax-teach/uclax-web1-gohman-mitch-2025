@@ -1,10 +1,12 @@
+export const convertToEmailsToArray = (csvString) => {
+    // split and remove any whitespace on left and right of each value
+    return csvString.split(",").map((str) => str.trim());
+};
+
 // convert email format to name and email
 export const convertToNameAndEmail = (emailString) => {
-    // Trim spaces from each item before splitting
-    const trimmedEmailStr = emailString.trim();
-
     // Split the trimmed item by "<" to separate name and email
-    const [name, email] = trimmedEmailStr.split("<");
+    const [name, email] = emailString.split("<");
 
     return {
         name: name.trim(), // Trim spaces around the name
@@ -13,8 +15,8 @@ export const convertToNameAndEmail = (emailString) => {
 };
 
 // Convert combined string to array of { name, email }
-export const convertEmailStringToArray = (emailString) => {
-    return emailString.split(",").map((item) => {
+export const convertToEmailsToArrOfObjects = (emailString) => {
+    return convertToEmailsToArray(emailString).map((item) => {
         return convertToNameAndEmail(item);
     });
 };

@@ -44,7 +44,7 @@ const serve = async () => {
     secrets.email = {
         emailProvider: process.env.EMAIL_PROVIDER,
         subjectPrefix: `${process.env.VITE_APP_CONFIG_TITLE} Website`,
-        toEmails: process.env.EMAIL_RECIPIENTS,
+        recipients: process.env.EMAIL_RECIPIENTS,
         providers: {
             mailtrap: {
                 host: process.env.EMAIL_MAILTRAP_HOST,

@@ -8,7 +8,7 @@ import { brevo } from "./providers/brevo.js";
 
 sendmailRoutes.post("/", async (req, res) => {
     const {
-        email: { emailProvider, subjectPrefix, toEmails, providers },
+        email: { emailProvider, subjectPrefix, recipients, providers },
     } = req.app.get("secrets");
 
     switch (emailProvider) {
@@ -16,7 +16,7 @@ sendmailRoutes.post("/", async (req, res) => {
             mailtrap().send({
                 ...providers.mailtrap,
                 subjectPrefix,
-                toEmails,
+                recipients,
                 requestBody: { ...req.body },
                 res,
             });
@@ -25,7 +25,7 @@ sendmailRoutes.post("/", async (req, res) => {
             resend().send({
                 ...providers.resend,
                 subjectPrefix,
-                toEmails,
+                recipients,
                 requestBody: { ...req.body },
                 res,
             });
@@ -34,7 +34,7 @@ sendmailRoutes.post("/", async (req, res) => {
             brevo().send({
                 ...providers.brevo,
                 subjectPrefix,
-                toEmails,
+                recipients,
                 requestBody: { ...req.body },
                 res,
             });

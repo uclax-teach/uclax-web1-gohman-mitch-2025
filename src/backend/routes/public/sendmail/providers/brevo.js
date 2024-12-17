@@ -2,7 +2,7 @@ import BrevoApi from "sib-api-v3-sdk";
 
 import {
     convertToNameAndEmail,
-    convertEmailStringToArray,
+    convertToEmailsToArrOfObjects,
     composeHtmlBodyMessage,
     composeSubject,
 } from "../utils.js";
@@ -24,12 +24,14 @@ const brevoApiInit = (apiKey) => {
     return new BrevoApi.TransactionalEmailsApi();
 };
 
+const PROVIDER = "Brevo";
+
 export const brevo = () => {
     const send = async ({
         apiKey,
         from,
         subjectPrefix,
-        toEmails,
+        recipients,
         requestBody,
         res,
     }) => {
@@ -37,20 +39,20 @@ export const brevo = () => {
 
         const { userName, userEmail, userMessage } = requestBody; // Contact Form Vars
         const brevoApi = brevoApiInit(apiKey);
-        const to = convertEmailStringToArray(toEmails);
-        const provider = "Brevo";
+        const to = convertToEmailsToArrOfObjects(recipients);
+
         const recipient = to[0]?.name || "Recipient";
 
         const emailData = {
             sender: convertToNameAndEmail(from),
             to,
             replyTo: { name: userName, email: userEmail },
-            subject: composeSubject(subjectPrefix, userName, provider),
+            subject: composeSubject(subjectPrefix, userName, PROVIDER),
             htmlContent: composeHtmlBodyMessage(
                 recipient,
                 userName,
                 userMessage,
-                provider
+                PROVIDER
             ),
         };
 
