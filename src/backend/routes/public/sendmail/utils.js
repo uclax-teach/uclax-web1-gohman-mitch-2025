@@ -18,3 +18,25 @@ export const convertEmailStringToArray = (emailString) => {
         return convertToNameAndEmail(item);
     });
 };
+
+/*---------------------------
+| Compose Email
+---------------------------*/
+export const composeSubject = (subjectPrefix, userName, provider) => {
+    return `${subjectPrefix}: Contact Form: ${userName} - powered by ${provider}`;
+};
+
+export const composeHtmlBodyMessage = (
+    recipient,
+    userName,
+    userMessage,
+    provider
+) => {
+    return `
+            <p>Hey ${recipient},</p>
+            <p>You have a Website message from ${userName}:</p>
+            <p>${userMessage}</p>
+            <p>Cheers,<br>Your Web Team</p>
+            <p>Powered By ${provider}</p>
+        `;
+};

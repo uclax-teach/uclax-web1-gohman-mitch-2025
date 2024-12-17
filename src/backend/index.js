@@ -16,7 +16,7 @@ import bodyParser from "body-parser";
 
 // Custom
 import corsConfig from "./corsConfig.js";
-import { parseReqEnvVars, configureEmailApi } from "./utils.js";
+import { parseReqEnvVars } from "./utils.js";
 import apiRouter from "./routes/index.js";
 
 const serve = async () => {
@@ -37,15 +37,30 @@ const serve = async () => {
     | Secrets
     ---------------------------*/
     // Adding Required Environment Variables
-    let secrets = parseReqEnvVars(["VITE_API_URL", "CORS_DOMAINS"]);
+    let secrets = parseReqEnvVars(["CORS_DOMAINS"]);
 
     // sending emails
     app.use(bodyParser.json());
     secrets.email = {
+        emailProvider: process.env.EMAIL_PROVIDER,
         subjectPrefix: `${process.env.VITE_APP_CONFIG_TITLE} Website`,
-        api: configureEmailApi(process.env.BREVO_API_KEY),
-        senderEmail: process.env.BREVO_SENDER_EMAIL,
-        toEmails: process.env.BREVO_TO_EMAILS,
+        toEmails: process.env.EMAIL_RECIPIENTS,
+        providers: {
+            mailtrap: {
+                host: process.env.EMAIL_MAILTRAP_HOST,
+                port: process.env.EMAIL_MAILTRAP_PORT,
+                user: process.env.EMAIL_MAILTRAP_USER,
+                pass: process.env.EMAIL_MAILTRAP_PASS,
+            },
+            resend: {
+                apiKey: process.env.EMAIL_RESEND_API_KEY,
+                from: process.env.EMAIL_RESEND_FROM,
+            },
+            brevo: {
+                apiKey: process.env.EMAIL_BREVO_API_KEY,
+                from: process.env.EMAIL_BREVO_FROM,
+            },
+        },
     };
 
     // make secrets available to APP API

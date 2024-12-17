@@ -1,5 +1,4 @@
 import process from "process";
-import BrevoApi from "sib-api-v3-sdk";
 
 // Parse Required Env Vars
 export const parseReqEnvVars = (requiredVars) => {
@@ -19,21 +18,4 @@ export const parseReqEnvVars = (requiredVars) => {
     }, {});
 
     return secrets;
-};
-
-// Configure Email API: Brevo
-export const configureEmailApi = (apiKey) => {
-    if (!apiKey || apiKey === "BREVO_API_KEY") {
-        console.info(
-            "[BACKEND]: BREVO_API_KEY Missing. Brevo Email Api will not be configured"
-        );
-        return;
-    }
-
-    const brevoClient = BrevoApi.ApiClient.instance;
-    const brevoApiKey = brevoClient.authentications["api-key"];
-    brevoApiKey.apiKey = apiKey;
-
-    // Set up email API instance
-    return new BrevoApi.TransactionalEmailsApi();
 };
