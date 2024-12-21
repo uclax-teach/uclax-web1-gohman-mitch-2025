@@ -14,7 +14,7 @@
 2. paste the following, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v3/1.macOs-mac-apps.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v4/1.macOs-mac-apps.sh)"
     ```
 
 3. If asked, enter your macOS System password
@@ -89,7 +89,7 @@ With your Project Folder open in VS Code...
 2. Paste the following in the terminal, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v3/2.macOs-system-requirements-check.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v4/2.macOs-system-requirements-check.sh)"
     ```
 
 Ask Instructor/TA to come in and review your setup and answer any questions you may have.

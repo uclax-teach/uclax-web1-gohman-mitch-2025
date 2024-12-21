@@ -14,168 +14,68 @@ if [ -z "${BASH_VERSION:-}" ]; then
 fi
 
 #-------------------------------------------------
-# Properties
+# Props
 #-------------------------------------------------
 courseName="UCLAX-Web1"
-scriptTitle="[${courseName} macOS: Apps:]"
+scriptTitle="[${courseName}: WSL Ubuntu: Root:]"
 
 #-------------------------------------------------
-# Helper Methods
+# Methods
 #-------------------------------------------------
-function toTitleCase {
-    echo "$1" | awk '{for (i=1; i<=NF; ++i) $i=toupper(substr($i,1,1)) tolower(substr($i,2));} 1'
+function wordUpperCaseFirst {
+    echo "${1^}"
 }
 
 function toLowerCase {
-    echo "$1" | tr '[:upper:]' '[:lower:]'
+    echo "${1,,}"
 }
 
-#-------------------------------------------------
-# Start
-#-------------------------------------------------
-echo "$scriptTitle Starting"
+function toTitleCase {
+    echo "$(wordUpperCaseFirst "$(toLowerCase "$1")")"
+}
+
 
 #-------------------------------------------------
-# Make sure they are on Desktop
+# Start the party
 #-------------------------------------------------
-desktop="$HOME/Desktop"  # Use $HOME for proper expansion
-if [ -d "$desktop" ]; then
-    echo "Changing directory to $desktop."
-    cd "$desktop" || { echo "Failed to change directory to User's Desktop Folder."; exit 1; }
-    echo "Current directory: $(pwd)"
-else
-    echo "Error: Directory $desktop does not exist."
-    exit 1
-fi
+echo "$scriptTitle Start"
 
 #-------------------------------------------------
-# Capture User Details
+# Update and Upgrade packages
 #-------------------------------------------------
-read -p "Enter your First Name: " userFirstName
-userFirstName=$(toTitleCase "$userFirstName")
-
-read -p "Enter your Last Name: " userLastName
-userLastName=$(toTitleCase "$userLastName")
-
-read -p "Enter your Email: " userEmail
-userEmail=$(toLowerCase "$userEmail")
-
-echo "$scriptTitle User: $userFirstName $userLastName, Email: $userEmail"
+echo "$scriptTitle Update and Upgrade packages"
+sudo apt update -y && apt upgrade -y
 
 #-------------------------------------------------
-# XCode
+# Install Required Packages
 #-------------------------------------------------
-if ! xcode-select --print-path &>/dev/null; then
-    echo "$scriptTitle Xcode Command Line Tools will now install. Follow the on-screen instructions to complete installation."
-
-    xcode-select --install
-
-    echo "Waiting for Xcode Command Line Tools to finish installation..."
-
-    until xcode-select --print-path &>/dev/null; do
-        sleep 5
-    done
-else
-    echo "$scriptTitle Xcode Command Line Tools already installed."
-fi
+echo "$scriptTitle Install required packages"
+sudo apt install -y \
+    jq \
+    zsh \
+    curl \
+    fonts-powerline \
+    git \
+    xdg-utils
 
 #-------------------------------------------------
-# Install or Update Homebrew
+# Capture User Details in bash prompt
 #-------------------------------------------------
-scriptTitle="Homebrew Installation Script"
-echo "$scriptTitle Checking Homebrew..."
-if ! command -v brew &>/dev/null; then
-    echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || abort "Homebrew installation failed."
-else
-    echo "Updating Homebrew..."
-    brew update || abort "Homebrew update failed."
-fi
+echo "$scriptTitle User specific settings"
 
-# Homebrew path
-BREW_PATH="/opt/homebrew/bin"
+# Change variable names to captured versions as per your request
+read -p "Enter your First Name: " userFirstNameCaptured
+userFirstName=$(toTitleCase "$userFirstNameCaptured")
 
-# Add Homebrew to the PATH in .zshrc
-PROFILE_FILE="$HOME/.zshrc"
-ZSH_LOCAL_FILE="$HOME/.zshrc.local"
+read -p "Enter your Last Name: " userLastNameCaptured
+userLastName=$(toTitleCase "$userLastNameCaptured")
 
-# Check if Homebrew is already in PATH to avoid duplicates
-if ! grep -q "$BREW_PATH" "$PROFILE_FILE"; then
-    echo "Adding Homebrew to PATH in $PROFILE_FILE..."
-    echo "export PATH=\"$BREW_PATH:\$PATH\"" >> "$PROFILE_FILE"
-else
-    echo "Homebrew is already in PATH in $PROFILE_FILE."
-fi
+read -p "Enter your Email: " userEmailCaptured
+userEmail=$(toLowerCase "$userEmailCaptured")
 
-# Add Homebrew to .zshrc.local if not already added
-if ! grep -q "$BREW_PATH" "$ZSH_LOCAL_FILE"; then
-    echo "Adding Homebrew to $ZSH_LOCAL_FILE..."
-    echo "export PATH=\"$BREW_PATH:\$PATH\"" >> "$ZSH_LOCAL_FILE"
-fi
-
-# Add NVM_DIR to .zshrc.local if not already added
-if ! grep -q "export NVM_DIR=\"$HOME/.nvm\"" "$ZSH_LOCAL_FILE"; then
-    echo "Adding NVM_DIR to $ZSH_LOCAL_FILE..."
-    echo "export NVM_DIR=\"$HOME/.nvm\"" >> "$ZSH_LOCAL_FILE"
-fi
-
-# Source the profile to apply changes
-echo "Sourcing $PROFILE_FILE to apply changes..."
-source "$PROFILE_FILE" || echo "Failed to source $PROFILE_FILE. Please restart your shell."
+echo "$scriptTitle User Details: Name: $userFirstName $userLastName, Email: $userEmail attending $courseName"
 
 #-------------------------------------------------
-# Install jq
-#-------------------------------------------------
-if ! command -v jq &> /dev/null; then
-    echo "jq is not installed. Installing jq..."
-    brew install jq || abort "Failed to install jq"
-else
-    echo "jq is already installed."
-fi
-
-#-------------------------------------------------
-# Install VS Code with Brew, which automatically add `code` cli
-#-------------------------------------------------
-echo "$scriptTitle Installing VS Code..."
-brew install --cask visual-studio-code || abort "Failed to install VS Code."
-
-#-------------------------------------------------
-# Install NVM, Node.js, and NPM
-#-------------------------------------------------
-echo "$scriptTitle Installing NVM..."
-if [ ! -d "$HOME/.nvm" ]; then
-    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash || abort "Failed to install NVM."
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" || abort "Failed to source NVM."
-else
-    echo "NVM is already installed."
-fi
-
-echo "$scriptTitle NVM: Install Node Version 20.18.1 and Set as default"
-nvm install v20.18.1 || abort "Failed to install Node.js."
-nvm alias default v20.18.1 || abort "Failed to set Node.js as default."
-
-#-------------------------------------------------
-# Install Google Chrome
-#-------------------------------------------------
-echo "$scriptTitle Installing Google Chrome..."
-if [ ! -d "/Applications/Google Chrome.app" ]; then
-    brew install --cask google-chrome || abort "Failed to install Google Chrome."
-else
-    echo "Google Chrome is already installed."
-fi
-
-#-------------------------------------------------
-# Install/Update Git
-#-------------------------------------------------
-if brew ls --versions git &>/dev/null; then
-    echo "Git already installed. Updating Git..."
-    brew upgrade git
-else
-    echo "Installing Git..."
-    brew install git
-fi
-
 # Configure Git
 #-------------------------------------------------
 echo "$scriptTitle Configuring Git..."
@@ -185,17 +85,30 @@ git config --global init.defaultBranch "master"
 git config --global core.editor "code --wait"
 
 #-------------------------------------------------
-# Clone Starter Repository as User's Project Folder
+# Install NVM, Node, and NPM
+#-------------------------------------------------
+echo "$scriptTitle Install NVM, Node, and NPM"
+
+# Install NVM
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
+# Source NVM to make it available
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Install Node.js and set as default
+echo "$scriptTitle NVM: Install Node Version 20.18.1 and Set as default"
+nvm install v20.18.1 || abort "Failed to install Node.js."
+nvm use v20.18.1 || abort "Failed to use Node.js."
+nvm alias default v20.18.1 || abort "Failed to set Node.js as default."
+
+#-------------------------------------------------
+# Clone Web Starter Repo
 #-------------------------------------------------
 courseFolderName="$courseName-$userLastName-$userFirstName"
-echo "$scriptTitle Cloning repository into $courseFolderName"
+echo "Course Folder Name: $courseFolderName"
+git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
 
-# Check if the directory exists
-if [ -d "$courseFolderName" ]; then
-    echo "$scriptTitle Directory $courseFolderName already exists. Skipping repository clone."
-else
-    git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
-fi
 
 #-------------------------------------------------
 # CD Into User's Project Folder
@@ -238,14 +151,14 @@ fi
 #-------------------------------------------------
 if [ -f .env.example ]; then
     echo "$scriptTitle Creating .env from .env.example"
-    cp .env.example .env || abort "Failed to create .env file."
+    cp .env.example .env || { echo "Failed to create .env file."; exit 1; }
     echo ".env file created successfully."
 
-    # Replace placeholders with Bash variables
+    # Replace placeholders with actual values
     echo "Replacing placeholders in .env file..."
-    sed -i '' "s/Firstname/\$userFirstName/g" .env
-    sed -i '' "s/Lastname/\$userLastName/g" .env
-    sed -i '' "s/user@somedomain.com/\$userEmail/g" .env
+    sed -i "s/Firstname/${userFirstName}/g" .env
+    sed -i "s/Lastname/${userLastName}/g" .env
+    sed -i "s/user@somedomain.com/${userEmail}/g" .env
 
     echo "Placeholders replaced in .env file."
 else
@@ -279,28 +192,17 @@ fi
 #-------------------------------------------------
 # SSH Keys
 #-------------------------------------------------
+# Create the .ssh directory if it doesn't exist
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
 # Define the default SSH key path
 SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
 
-# Check if the default SSH key already exists
-if [ -f "$SSH_KEY_PATH" ]; then
-    echo "Default SSH key already exists at $SSH_KEY_PATH."
+if [ ! -f "$SSH_KEY_PATH" ]; then
+    ssh-keygen -t ed25519 -f "$SSH_KEY_PATH" -N "" || abort "Failed to generate SSH key."
+    echo "SSH key generated successfully."
 else
-    echo "Default SSH key not found. Generating a new passwordless SSH key pair..."
-
-    # Create the .ssh directory if it doesn't exist
-    mkdir -p "$HOME/.ssh"
-    chmod 700 "$HOME/.ssh"
-
-    # Generate the SSH key pair
-    ssh-keygen -t ed25519 -f "$SSH_KEY_PATH" -N ""
-
-    if [ $? -eq 0 ]; then
-        echo "SSH key generated successfully."
-    else
-        echo "Failed to generate SSH key."
-        exit 1
-    fi
+    echo "SSH key already exists at $SSH_KEY_PATH."
 fi
 
 # SSH: Opening SSH Public Key in VS Code
@@ -313,24 +215,6 @@ code "${SSH_KEY_PATH}.pub"
 #-------------------------------------------------
 echo "$scriptTitle Opening GitHub Signup Page"
 open https://github.com/join || echo "Failed to open GitHub signup page. Please open it manually: https://github.com/join"
-
-#-------------------------------------------------
-# Install Zsh
-#-------------------------------------------------
-echo "$scriptTitle Installing Zsh..."
-if [ -n "$ZSH_VERSION" ]; then
-    echo "Zsh is already the default shell."
-else
-    brew install zsh || abort "Failed to install Zsh."
-
-    # Check if Zsh is in the list of valid shells
-    if ! grep -Fxq "/opt/homebrew/bin/zsh" /etc/shells; then
-        echo "/opt/homebrew/bin/zsh" | sudo tee -a /etc/shells || abort "Failed to add Zsh to /etc/shells."
-    fi
-
-    # Set Zsh as the default shell
-    chsh -s "$(which zsh)" || abort "Failed to set Zsh as the default shell."
-fi
 
 #-------------------------------------------------
 # Install Oh My Zsh
