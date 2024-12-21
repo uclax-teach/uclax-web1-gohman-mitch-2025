@@ -8,13 +8,13 @@
 
 -   Note: You will be prompted to install Xcode Command Line Tools via a system dialog. This is a separate window, and will require you to provide your macOs System Admin password (the one you use to log into your computer).
 
-### Steps
+### Run Installation Script
 
 1. Open macOS Terminal App
 2. paste the following, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/1.macOs-mac-apps.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v1/1.macOs-mac-apps.sh)"
     ```
 
 3. If asked, enter your macOS System password
@@ -24,20 +24,14 @@
 7. Say YES to making ZSH as your default terminal
 8. Quit macOS terminal
 
-## Setup Course Folder
+## Open Your Course Folder in VS Code
 
-Your course folder should now be on your desktop (e.g. UCLAX-Web1-Lastname-First).
+Your course folder should now be on your desktop (e.g. UCLAX-Web1-Lastname-First), and should already be open in VS Code. It it is not open in VS Code - do the following:
 
 1. **Open Visual Studio Code**
 2. _Tip: you may want to pin to your Dock as this is our go to app for the rest of the course_
 3. Choose **File / Open Folder**
 4. Select your course folder on the Desktop (e.g. UCLAX-Web1-Lastname-First), and press open
-5. Choose **Terminal / New Terminal**
-6. paste the following in the terminal, and press enter
-
-    ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v7/2.macOs-zsh-course-folder.sh)"
-    ```
 
 ## Setup and Connect to Github
 
@@ -58,23 +52,21 @@ Git and Github are essential tools used by developers to share and collaborate o
 
 ### Github: Adding SSH Keys
 
-SSH keys are a secure way to connect to your Github account without having to constantly provide username and password.
+SSH keys are a secure way to connect to your Github account without having to constantly provide username and password. SSH keys should have been set up when you ran the installation script. And the public key should be open in VS Code.
 
-1. Follow instruction to [Add SSH Keys to **macOs)**](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac)
-    - Note: All commands will be entered in VS Code terminal
-2. Add SSH Key to Github
-    1. click your **profile icon** upper right
-    2. Choose **Settings**
-    3. Select **SSH and GPG Keys** in left sidebar
-    4. Click **New SSH Key** button, upper right
-    5. Title: Pick something to represent your computer (e.g `Macbook Pro`, `Mac Studio`)
-    6. Key
-        1. Obtain Key
-            1. Open VS Code Terminal
-            2. Type `code ~/.ssh/id_ed25519.pub`
-            3. Copy the text in the new file that shows up e.g. `ssh-ed25519 AAAAC3Nsfsddfsfgsdfgsdfgsdtrg meatched+ghub-win1@gmail.com`
-        2. Paste into Github SSH Key field
-    7. Click **Add SSH Key**
+If you do not see it, try running the following command in any terminal.
+
+`code ~/.ssh/id_ed25519.pub`
+
+_Note: if no keys exist, call Instructor/TA in to your breakout room so we can assist you in manual installation using these instructions: [Add SSH Keys to **macOs)**](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac)_.
+
+1.  click your **profile icon** upper right
+2.  Choose **Settings**
+3.  Select **SSH and GPG Keys** in left sidebar
+4.  Click **New SSH Key** button, upper right
+5.  Title: Pick something to represent your computer (e.g `Macbook Pro`, `Mac Studio`)
+6.  Key: copy and paste the contents of `id_ed25519.pub` that is open in VS Code
+7.  Click **Add SSH Key**
 
 ### Github: Create and Connect New Repo
 
@@ -89,6 +81,15 @@ SSH keys are a secure way to connect to your Github account without having to co
 9. **Paste** your clipboard into the terminal and **press enter**
 10. Once it is done, you can refresh your Github Repo Page in the browser and you will see your project is now connected.
 
-## Completion
+## Run System Requirements Check
 
-Ask Instructor to come in and review your setup and answer any questions you may have.
+With your Project Folder open in VS Code...
+
+1. Choose **Terminal / New Terminal**
+2. Paste the following in the terminal, and press enter
+
+    ```bash
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/macOs-v1/2.macOs-system-requirements-check.sh)"
+    ```
+
+Ask Instructor/TA to come in and review your setup and answer any questions you may have.

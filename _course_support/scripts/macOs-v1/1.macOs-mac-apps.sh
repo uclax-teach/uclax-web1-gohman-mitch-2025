@@ -38,7 +38,15 @@ echo "$scriptTitle Starting"
 #-------------------------------------------------
 # Make sure they are on Desktop
 #-------------------------------------------------
-cd ~/Desktop
+desktop="$HOME/Desktop"  # Use $HOME for proper expansion
+if [ -d "$desktop" ]; then
+    echo "Changing directory to $desktop."
+    cd "$desktop" || { echo "Failed to change directory to User's Desktop Folder."; exit 1; }
+    echo "Current directory: $(pwd)"
+else
+    echo "Error: Directory $desktop does not exist."
+    exit 1
+fi
 
 #-------------------------------------------------
 # Capture User Details
@@ -115,7 +123,6 @@ fi
 echo "Sourcing $PROFILE_FILE to apply changes..."
 source "$PROFILE_FILE" || echo "Failed to source $PROFILE_FILE. Please restart your shell."
 
-
 #-------------------------------------------------
 # Install jq
 #-------------------------------------------------
@@ -127,7 +134,7 @@ else
 fi
 
 #-------------------------------------------------
-# Install VS Code
+# Install VS Code with Brew, which automatically add `code` cli
 #-------------------------------------------------
 echo "$scriptTitle Installing VS Code..."
 brew install --cask visual-studio-code || abort "Failed to install VS Code."
@@ -178,7 +185,7 @@ git config --global init.defaultBranch "master"
 git config --global core.editor "code --wait"
 
 #-------------------------------------------------
-# Clone Starter Repository
+# Clone Starter Repository as User's Project Folder
 #-------------------------------------------------
 courseFolderName="$courseName-$userLastName-$userFirstName"
 echo "$scriptTitle Cloning repository into $courseFolderName"
@@ -189,6 +196,115 @@ if [ -d "$courseFolderName" ]; then
 else
     git clone https://github.com/uclax-teach/uclax-web1-gohman-mitch-2025.git "$courseFolderName" || abort "Failed to clone repository."
 fi
+
+#-------------------------------------------------
+# CD Into User's Project Folder
+#-------------------------------------------------
+if [ -d "$courseFolderName" ]; then
+    echo "Changing directory to $courseFolderName."
+    cd "$courseFolderName" || { echo "Failed to change directory to User's Project Folder."; exit 1; }
+    echo "Current directory: $(pwd)"
+else
+    echo "Error: Directory $courseFolderName does not exist."
+    exit 1
+fi
+
+#-------------------------------------------------
+# Opening User's Project Folder in VS Code
+#-------------------------------------------------
+echo "$scriptTitle Opening User's Project Folder in VS Code"
+code .
+
+#-------------------------------------------------
+# Install VS Code Extensions
+#-------------------------------------------------
+# Path to extensions.json
+json_file="./.vscode/extensions.json"
+
+if [ -f "$json_file" ]; then
+    echo "$scriptTitle Installing VS Code extensions from $json_file"
+    extensions=$(jq -r '.recommendations[]' "$json_file")
+    for ext in $extensions; do
+        echo "Installing extension: $ext"
+        code --install-extension "$ext" || abort "Failed to install extension: $ext"
+    done
+    echo "All VS Code extensions installed successfully."
+else
+    echo "No extensions.json file found at $json_file. Skipping VS Code extensions installation."
+fi
+
+#-------------------------------------------------
+# Create .env from .env.example
+#-------------------------------------------------
+if [ -f .env.example ]; then
+    echo "$scriptTitle Creating .env from .env.example"
+    cp .env.example .env || abort "Failed to create .env file."
+    echo ".env file created successfully."
+else
+    echo "No .env.example file found. Skipping .env creation."
+fi
+
+#-------------------------------------------------
+# Install NPM Dependencies
+#-------------------------------------------------
+if [ -f package.json ]; then
+    echo "$scriptTitle Running npm install"
+    npm install || abort "npm install failed. Please check the error log."
+else
+    echo "No package.json found. Skipping npm install."
+fi
+
+#-------------------------------------------------
+# Git: Reset and Fresh Commit
+#-------------------------------------------------
+echo "$scriptTitle Resetting Git repository"
+if [ -d .git ]; then
+    sudo rm -rf .git || abort "Failed to remove existing .git directory."
+    git init || abort "Failed to initialize a new Git repository."
+    git add . || abort "Failed to stage files for commit."
+    git commit -m "Initial Commit: Fresh Setup" || abort "Failed to create an initial Git commit."
+    echo "Git repository reset and fresh commit completed."
+else
+    echo "No .git folder found, are you sure you are in the correct directory?"
+fi
+
+#-------------------------------------------------
+# SSH Keys
+#-------------------------------------------------
+# Define the default SSH key path
+SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
+
+# Check if the default SSH key already exists
+if [ -f "$SSH_KEY_PATH" ]; then
+    echo "Default SSH key already exists at $SSH_KEY_PATH."
+else
+    echo "Default SSH key not found. Generating a new passwordless SSH key pair..."
+
+    # Create the .ssh directory if it doesn't exist
+    mkdir -p "$HOME/.ssh"
+    chmod 700 "$HOME/.ssh"
+
+    # Generate the SSH key pair
+    ssh-keygen -t ed25519 -f "$SSH_KEY_PATH" -N ""
+
+    if [ $? -eq 0 ]; then
+        echo "SSH key generated successfully."
+    else
+        echo "Failed to generate SSH key."
+        exit 1
+    fi
+fi
+
+# SSH: Opening SSH Public Key in VS Code
+#-------------------------------------------------
+echo "$scriptTitle Opening SSH Public Key in VS Code"
+code "${SSH_KEY_PATH}.pub"
+
+#-------------------------------------------------
+# Open GitHub Signup Page
+#-------------------------------------------------
+echo "$scriptTitle Opening GitHub Signup Page"
+open https://github.com/join || echo "Failed to open GitHub signup page. Please open it manually: https://github.com/join"
 
 #-------------------------------------------------
 # Install Zsh

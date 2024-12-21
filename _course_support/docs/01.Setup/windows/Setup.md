@@ -20,7 +20,7 @@ _Note: When you run these installations scripts at some point your computer will
 2. type the following command and press enter
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11-v1/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
 3. Install Google Chrome, if you have not already (we will all use this browser to normalize instruction)
@@ -48,7 +48,7 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/2.wsl-ubuntu-root-part1.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11-v1/2.wsl-ubuntu-root.sh)"
     ```
 
 7. If asked, enter your Ubuntu WSL password your set up earlier
@@ -56,32 +56,7 @@ _Note: When you run these installations scripts at some point your computer will
 9. When prompted, provide your First, Last and Email (this will be used to set up your folder)
 10. Answer any prompts that show up
 11. Say YES to making ZSH as your default terminal
-12. Run the following command
-
-    ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/3.wsl-ubuntu-root-part2.sh)"
-    ```
-
-13. Close terminal by clicking trash icon in upper right of terminal
-
-## VS Code and WSL: Setup Course Folder
-
-1. File > Open Folder
-    1. Select your your course folder `/home/{username}/**UCLAX-Web1-Lastname-Firstname**`
-    2. Press OK
-2. Run the following command
-
-    ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11/4.wsl-ubuntu-course-folder.sh)"
-    ```
-
-    1. **Windows Firewall**: Choose "Allow" for Node
-    2. **VS Code Icons**: Choose Activate
-    3. Any other windows or prompts that pop up can be closed/ignored
-
-3. Open app in browser
-    1. Control clicking on http://localhost:3999
-    2. choose `Google Chrome` and `Always`
+12. Close terminal by clicking trash icon in upper right of terminal
 
 ## Setup and Connect to Github
 
@@ -102,23 +77,21 @@ Git and Github are essential tools used by developers to share and collaborate o
 
 ### Github: Adding SSH Keys
 
-SSH keys are a secure way to connect to your Github account without having to constantly provide username and password.
+SSH keys are a secure way to connect to your Github account without having to constantly provide username and password. SSH keys should have been set up when you ran the installation script. And the public key should be open in VS Code.
 
-1. Follow instruction to [Add SSH Keys to **Windows WSL (Linux)**](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux)
-    - Note: All commands will be entered in VS Code terminal
-2. Add SSH Key to Github
-    1. click your **profile icon** upper right
-    2. Choose **Settings**
-    3. Select **SSH and GPG Keys** in left sidebar
-    4. Click **New SSH Key** button, upper right
-    5. Title: `Windows 11 WSL Ubuntu`
-    6. Key
-        1. Obtain Key
-            1. Open VS Code Terminal
-            2. Type `code ~/.ssh/id_ed25519.pub`
-            3. Copy the text in the new file that shows up e.g. `ssh-ed25519 AAAAC3Nsfsddfsfgsdfgsdfgsdtrg meatched+ghub-win1@gmail.com`
-        2. Paste into Github SSH Key field
-    7. Click **Add SSH Key**
+If you do not see it, try running the following command in any terminal.
+
+`code ~/.ssh/id_ed25519.pub`
+
+_Note: if no keys exist, call Instructor/TA in to your breakout room so we can assist you in manual installation using these instructions: [Add SSH Keys to **Windows WSL (Linux)**](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux)_.
+
+1.  click your **profile icon** upper right
+2.  Choose **Settings**
+3.  Select **SSH and GPG Keys** in left sidebar
+4.  Click **New SSH Key** button, upper right
+5.  Title: Pick something to help you identify your computer (e.g `Windows Laptop`)
+6.  Key: copy and paste the contents of `id_ed25519.pub` that is open in VS Code
+7.  Click **Add SSH Key**
 
 ### Github: Create and Connect New Repo
 
@@ -133,7 +106,16 @@ SSH keys are a secure way to connect to your Github account without having to co
 9. **Paste** your clipboard into the terminal and **press enter**
 10. Once it is done, you can refresh your Github Repo Page in the browser and you will see your project is now connected.
 
-## Completion
+## Run System Requirements Check
+
+With your Project Folder open in VS Code...
+
+1. Choose **Terminal / New Terminal**
+2. Paste the following in the terminal, and press enter
+
+    ```bash
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11-v1/3.wsl-ubuntu-system-requirements-check.sh)"
+    ```
 
 Ask Instructor to come in and review your setup and answer any questions you may have.
 

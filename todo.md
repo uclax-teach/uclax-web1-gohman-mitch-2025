@@ -33,7 +33,7 @@
         -   [x] Configure Resend (production) and Mailtrap (local)
         -   [x] Wire up form to and test Brevo
         -   [x] Add Google Recaptcha
-        -   [ ] Test on Render website
+        -   [x] Test on Render website
 -   [ ] Streamline Installation Process
     -   [ ] Both
         -   [ ] Can we update .env with First, Last and email?

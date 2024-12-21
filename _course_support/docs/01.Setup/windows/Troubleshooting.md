@@ -1,6 +1,6 @@
 # Windows Troubleshooting
 
-1. Confirm Installations `node -v && npm -v && git -v`
+1. Run System Requirements Check
 1. Windows Search > **Turn Windows Features on or off**, and make sure the following is enabled
     1. Hyper-V
     2. Virtual Machine Platform
