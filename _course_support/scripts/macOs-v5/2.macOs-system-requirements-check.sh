@@ -52,7 +52,7 @@ fi
 
 # Check Node Version Manager (NVM)
 echo "Checking NVM version..."
-if [ -n "$NVM_DIR" ] && [ -s "$NVM_DIR/nvm.sh" ] && nvm_version=$(nvm --version 2>/dev/null); then
+if command -v nvm &> /dev/null && nvm_version=$(nvm --version 2>/dev/null); then
     passed_checks+=("NVM: Installed (Version $nvm_version)")
 else
     failed_checks+=("NVM: Not installed or not set up")
