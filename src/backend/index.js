@@ -64,6 +64,9 @@ const serve = async () => {
                 from: process.env.EMAIL_BREVO_FROM,
             },
         },
+        reCaptcha: {
+            secretKey: process.env.RECAPTCHA_SECRET_KEY,
+        },
     };
 
     // make secrets available to APP API

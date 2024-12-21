@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const convertCsvToArray = (csvString) => {
     // split and remove any whitespace on left and right of each value
     return csvString.split(",").map((str) => str.trim());
@@ -106,4 +108,15 @@ export const composeMessageBody = (
             <p>Powered By ${provider}</p>
         `,
     };
+};
+
+/*---------------------------
+| Google Recaptcha
+---------------------------*/
+export const verifyGoogleRecaptcha = async (secretKey, token) => {
+    const resp = await axios.post(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`
+    );
+    console.log({ recpatchaResp: resp?.data });
+    return resp?.data?.success;
 };

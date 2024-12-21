@@ -30,9 +30,10 @@
     -   [ ] Emails
         -   [x] Configure Brevo with Free Test Account
         -   [x] Setup Contact Form
-        -   [ ] Configure Resend (production) and Mailtrap (local)
-        -   [ ] Wire up form to and test Brevo
-        -   [ ] Add Google Recaptcha
+        -   [x] Configure Resend (production) and Mailtrap (local)
+        -   [x] Wire up form to and test Brevo
+        -   [x] Add Google Recaptcha
+        -   [ ] Test on Render website
 -   [ ] Streamline Installation Process
     -   [ ] Both
         -   [ ] Can we update .env with First, Last and email?

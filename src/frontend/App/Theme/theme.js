@@ -35,5 +35,9 @@ export const theme = {
             light: "#fff",
             dark: "#999",
         },
+        messaging: {
+            success: { color: "#000", bgColor: "#b2ecb2" },
+            error: { color: "#000", bgColor: "#f5672a" },
+        },
     },
 };

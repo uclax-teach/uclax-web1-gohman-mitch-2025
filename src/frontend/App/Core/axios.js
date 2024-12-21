@@ -1,7 +1,8 @@
 import axiosObj from "axios";
+import { config } from "@App/config";
 
 const axios = axiosObj.create({
-    baseURL: import.meta.env.VITE_API_URL,
+    baseURL: config.app.apiUrl,
 });
 
 export default axios;
