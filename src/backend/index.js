@@ -102,9 +102,9 @@ const serve = async () => {
     app.use((req, res, next) => {
         res.setHeader(
             "Content-Security-Policy",
-            "script-src 'self' https://www.google.com; " +
-                "script-src-elem 'self' https://www.google.com; " +
-                "img-src 'self' https://www.gstatic.com; " + // Allow images from Google
+            "script-src 'self' https://www.google.com https://www.gstatic.com; " + // Allow scripts from Google and Google Static
+                "script-src-elem 'self' https://www.google.com https://www.gstatic.com; " + // Allow script elements from Google and Google Static
+                "img-src 'self' https://www.gstatic.com; " + // Allow images from Google Static
                 "frame-src https://www.google.com;" // Allow frames from Google (if necessary)
         );
         next();
