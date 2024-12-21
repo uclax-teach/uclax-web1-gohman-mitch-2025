@@ -40,45 +40,46 @@ failed_checks=()
 macos_version=$(sw_vers -productVersion)
 echo "Checking macOS version..."
 echo "macOS version: $macos_version"
+passed_checks+=("macOS: Version $macos_version")
 
 # Check VS Code version
 echo "Checking Visual Studio Code CLI version..."
-if ! code --version &>/dev/null; then
-    failed_checks+=("Visual Studio Code CLI: Not installed or unavailable")
+if code_version=$(code --version 2>/dev/null | head -n 1); then
+    passed_checks+=("Visual Studio Code CLI: Installed (Version $code_version)")
 else
-    passed_checks+=("Visual Studio Code CLI: Installed")
+    failed_checks+=("Visual Studio Code CLI: Not installed or unavailable")
 fi
 
 # Check Node Version Manager (NVM)
 echo "Checking NVM version..."
-if ! command -v nvm &>/dev/null; then
-    failed_checks+=("NVM: Not installed")
+if [ -n "$NVM_DIR" ] && [ -s "$NVM_DIR/nvm.sh" ] && nvm_version=$(nvm --version 2>/dev/null); then
+    passed_checks+=("NVM: Installed (Version $nvm_version)")
 else
-    passed_checks+=("NVM: Installed")
+    failed_checks+=("NVM: Not installed or not set up")
 fi
 
 # Check Node version
 echo "Checking Node.js version..."
-if ! command -v node &>/dev/null; then
-    failed_checks+=("Node.js: Not installed")
+if node_version=$(node --version 2>/dev/null); then
+    passed_checks+=("Node.js: Installed (Version $node_version)")
 else
-    passed_checks+=("Node.js: Installed")
+    failed_checks+=("Node.js: Not installed")
 fi
 
 # Check npm version
 echo "Checking npm version..."
-if ! command -v npm &>/dev/null; then
-    failed_checks+=("npm: Not installed")
+if npm_version=$(npm --version 2>/dev/null); then
+    passed_checks+=("npm: Installed (Version $npm_version)")
 else
-    passed_checks+=("npm: Installed")
+    failed_checks+=("npm: Not installed")
 fi
 
 # Check Git version
 echo "Checking Git version..."
-if ! command -v git &>/dev/null; then
-    failed_checks+=("Git: Not installed")
+if git_version=$(git --version 2>/dev/null | awk '{print $3}'); then
+    passed_checks+=("Git: Installed (Version $git_version)")
 else
-    passed_checks+=("Git: Installed")
+    failed_checks+=("Git: Not installed")
 fi
 
 # Check if the project folder is connected to a GitHub repository
@@ -91,23 +92,23 @@ fi
 
 # Check that Xcode Command Line Tools are installed
 echo "Checking Xcode Command Line Tools installation..."
-if ! xcode-select -p &>/dev/null; then
-    failed_checks+=("Xcode Command Line Tools: Not installed")
+if xcode_version=$(xcode-select -p &>/dev/null && xcodebuild -version | head -n 1 | awk '{print $2}'); then
+    passed_checks+=("Xcode Command Line Tools: Installed (Version $xcode_version)")
 else
-    passed_checks+=("Xcode Command Line Tools: Installed")
+    failed_checks+=("Xcode Command Line Tools: Not installed")
 fi
 
 # Check if Google Chrome is installed
 echo "Checking if Google Chrome is installed..."
-if ! command -v "google-chrome" &>/dev/null; then
-    failed_checks+=("Google Chrome: Not installed")
-else
+if [ -d "/Applications/Google Chrome.app" ]; then
     passed_checks+=("Google Chrome: Installed")
+else
+    failed_checks+=("Google Chrome: Not installed")
 fi
 
 # Check if SSH keys are set up
 echo "Checking if SSH keys are set up..."
-if [ ! -f "$HOME/.ssh/id_rsa" ] || [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
+if [ ! -f "$HOME/.ssh/id_ed25519" ] || [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
     failed_checks+=("SSH Keys: Not set up")
 else
     passed_checks+=("SSH Keys: Set up")
