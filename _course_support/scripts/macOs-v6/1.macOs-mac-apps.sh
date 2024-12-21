@@ -347,8 +347,17 @@ fi
 #-------------------------------------------------
 ZSHRC_LOCAL="$HOME/.zshrc.local"
 
-# Add NVM_DIR and source NVM
-echo "export NVM_DIR=\"$HOME/.nvm\"" >> "$ZSHRC_LOCAL"
+# Check for Homebrew's NVM installation path and set NVM_DIR accordingly
+if [[ -d "/opt/homebrew/opt/nvm" ]]; then
+    NVM_DIR="/opt/homebrew/opt/nvm"
+elif [[ -d "/usr/local/opt/nvm" ]]; then
+    NVM_DIR="/usr/local/opt/nvm"
+else
+    NVM_DIR="$HOME/.nvm"  # Default location if NVM is installed manually
+fi
+
+# Add NVM_DIR and source NVM in .zshrc.local
+echo "export NVM_DIR=\"$NVM_DIR\"" >> "$ZSHRC_LOCAL"
 echo "[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"" >> "$ZSHRC_LOCAL"
 echo "[ -s \"\$NVM_DIR/bash_completion\" ] && . \"\$NVM_DIR/bash_completion\"" >> "$ZSHRC_LOCAL"
 

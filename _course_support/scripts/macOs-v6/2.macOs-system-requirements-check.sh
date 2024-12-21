@@ -50,10 +50,23 @@ else
     failed_checks+=("Visual Studio Code CLI: Not installed or unavailable")
 fi
 
-# Check Node Version Manager (NVM)
-echo "Checking NVM version..."
-if command -v nvm &> /dev/null && nvm_version=$(nvm --version 2>/dev/null); then
-    passed_checks+=("NVM: Installed (Version $nvm_version)")
+echo "Checking if NVM is available..."
+
+# Set NVM_DIR if not already set
+if [ -z "$NVM_DIR" ]; then
+    export NVM_DIR="/opt/homebrew/opt/nvm"
+fi
+
+# Check if NVM is installed and sourced
+if [ -n "$NVM_DIR" ] && [ -s "$NVM_DIR/nvm.sh" ]; then
+    echo "Sourcing nvm.sh..."
+    source "$NVM_DIR/nvm.sh"
+    nvm_version=$(nvm --version 2>/dev/null)
+    if [ $? -eq 0 ]; then
+        passed_checks+=("NVM: Installed (Version $nvm_version)")
+    else
+        failed_checks+=("NVM: Version check failed")
+    fi
 else
     failed_checks+=("NVM: Not installed or not set up")
 fi
