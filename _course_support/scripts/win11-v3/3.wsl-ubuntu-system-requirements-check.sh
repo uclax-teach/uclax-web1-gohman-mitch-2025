@@ -29,12 +29,17 @@ ubuntu_version=$(lsb_release -a 2>/dev/null | grep 'Description' | cut -f2)
 echo "Checking Ubuntu version..."
 echo "Ubuntu version: $ubuntu_version"
 
+# Initialize passed and failed checks arrays
+passed_checks=()
+failed_checks=()
+
 # Check Visual Studio Code version
 echo "Checking Visual Studio Code CLI version..."
 if ! command -v code &>/dev/null; then
     failed_checks+=("Visual Studio Code CLI: Not installed or unavailable")
 else
-    passed_checks+=("Visual Studio Code CLI: Installed")
+    vscode_version=$(code --version | head -n 1)
+    passed_checks+=("Visual Studio Code CLI: Installed -- version $vscode_version")
 fi
 
 # Check Node Version Manager (NVM)
@@ -42,7 +47,8 @@ echo "Checking NVM version..."
 if ! command -v nvm &>/dev/null; then
     failed_checks+=("NVM: Not installed")
 else
-    passed_checks+=("NVM: Installed")
+    nvm_version=$(nvm --version)
+    passed_checks+=("NVM: Installed -- version $nvm_version")
 fi
 
 # Check Node version
@@ -50,7 +56,8 @@ echo "Checking Node.js version..."
 if ! command -v node &>/dev/null; then
     failed_checks+=("Node.js: Not installed")
 else
-    passed_checks+=("Node.js: Installed")
+    node_version=$(node -v)
+    passed_checks+=("Node.js: Installed -- version $node_version")
 fi
 
 # Check npm version
@@ -58,7 +65,8 @@ echo "Checking npm version..."
 if ! command -v npm &>/dev/null; then
     failed_checks+=("npm: Not installed")
 else
-    passed_checks+=("npm: Installed")
+    npm_version=$(npm -v)
+    passed_checks+=("npm: Installed -- version $npm_version")
 fi
 
 # Check Git version
@@ -66,7 +74,8 @@ echo "Checking Git version..."
 if ! command -v git &>/dev/null; then
     failed_checks+=("Git: Not installed")
 else
-    passed_checks+=("Git: Installed")
+    git_version=$(git --version | awk '{print $3}')
+    passed_checks+=("Git: Installed -- version $git_version")
 fi
 
 # Check if the project folder is connected to a GitHub repository
