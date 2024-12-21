@@ -97,6 +97,20 @@ const serve = async () => {
     app.use(corsConfig(secrets.CORS_DOMAINS));
 
     /*---------------------------
+    | reCAPTCHA Set Headers
+    ---------------------------*/
+    app.use((req, res, next) => {
+        res.setHeader(
+            "Content-Security-Policy",
+            "script-src 'self' https://www.google.com; " +
+                "script-src-elem 'self' https://www.google.com; " +
+                "img-src 'self' https://www.gstatic.com; " + // Allow images from Google
+                "frame-src https://www.google.com;" // Allow frames from Google (if necessary)
+        );
+        next();
+    });
+
+    /*---------------------------
     | API Routes
     ---------------------------*/
     app.use("/api", apiRouter);
@@ -104,7 +118,6 @@ const serve = async () => {
     /*---------------------------
     | Vite React App
     ---------------------------*/
-
     // Define the path to the build folder
     const frontendBuildPath = path.resolve(__dirname, "../frontend/build");
     const fallbackHtmlPath = path.resolve(__dirname, "./fallback.html");
