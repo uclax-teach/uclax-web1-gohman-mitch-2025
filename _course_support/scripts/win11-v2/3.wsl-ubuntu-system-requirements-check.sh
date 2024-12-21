@@ -79,7 +79,7 @@ fi
 
 # Check if SSH keys are set up
 echo "Checking if SSH keys are set up..."
-if [ ! -f "$HOME/.ssh/id_rsa" ] || [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
+if [ ! -f "$HOME/.ssh/id_ed25519" ] || [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
     failed_checks+=("SSH Keys: Not set up")
 else
     passed_checks+=("SSH Keys: Set up")

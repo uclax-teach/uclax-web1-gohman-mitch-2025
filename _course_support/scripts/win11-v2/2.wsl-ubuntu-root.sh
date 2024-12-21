@@ -17,7 +17,7 @@ fi
 # Props
 #-------------------------------------------------
 courseName="UCLAX-Web1"
-scriptTitle="[${courseName}: WSL Ubuntu: Root Part1:]"
+scriptTitle="[${courseName}: WSL Ubuntu: Root:]"
 
 #-------------------------------------------------
 # Methods

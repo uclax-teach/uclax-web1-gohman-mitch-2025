@@ -20,7 +20,7 @@ _Note: When you run these installations scripts at some point your computer will
 2. type the following command and press enter
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11-v1/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11-v2/1.install-windows-apps.ps1" -UseBasicParsing | Invoke-Expression
     ```
 
 3. Install Google Chrome, if you have not already (we will all use this browser to normalize instruction)
@@ -30,7 +30,7 @@ _Note: When you run these installations scripts at some point your computer will
 
 1. Windows Search > **Ubuntu** - **!Important!** be sure to choose **"Run as Administrator"** on the right
 2. _Note: It may hang at "Installing, this may take a few minutes...". If it takes longer than 3 minutes press "enter" and "control + c"_
-3. You will be asked for a username and password - read the note below before entering
+3. You will be asked to create a username and password - read the note below before entering
     1. Important: when you enter password, it will not show you typing. You have to trust its entering the characters you type
     2. Important: these are up to you, but make sure its something you remember
     3. press enter after each entry
@@ -48,7 +48,7 @@ _Note: When you run these installations scripts at some point your computer will
 6. Run the following command
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11-v1/2.wsl-ubuntu-root.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11-v2/2.wsl-ubuntu-root.sh)"
     ```
 
 7. If asked, enter your Ubuntu WSL password your set up earlier
@@ -114,7 +114,7 @@ With your Project Folder open in VS Code...
 2. Paste the following in the terminal, and press enter
 
     ```bash
-    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11-v1/3.wsl-ubuntu-system-requirements-check.sh)"
+    bash -i -c "$(curl -sSL https://raw.githubusercontent.com/uclax-teach/uclax-web1-gohman-mitch-2025/refs/heads/master/_course_support/scripts/win11-v2/3.wsl-ubuntu-system-requirements-check.sh)"
     ```
 
 Ask Instructor to come in and review your setup and answer any questions you may have.
