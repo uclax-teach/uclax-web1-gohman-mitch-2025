@@ -28,9 +28,10 @@ const GlobalStyle = createGlobalStyle`
             }
 
             main {
-                padding: 30px;
                 background-color: ${colors.secondary.default};
                 color: ${colors.secondary.dark};
+                padding: 50px 0px 100px;
+                min-height: 800px;
             }
 
             * {
@@ -141,13 +142,21 @@ const GlobalStyle = createGlobalStyle`
                     text-decoration: none;
                     border-radius: 5px;
                     padding: 10px 20px;
-                    color: white;
-                    background-color: ${colors.primary.default};
-                }
+                    color: ${colors.primary.default};
+                    background-color: ${colors.secondary.light};
+                    border-bottom: solid 3px transparent;
 
-                a:hover,
-                a.active {
-                    background-color: ${colors.primary.dark};
+                    &:hover {
+                        border-bottom-color: ${colors.primary.default};
+                        &.active {
+                            border-bottom-color: transparent;
+                        }
+                    }
+
+                    &.active {
+                        color: ${colors.secondary.light};
+                        background-color: ${colors.primary.default};
+                    }
                 }
             }
         `;

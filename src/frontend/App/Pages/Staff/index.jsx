@@ -5,11 +5,13 @@ import Inset from "@Layout/Inset";
 
 const Staff = () => {
     return (
-        <Inset>
-            <Meta pageTitle="Staff" />
-            <h1>Staff</h1>
-            <StaffList />
-        </Inset>
+        <main>
+            <Inset>
+                <Meta pageTitle="Staff" />
+                <h1>Staff</h1>
+                <StaffList />
+            </Inset>
+        </main>
     );
 };
 

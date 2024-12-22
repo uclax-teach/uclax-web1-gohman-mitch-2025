@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const InsetStyled = styled.div`
     max-width: 1200px;
     margin: auto;
-    padding: 0px 10px;
+    padding: 0px 15px;
 `;
 
 const Inset = ({ children }) => {

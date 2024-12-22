@@ -49,6 +49,12 @@
     -   [ ] Put Completed Project into separate branch
         -   [ ] wire up to render.com
     -   [ ] Convert master to Starter App
+        -   [ ] Things to remove
+            -   [ ] Layout
+            -   [ ] Pages
+            -   [ ] Core Components
+                -   [ ] Tabbed
+                -   [ ] Slideshow
 -   [x] Update OS VMs to latest - make sure
 -   [ ] Record OS Installation Videos
     -   [ ] remove `react-responsive-carousel` package

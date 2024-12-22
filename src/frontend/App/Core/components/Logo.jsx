@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-// data
-import { config } from "@App/config";
-
 const LogoStyled = styled.img`
     display: block;
     width: 100%;
@@ -10,11 +7,12 @@ const LogoStyled = styled.img`
 `;
 
 const Logo = () => {
+    const siteTitle = import.meta.env.VITE_APP_CONFIG_TITLE;
     return (
         <LogoStyled
             src="/assets/crossfit-decimate-logo.png"
-            alt={`${config.profile.title} Logo`}
-            title={`${config.profile.title} Logo`}
+            alt={`${siteTitle} Logo`}
+            title={`${siteTitle} Logo`}
         />
     );
 };

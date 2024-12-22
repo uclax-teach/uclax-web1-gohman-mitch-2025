@@ -25,6 +25,7 @@ export default defineConfig({
             "@Layout": "/App/Layout",
             "@Pages": "/App/Pages",
             "@Core": "/App/Core",
+            "@Routes": "/App/Routes",
         },
     },
     build: {

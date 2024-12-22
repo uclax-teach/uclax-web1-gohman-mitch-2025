@@ -2,19 +2,19 @@ import { Outlet } from "react-router-dom";
 
 // components
 import Meta from "@Core/components/Meta";
-import CourseWorkSubMenu from "@Core/components/Menus/CourseWorkSubMenu";
+import CourseWorkMenu from "@App/Routes/CourseWorkMenu";
 import Inset from "@Layout/Inset";
 
 const CourseWork = () => {
     return (
-        <Inset>
-            <Meta pageTitle="Course Work" />
-            <h1>Course Work</h1>
-            <nav className="content">
-                <CourseWorkSubMenu />
-            </nav>
-            <Outlet />
-        </Inset>
+        <main>
+            <Inset>
+                <Meta pageTitle="Course Work" />
+                <h1>Course Work</h1>
+                <CourseWorkMenu />
+                <Outlet />
+            </Inset>
+        </main>
     );
 };
 

@@ -1,5 +1,4 @@
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import { config } from "@App/config";
 
 // components
 import Meta from "@Core/components/Meta";
@@ -8,13 +7,17 @@ import Form from "./Form";
 
 const Contact = () => {
     return (
-        <Inset>
-            <Meta pageTitle="Contact" />
-            <h1>Contact</h1>
-            <GoogleReCaptchaProvider reCaptchaKey={config.app.recaptchaSiteKey}>
-                <Form />
-            </GoogleReCaptchaProvider>
-        </Inset>
+        <main>
+            <Inset>
+                <Meta pageTitle="Contact" />
+                <h1>Contact</h1>
+                <GoogleReCaptchaProvider
+                    reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                >
+                    <Form />
+                </GoogleReCaptchaProvider>
+            </Inset>
+        </main>
     );
 };
 

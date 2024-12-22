@@ -41,27 +41,29 @@ const StaffMember = () => {
     ];
 
     return (
-        <Inset>
-            <StaffMemberStyled>
-                <Meta pageTitle={`${name} :: Staff`} />
-                <h1>Staff Member</h1>
-                <Breadcrumbs crumbs={crumbs} />
-                <img src={src} alt={name} />
-                <h2>{name}</h2>
+        <main>
+            <Inset>
+                <StaffMemberStyled>
+                    <Meta pageTitle={`${name} :: Staff`} />
+                    <h1>Staff Member</h1>
+                    <Breadcrumbs crumbs={crumbs} />
+                    <img src={src} alt={name} />
+                    <h2>{name}</h2>
 
-                <h3>Year Started: {yearStarted}</h3>
+                    <h3>Year Started: {yearStarted}</h3>
 
-                <h3>Accolades</h3>
+                    <h3>Accolades</h3>
 
-                <ul>
-                    {accolades.map((accolade, idx) => {
-                        return <li key={idx}>{accolade}</li>;
-                    })}
-                </ul>
+                    <ul>
+                        {accolades.map((accolade, idx) => {
+                            return <li key={idx}>{accolade}</li>;
+                        })}
+                    </ul>
 
-                <div dangerouslySetInnerHTML={{ __html: bio }} />
-            </StaffMemberStyled>
-        </Inset>
+                    <div dangerouslySetInnerHTML={{ __html: bio }} />
+                </StaffMemberStyled>
+            </Inset>
+        </main>
     );
 };
 

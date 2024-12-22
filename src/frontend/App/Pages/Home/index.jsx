@@ -18,9 +18,11 @@ const Home = () => {
             <Meta />
             <h1>Home</h1>
             <Slideshow />
-            <Inset>
-                <Tabbed />
-            </Inset>
+            <main>
+                <Inset>
+                    <Tabbed />
+                </Inset>
+            </main>
         </HomeStyled>
     );
 };

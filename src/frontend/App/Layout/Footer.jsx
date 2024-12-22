@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-// data
-import { config } from "@App/config";
-
 // components
 import Logo from "@Core/components/Logo";
 
@@ -34,7 +31,12 @@ const FooterStyled = styled.footer`
 `;
 
 const Footer = () => {
-    const { studentName, title, location, tagline } = config.profile;
+    const {
+        VITE_APP_CONFIG_STUDENT_NAME,
+        VITE_APP_CONFIG_TITLE,
+        VITE_APP_CONFIG_LOCATION,
+        VITE_APP_CONFIG_TAGLINE,
+    } = import.meta.env;
 
     return (
         <FooterStyled>
@@ -42,7 +44,8 @@ const Footer = () => {
                 <Logo />
             </div>
             <h2>
-                {studentName} :: {title} :: {tagline} :: {location}
+                {VITE_APP_CONFIG_STUDENT_NAME} :: {VITE_APP_CONFIG_TITLE} ::{" "}
+                {VITE_APP_CONFIG_TAGLINE} :: {VITE_APP_CONFIG_LOCATION}
             </h2>
             <div className="copyright">
                 &copy; {new Date().getFullYear()}. All rights reserved.

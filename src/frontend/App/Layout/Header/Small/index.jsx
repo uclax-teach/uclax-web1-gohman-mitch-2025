@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 // components
@@ -15,6 +15,18 @@ const Small = () => {
     const toggleMenu = () => {
         setShowMenu(!showMenu);
     };
+
+    useEffect(() => {
+        if (showMenu) {
+            document.body.classList.add("modal-open");
+        } else {
+            document.body.classList.remove("modal-open");
+        }
+
+        return () => {
+            document.body.classList.remove("modal-open");
+        };
+    }, [showMenu]);
 
     return (
         <SmallStyled>
