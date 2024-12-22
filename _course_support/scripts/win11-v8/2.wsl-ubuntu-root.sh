@@ -129,24 +129,6 @@ echo "$scriptTitle Opening User's Project Folder in VS Code"
 code .
 
 #-------------------------------------------------
-# Install VS Code Extensions
-#-------------------------------------------------
-# Path to extensions.json
-json_file="./.vscode/extensions.json"
-
-if [ -f "$json_file" ]; then
-    echo "$scriptTitle Installing VS Code extensions from $json_file"
-    extensions=$(jq -r '.recommendations[]' "$json_file")
-    for ext in $extensions; do
-        echo "Installing extension: $ext"
-        code --install-extension "$ext" || abort "Failed to install extension: $ext"
-    done
-    echo "All VS Code extensions installed successfully."
-else
-    echo "No extensions.json file found at $json_file. Skipping VS Code extensions installation."
-fi
-
-#-------------------------------------------------
 # Create .env from .env.example
 #-------------------------------------------------
 if [ -f .env.example ]; then
