@@ -46,8 +46,8 @@
     -   [x] Windows
 -   [ ] Separate Branches
     -   [ ] Lesson Outline - simplify - may need to change folder structure
-    -   [ ] Put Completed Project into separate branch
-        -   [ ] wire up to render.com
+    -   [x] Put Completed Project into separate branch
+        -   [x] wire up to render.com
     -   [x] Convert master to Starter App
         -   [x] Things to remove
             -   [x] Layout
@@ -68,4 +68,3 @@
     -   [x] Update Dates
     -   [x] Update system requirements
     -   [x] Change any references to Essay to Assignment
--   [ ]
