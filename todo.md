@@ -13,7 +13,7 @@
     -   [x] Images form API
     -   [x] styled theme with normalize.css module
 -   [x] `npm run backend:dev` without VITE BUILD?
--   [ ] Build to Final Web Application
+-   [x] Build to Final Web Application
     -   [x] Loading Spinner for AJAX calls
     -   [x] Meta Title > Helmet?
     -   [x] Add a lesson for Favicon `icon.png`?
@@ -27,7 +27,7 @@
     -   [x] Core and Config
         -   [x] Move NON core elements out of Core folder - keep these dumb
         -   [x] move config.js (leave uitils.js?) to root of App
-    -   [ ] Emails
+    -   [x] Emails
         -   [x] Configure Brevo with Free Test Account
         -   [x] Setup Contact Form
         -   [x] Configure Resend (production) and Mailtrap (local)
@@ -44,19 +44,21 @@
             -   [x] it git inits whatever folder they are in
             -   [x] I made the mistake, so can they
     -   [x] Windows
--   [ ] Course Updates
+-   [ ] Separate Branches
+    -   [ ] Lesson Outline - simplify - may need to change folder structure
+    -   [ ] Put Completed Project into separate branch
+        -   [ ] wire up to render.com
+    -   [ ] Convert master to Starter App
+-   [ ] Record OS Installation Videos
+    -   [ ] remove `react-responsive-carousel` package
+    -   [ ] turn on `console.log warnings` in Chrome
+    -   [ ] Will end up using macOs version for all subsequent lessons
+    -   [ ] Record changing readme and running app
+-   [ ] Record Lesson 1: Sun And Moon
+    -   [ ] Show windows users again how to access app if closed out
+    -   [ ] Sun and Moon Lesson
+-   [ ] Course Syllabus Updates
+    -   [ ] Update Dates
     -   [ ] Update system requirements
     -   [ ] Change any references to Essay to Assignment
--   [ ] Record Course Videos
-    -   [ ] use gmail+ to demo setting up github, etc
-
-## Before Screen Recording Build
-
--   remove `react-responsive-carousel` package
--   turn on `console.log warnings` in Chrome
-
-## Class Prep
-
-Before I set this up for students - back to the beginning, I need to
-
--   remove `react-responsive-carousel` package
+-   [ ]
