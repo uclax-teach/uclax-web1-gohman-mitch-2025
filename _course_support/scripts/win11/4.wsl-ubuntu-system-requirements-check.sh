@@ -94,6 +94,16 @@ else
     passed_checks+=("SSH Keys: Set up")
 fi
 
+# Retrieve global Git user name and email
+git_user_name=$(git config --global user.name 2>/dev/null)
+git_user_email=$(git config --global user.email 2>/dev/null)
+
+if [ -n "$git_user_name" ] && [ -n "$git_user_email" ]; then
+    passed_checks+=("Git Global User: Name ($git_user_name), Email ($git_user_email)")
+else
+    failed_checks+=("Git Global User: Name and/or Email not set")
+fi
+
 #-------------------------------------------------
 # Done
 #-------------------------------------------------

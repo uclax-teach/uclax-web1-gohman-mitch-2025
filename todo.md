@@ -34,17 +34,16 @@
         -   [x] Wire up form to and test Brevo
         -   [x] Add Google Recaptcha
         -   [x] Test on Render website
--   [ ] Streamline Installation Process
-    -   [ ] Both
-        -   [ ] Can we update .env with First, Last and email?
-        -   [ ] Did Git name and email register? (Maybe at the end of everything, we spit out some checks. Like node -v, and git profile info - something I can review - separate confirmation script)
-        -   [ ] is nodemon installed in standard terminal?
-        -   [ ] Add SSH keys if they do not exsist: https://chatgpt.com/c/6760536c-703c-8001-baaa-6c7ad280152e
-    -   [ ] MacOS
-        -   [ ] How to make sure they are in their course folder before running script
-            -   [ ] it git inits whatever folder they are in
-            -   [ ] I made the mistake, so can they
-    -   [ ] Windows
+-   [x] Streamline Installation Process
+    -   [x] Both
+        -   [x] Can we update .env with First, Last and email?
+        -   [x] Did Git name and email register? (Maybe at the end of everything, we spit out some checks. Like node -v, and git profile info - something I can review - separate confirmation script)
+        -   [x] Add SSH keys if they do not exsist: https://chatgpt.com/c/6760536c-703c-8001-baaa-6c7ad280152e
+    -   [x] MacOS
+        -   [x] How to make sure they are in their course folder before running script
+            -   [x] it git inits whatever folder they are in
+            -   [x] I made the mistake, so can they
+    -   [x] Windows
 -   [ ] Course Updates
     -   [ ] Update system requirements
     -   [ ] Change any references to Essay to Assignment
