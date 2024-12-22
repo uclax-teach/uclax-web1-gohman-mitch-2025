@@ -253,7 +253,7 @@ if [ -f "$ZSHRC_FILE" ]; then
 
     # Add `nvm` plugin if not already present
     if grep -q "plugins=(" "$ZSHRC_FILE"; then
-        sed -i '' -E 's/plugins=\(([^)]*)\)/plugins=(\1 nvm)/' "$ZSHRC_FILE" \
+        sed -i -E 's/plugins=\(([^)]*)\)/plugins=(\1 nvm)/' "$ZSHRC_FILE" \
             && echo "$scriptTitle .zshrc updated to include the nvm plugin." \
             || abort "Failed to update plugins in .zshrc."
     else
