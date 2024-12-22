@@ -49,6 +49,7 @@
     -   [ ] Put Completed Project into separate branch
         -   [ ] wire up to render.com
     -   [ ] Convert master to Starter App
+-   [x] Update OS VMs to latest - make sure
 -   [ ] Record OS Installation Videos
     -   [ ] remove `react-responsive-carousel` package
     -   [ ] turn on `console.log warnings` in Chrome
@@ -57,8 +58,8 @@
 -   [ ] Record Lesson 1: Sun And Moon
     -   [ ] Show windows users again how to access app if closed out
     -   [ ] Sun and Moon Lesson
--   [ ] Course Syllabus Updates
-    -   [ ] Update Dates
-    -   [ ] Update system requirements
-    -   [ ] Change any references to Essay to Assignment
+-   [x] Course Syllabus Updates
+    -   [x] Update Dates
+    -   [x] Update system requirements
+    -   [x] Change any references to Essay to Assignment
 -   [ ]
