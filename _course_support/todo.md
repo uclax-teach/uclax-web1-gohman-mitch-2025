@@ -24,9 +24,8 @@
 -   [x] Update OS VMs to latest - make sure
 -   [ ] Record OS Installation Videos
     -   [ ] remove `react-responsive-carousel` package
-    -   [ ] turn on `console.log warnings` in Chrome
-    -   [ ] Will end up using macOs version for all subsequent lessons
-    -   [ ] Record changing readme and running app
+    -   [x] Will end up using macOs version for all subsequent lessons
+    -   [x] Record changing readme and running app
 -   [ ] Record Lesson 1: Sun And Moon
     -   [ ] Show windows users again how to access app if closed out
     -   [ ] Sun and Moon Lesson
