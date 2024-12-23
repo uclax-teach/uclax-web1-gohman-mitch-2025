@@ -81,6 +81,34 @@ _Note: if no keys exist, call Instructor/TA in to your breakout room so we can a
 9. **Paste** your clipboard into the terminal and **press enter**
 10. Once it is done, you can refresh your Github Repo Page in the browser and you will see your project is now connected.
 
+## Production Deployment to Render.com
+
+1. Create a `Render` account
+    1. https://dashboard.render.com/register
+    2. choose `Github` to grant Render access to your Github account
+    3. Confirm your email and set up password
+2. Render Dashboard
+    1. `New / Web Service`
+    2. Under `Git Provider` choose `GitHub`
+        1. Choose your Github account / configure
+        2. Select your Github Repo for your Project (e.g. `uclax-web1-lastname-firstname-2025`)
+        3. Build command `npm install; npm run build`
+        4. Run command `npm run start`
+        5. `Instance Type` > `For hobby projects`: `Free`
+        6. Enviornnment Variables
+            1. PORT: 5999 (used by Render to serve up port exposed by app)
+            2. Add other Environment Variables
+        7. Deploy Service
+    3. Monitor Build
+    4. Once done, check out your site by clicking the link at the top (e.g. https://uclax-web1-gohman-mitch-2025-final.onrender.com)
+
+### Things to Note
+
+-   every time you deploy your work to Github `master`, it will automatically start a new production build
+-   You can point a custom domain to your web application [Add Custom Domain](https://render.com/docs/custom-domains?_gl=1*ctzalt*_gcl_au*OTU5MDkzNTI0LjE3MzMzNTA1ODA.*_ga*MzcyNTk4MDg3LjE3MzMzNTA1ODA.*_ga_QK9L9QJC5N*MTczMzM1NDYyMi4yLjEuMTczMzM1NTg0Ny40Mi4wLjA.#2-configure-dns-with-your-provider)
+-   The free version has low resources (.1 CPU) so your website app will be slow.
+-   Render offers paid for tiers if you want to speed it up
+
 ## Run System Requirements Check
 
 With your Project Folder open in VS Code...
