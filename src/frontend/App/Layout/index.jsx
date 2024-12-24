@@ -2,7 +2,6 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 // components
-import Meta from "@Core/components/Meta";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -10,11 +9,10 @@ import Footer from "./Footer";
 import Theme from "@Theme";
 const LayoutStyled = styled.div``;
 
-const Layout = ({ children, pageTitle }) => {
+const Layout = ({ children }) => {
     return (
         <Theme>
             <LayoutStyled>
-                <Meta pageTitle={pageTitle} />
                 <Header />
                 {children}
                 <Footer />
@@ -28,5 +26,4 @@ export default Layout;
 // prop-types
 Layout.propTypes = {
     children: PropTypes.any,
-    pageTitle: PropTypes.string,
 };
