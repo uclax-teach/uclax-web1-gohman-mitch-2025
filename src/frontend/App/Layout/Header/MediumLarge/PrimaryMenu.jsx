@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 // components
-import PrimaryMenu from "@Routes/PrimaryMenu";
+import SharedPrimaryMenu from "@App/Routes/PrimaryMenu";
 
-// styles
-const MedLgMenuStyled = styled.div`
+//styles
+const PrimaryMenuStyled = styled.div`
     text-align: center;
     margin-bottom: 20px;
 
@@ -36,12 +36,13 @@ const MedLgMenuStyled = styled.div`
     }
 `;
 
-const MedLgMenu = () => {
+// component
+const PrimaryMenu = () => {
     return (
-        <MedLgMenuStyled>
-            <PrimaryMenu />
-        </MedLgMenuStyled>
+        <PrimaryMenuStyled>
+            <SharedPrimaryMenu />
+        </PrimaryMenuStyled>
     );
 };
 
-export default MedLgMenu;
+export default PrimaryMenu;

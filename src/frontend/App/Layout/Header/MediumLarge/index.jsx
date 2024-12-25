@@ -1,17 +1,14 @@
-import styled from "styled-components";
-
 // components
-import MedLgLogo from "./MedLgLogo";
-import MedLgMenu from "./MedLgMenu";
+import Logo from "./Logo";
+import PrimaryMenu from "./PrimaryMenu";
 
-const MediumLargeStyled = styled.div``;
-
+// component
 const MediumLarge = () => {
     return (
-        <MediumLargeStyled>
-            <MedLgLogo />
-            <MedLgMenu />
-        </MediumLargeStyled>
+        <div>
+            <Logo />
+            <PrimaryMenu />
+        </div>
     );
 };
 
