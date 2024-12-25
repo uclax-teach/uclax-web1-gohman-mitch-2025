@@ -1,0 +1,10 @@
+{
+    "React Styled Theme: Color": {
+        "scope": "javascript,javascriptreact,css,styled-components",
+        "prefix": "retheme-color",
+        "body": [
+            "${({ theme }) => theme.${1:colors}.${2:primary}.${3:default}};"
+        ],
+        "description": "React Styled Theme: Color"
+    }
+}
