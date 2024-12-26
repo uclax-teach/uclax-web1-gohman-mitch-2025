@@ -13,6 +13,7 @@ const ResponsiveDesignStyled = styled.div`
         display: block;
         width: 100%;
         padding: 30px;
+        margin-bottom: 20px;
         background-color: crimson;
         border-radius: 10px;
         &:last-child {
@@ -23,7 +24,7 @@ const ResponsiveDesignStyled = styled.div`
     @media ${({ theme }) => theme.cssMedia.isMediumAndUp} {
         img {
             background-color: gold;
-            max-width: 230px;
+            max-width: 240px;
         }
     }
     @media ${({ theme }) => theme.cssMedia.isLarge} {
