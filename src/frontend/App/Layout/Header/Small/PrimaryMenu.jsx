@@ -2,10 +2,10 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 // components
-import PrimaryMenu from "@Routes/PrimaryMenu";
+import SharedPrimaryMenu from "@Routes/PrimaryMenu";
 
 // styles
-const SmMenuStyled = styled.div`
+const PrimaryMenuStyled = styled.div`
     background-color: ${({ theme }) => theme.colors.primary.default};
     position: fixed;
     z-index: 1000;
@@ -40,21 +40,21 @@ const SmMenuStyled = styled.div`
     }
 `;
 
-const SmMenu = ({ setShowMenu }) => {
+const PrimaryMenu = ({ setShowMenu }) => {
     return (
-        <SmMenuStyled
+        <PrimaryMenuStyled
             onClick={() => {
                 setShowMenu(false);
             }}
         >
-            <PrimaryMenu />
-        </SmMenuStyled>
+            <SharedPrimaryMenu />
+        </PrimaryMenuStyled>
     );
 };
 
-export default SmMenu;
+export default PrimaryMenu;
 
 // prop-types
-SmMenu.propTypes = {
+PrimaryMenu.propTypes = {
     setShowMenu: PropTypes.func.isRequired,
 };

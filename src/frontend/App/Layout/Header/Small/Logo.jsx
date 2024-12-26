@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 // components
-import Logo from "@Core/components/Logo";
+import SharedLogo from "@Core/components/Logo";
 
 // styles
-const SmLogoStyled = styled.div`
+const LogoStyled = styled.div`
     display: flex;
     justify-content: center;
 
@@ -17,14 +17,14 @@ const SmLogoStyled = styled.div`
     }
 `;
 
-const SmLogo = () => {
+const Logo = () => {
     return (
-        <SmLogoStyled>
+        <LogoStyled>
             <div>
-                <Logo />
+                <SharedLogo />
             </div>
-        </SmLogoStyled>
+        </LogoStyled>
     );
 };
 
-export default SmLogo;
+export default Logo;

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 // components
-import SmLogo from "./SmLogo";
-import SmMenu from "./SmMenu";
+import Logo from "./Logo";
+import PrimaryMenu from "./PrimaryMenu";
 import Hamburger from "./Hamburger";
 
 // styles
@@ -31,8 +31,8 @@ const Small = () => {
     return (
         <SmallStyled>
             <Hamburger onClick={toggleMenu} />
-            <SmLogo />
-            {showMenu && <SmMenu setShowMenu={setShowMenu} />}
+            <Logo />
+            {showMenu && <PrimaryMenu setShowMenu={setShowMenu} />}
         </SmallStyled>
     );
 };
