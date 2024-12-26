@@ -1,0 +1,12 @@
+{
+    "React Styled Theme: Media Queries": {
+        "scope": "javascript,javascriptreact,css,styled-components",
+        "prefix": "retheme-media",
+        "body": [
+            "@media ${({ theme }) => theme.cssMedia.${1:isMediumAndUp}} {",
+            "\t$TM_SELECTED_TEXT${0}",
+            "}"
+        ],
+        "description": "React Styled Theme: Media Queries"
+    }
+}
