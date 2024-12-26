@@ -4,38 +4,32 @@ import { useMediaQuery } from "@Theme/media/MediaQueryContext";
 
 const ResponsiveDesignStyled = styled.div`
     @media ${({ theme }) => theme.cssMedia.isMediumAndUp} {
-        .boxes {
+        .image-wrapper {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
         }
     }
-
-    .box {
+    img {
+        display: block;
         width: 100%;
-        max-width: 200px;
-        height: 200px;
-        line-height: 200px;
-        font-size: 50px;
-        text-align: center;
-        color: white;
-        background-color: teal;
-        margin: 10px;
-    }
-    .box2 {
-        border-radius: 40px;
-    }
-    .box3 {
-        border-radius: 100px;
+        padding: 30px;
+        background-color: crimson;
+        border-radius: 10px;
+        &:last-child {
+            border-radius: 50%;
+        }
     }
 
     @media ${({ theme }) => theme.cssMedia.isMediumAndUp} {
-        .box {
-            background-color: indigo;
+        img {
+            background-color: gold;
+            max-width: 230px;
         }
     }
     @media ${({ theme }) => theme.cssMedia.isLarge} {
-        .box {
-            background-color: green;
+        img {
+            background-color: magenta;
+            max-width: 350px;
         }
     }
 `;
@@ -47,10 +41,12 @@ const ResponsiveDesign = () => {
         <ResponsiveDesignStyled>
             <h2>Responsive Design</h2>
 
-            <div className="boxes">
-                {jsMedia.isMediumAndUp && <div className="box box1">1</div>}
-                <div className="box box2">2</div>
-                <div className="box box3">3</div>
+            <div className="image-wrapper">
+                {jsMedia.isMediumAndUp && (
+                    <img src="/assets/responsive/gold.jpg" alt="gold" />
+                )}
+                <img src="/assets/responsive/purple.jpg" alt="purple" />
+                <img src="/assets/responsive/teal.jpg" alt="teal" />
             </div>
         </ResponsiveDesignStyled>
     );
