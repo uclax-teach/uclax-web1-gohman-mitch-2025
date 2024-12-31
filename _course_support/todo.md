@@ -22,14 +22,15 @@
                 -   [x] Tabbed
                 -   [x] Slideshow
 -   [x] Update OS VMs to latest - make sure
--   [ ] Record OS Installation Videos
-    -   [ ] remove `react-responsive-carousel` package
+-   [x] Record OS Installation Videos
+    -   [x] remove `react-responsive-carousel` package
     -   [x] Will end up using macOs version for all subsequent lessons
     -   [x] Record changing readme and running app
--   [ ] Record Lesson 1: Sun And Moon
-    -   [ ] Show windows users again how to access app if closed out
-    -   [ ] Sun and Moon Lesson
+-   [x] Record Lesson 1: Sun And Moon
+    -   [x] Show windows users again how to access app if closed out
+    -   [x] Sun and Moon Lesson
 -   [x] Course Syllabus Updates
     -   [x] Update Dates
     -   [x] Update system requirements
     -   [x] Change any references to Essay to Assignment
+    -   [ ] Using Chat GPT
