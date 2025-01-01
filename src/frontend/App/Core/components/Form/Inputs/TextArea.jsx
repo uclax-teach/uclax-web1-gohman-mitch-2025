@@ -6,32 +6,34 @@ import InputGroup from "./InputGroup";
 
 //styles
 import { sharedStyles } from "./styles";
-const InputStyled = styled.input`
+const TextAreaStyled = styled.textarea`
     ${sharedStyles}
+    min-height: 300px;
 `;
 
 // component
-const Input = ({ id, labelText, inputType = "text", onChange, value }) => {
+const TextArea = ({ formInput, onChange }) => {
+    const { id, labelText, value, errorMessage } = formInput;
     return (
-        <InputGroup htmlFor={id} labelText={labelText}>
-            <InputStyled
+        <InputGroup
+            htmlFor={id}
+            labelText={labelText}
+            errorMessage={errorMessage}
+        >
+            <TextAreaStyled
                 id={id}
                 name={id}
                 value={value}
-                type={inputType}
                 onChange={onChange}
             />
         </InputGroup>
     );
 };
 
-export default Input;
+export default TextArea;
 
 // prop-types
-Input.propTypes = {
-    id: PropTypes.string.isRequired,
-    labelText: PropTypes.string.isRequired,
-    inputType: PropTypes.string,
+TextArea.propTypes = {
+    formInput: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired,
 };

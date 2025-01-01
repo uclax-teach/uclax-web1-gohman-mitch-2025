@@ -7,6 +7,7 @@ export const sharedStyles = css`
     width: 100%;
     background-color: #eee;
     border: solid 1px #999;
+    display: block;
 
     &:focus {
         background-color: #fff;

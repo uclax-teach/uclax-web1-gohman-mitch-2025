@@ -11,14 +11,22 @@ const InputGroupStyled = styled.div`
         display: block;
         margin-bottom: 5px;
     }
+
+    .errorMessage {
+        padding: 10px;
+        color: ${({ theme }) => theme.colors.messaging.error.color};
+        background-color: ${({ theme }) =>
+            theme.colors.messaging.error.bgColor};
+    }
 `;
 
 // component
-const InputGroup = ({ children, htmlFor, labelText }) => {
+const InputGroup = ({ children, htmlFor, labelText, errorMessage = "" }) => {
     return (
         <InputGroupStyled>
             <label htmlFor={htmlFor}>{labelText}:</label>
             <div className="control">{children}</div>
+            {errorMessage && <div className="errorMessage">{errorMessage}</div>}
         </InputGroupStyled>
     );
 };
@@ -30,4 +38,5 @@ InputGroup.propTypes = {
     children: PropTypes.any,
     htmlFor: PropTypes.string.isRequired,
     labelText: PropTypes.string.isRequired,
+    errorMessage: PropTypes.string,
 };
