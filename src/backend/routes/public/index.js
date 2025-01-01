@@ -24,4 +24,8 @@ publicRoutes.use("/tabs", tabsRoutes);
 import sendmailRoutes from "./sendmail/index.js";
 publicRoutes.use("/sendmail", sendmailRoutes);
 
+// Routes: Public: pseudo Login
+import pseudoLoginRoutes from "./pseudoLogin/index.js";
+publicRoutes.use("/pseudoLogin", pseudoLoginRoutes);
+
 export default publicRoutes;
